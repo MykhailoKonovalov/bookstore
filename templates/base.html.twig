@@ -12,6 +12,15 @@
         {% endblock %}
     </head>
     <body>
+        <span>{{ getUserName() }}</span>
+        {% for flashType, flashMessages in app.flashes() %}
+            {% for flashMessage in flashMessages %}
+                <div class="alert alert-{{ flashType }}">
+                    {{ flashMessage }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         {% block body %}{% endblock %}
     </body>
 </html>

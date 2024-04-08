@@ -22,6 +22,8 @@ services:
     volumes:
       - './:/usr/src/app:cached'
       - './.docker/php/config/php.ini:/usr/local/etc/php/conf.d/php.ini'
+    depends_on:
+      - rabbitmq
 
   postgres:
     image: postgres:16-alpine
@@ -42,6 +44,17 @@ services:
     restart: always
     ports:
       - '6369:6379'
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: ${PROJECT_NAME}-rabbitmq
+    restart: always
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
 
 volumes:
   database_data:

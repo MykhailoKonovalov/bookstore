@@ -6,6 +6,11 @@ RUN apt-get install --no-install-recommends -y libzip-dev
 RUN apt-get install --no-install-recommends -y unzip
 RUN apt-get install --no-install-recommends -y postgresql-client
 RUN apt-get install --no-install-recommends -y libpq-dev
+RUN apt-get install --no-install-recommends -y librabbitmq-dev
+RUN apt-get install --no-install-recommends -y git
+RUN apt-get install --no-install-recommends -y gcc
+RUN apt-get install --no-install-recommends -y make
+RUN apt-get install --no-install-recommends -y autoconf
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install opcache
@@ -13,9 +18,16 @@ RUN docker-php-ext-install pdo pdo_pgsql
 
 RUN pecl install apcu && docker-php-ext-enable apcu
 RUN pecl install redis && docker-php-ext-enable redis
+RUN pecl install amqp && docker-php-ext-enable amqp
+RUN pecl install xdebug && docker-php-ext-enable xdebug \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.discover_client_host=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
-WORKDIR /usr/src/app
-
+RUN mkdir -p /usr/src/app
 RUN chmod 777 /usr/src/app --recursive
+
+WORKDIR /usr/src/app
