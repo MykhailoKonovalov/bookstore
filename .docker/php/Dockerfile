@@ -8,13 +8,11 @@ RUN apt-get install --no-install-recommends -y postgresql-client
 RUN apt-get install --no-install-recommends -y libpq-dev
 RUN apt-get install --no-install-recommends -y librabbitmq-dev
 RUN apt-get install --no-install-recommends -y git
-RUN apt-get install --no-install-recommends -y gcc
-RUN apt-get install --no-install-recommends -y make
-RUN apt-get install --no-install-recommends -y autoconf
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install opcache
-RUN docker-php-ext-install pdo pdo_pgsql
+RUN docker-php-ext-install pdo
+RUN docker-php-ext-install pdo_pgsql
 
 RUN pecl install apcu && docker-php-ext-enable apcu
 RUN pecl install redis && docker-php-ext-enable redis
