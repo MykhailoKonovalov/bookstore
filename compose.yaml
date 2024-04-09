@@ -43,7 +43,7 @@ services:
     container_name: ${PROJECT_NAME}-redis
     restart: always
     ports:
-      - '6369:6379'
+      - '6369:${REDIS_PORT}'
 
   rabbitmq:
     image: rabbitmq:management
