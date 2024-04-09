@@ -3,7 +3,6 @@
 namespace App\Entity\Traits;
 
 use Doctrine\ORM\Mapping as ORM;
-use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Uid\Uuid;
 
 trait UUIDTrait
