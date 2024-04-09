@@ -129,7 +129,9 @@ class ResetPasswordController extends AbstractController
         );
 
         if (!$user) {
-            return $this->redirectToRoute('check_email');
+            $this->addFlash('error', 'User with this email address does not exist.');
+
+            return $this->redirectToRoute('forgot_password_request');
         }
 
         try {

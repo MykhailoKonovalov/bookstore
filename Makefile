@@ -15,7 +15,7 @@ down:
 	docker-compose -f compose.yaml down
 
 consume:
-	docker-docker -f compose.yaml exec php php bin/console messenger:consume --limit=20
+	docker-compose -f compose.yaml exec php php bin/console messenger:consume --limit=20
 
 redis_flush:
 	docker-compose -f compose.yaml exec redis redis-cli flushall
