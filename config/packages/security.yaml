@@ -16,7 +16,7 @@ security:
             custom_authenticator: App\Service\Security\EmailAuthenticator
             logout:
                 path: logout
-
+            access_denied_handler: kernel.listener.access_denied_handler
             remember_me:
                 secret: '%kernel.secret%'
                 lifetime: 604800
