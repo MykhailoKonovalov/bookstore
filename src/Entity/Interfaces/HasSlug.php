@@ -6,5 +6,5 @@ interface HasSlug
 {
     public function getSlug(): string;
 
-    public function setSlug(string $slug): void;
+    public function setSlug(string $slug): self;
 }
