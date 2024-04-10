@@ -12,18 +12,10 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    Redis:
-        class: Redis
-        calls:
-            - connect:
-                  - '%env(REDIS_HOST)%'
-                  - '%env(REDIS_PORT)%'
-            - select:
-                  - '%env(REDIS_SESSION_DB)%'
-
-    Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
-        arguments:
-            - '@Redis'
+    kernel.listener.access_denied_handler:
+        class: App\Service\Security\AccessDeniedHandler
+        tags:
+            - { name: kernel.event_listener, event: security.kernel_response, method: handle }
 
     App\Service\Email\EmailSender:
         arguments:
