@@ -19,7 +19,6 @@ final class Version20240410090119 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE reviews_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE TABLE reviews (id INT NOT NULL, book_slug VARCHAR(255) NOT NULL, user_uuid UUID NOT NULL, rating INT DEFAULT 0 NOT NULL, text TEXT DEFAULT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX review_book_idx ON reviews (book_slug)');

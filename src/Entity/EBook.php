@@ -2,47 +2,44 @@
 
 namespace App\Entity;
 
+use App\Constant\EBookFormats;
 use App\Entity\Interfaces\HasTimestamp;
-use App\Entity\Interfaces\HasUUID;
 use App\Entity\Interfaces\ProductInterface;
 use App\Entity\Traits\ProductTrait;
 use App\Entity\Traits\TimestampTrait;
-use App\Entity\Traits\UUIDTrait;
 use App\Repository\EBooksRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EBooksRepository::class)]
 #[ORM\Table(name: "ebooks")]
-#[ORM\Index(name: 'eb_book_idx', columns: ['book_slug'])]
 #[ORM\Index(name: 'eb_format_idx', columns: ['format'])]
 #[ORM\HasLifecycleCallbacks]
-class EBook implements HasUUID, HasTimestamp, ProductInterface
+class EBook implements HasTimestamp, ProductInterface
 {
-    use UUIDTrait;
-
     use TimestampTrait;
 
     use ProductTrait;
 
-    #[ORM\ManyToOne(inversedBy: 'eBooks')]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
-    private ?Book $book = null;
+    #[ORM\Id]
+    #[ORM\OneToOne(inversedBy: 'eBook', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
+    private ?BookCopy $bookCopy = null;
 
-    #[ORM\Column(type: Types::STRING, length: 5)]
+    #[ORM\Column(type: Types::STRING, enumType: EBookFormats::class)]
     private string $format;
 
     #[ORM\Column(type: Types::STRING)]
     private string $fileUrl;
 
-    public function getBook(): ?Book
+    public function getBookCopy(): BookCopy
     {
-        return $this->book;
+        return $this->bookCopy;
     }
 
-    public function setBook(?Book $book): self
+    public function setBookCopy(BookCopy $bookCopy): static
     {
-        $this->book = $book;
+        $this->bookCopy = $bookCopy;
 
         return $this;
     }
