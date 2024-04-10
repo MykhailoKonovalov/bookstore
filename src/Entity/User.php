@@ -56,10 +56,24 @@ class User implements
     #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'userUuid', orphanRemoval: true)]
     private Collection $reviews;
 
+    /**
+     * @var Collection<int, Order>
+     */
+    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'userUuid')]
+    private Collection $orders;
+
+    /**
+     * @var Collection<int, WishList>
+     */
+    #[ORM\OneToMany(targetEntity: WishList::class, mappedBy: 'userUuid', orphanRemoval: true)]
+    private Collection $wishLists;
+
     public function __construct()
     {
         $this->roles = [self::ROLE_USER];
         $this->reviews = new ArrayCollection();
+        $this->orders = new ArrayCollection();
+        $this->wishLists = new ArrayCollection();
     }
 
     public function getEmail(): string
@@ -175,6 +189,66 @@ class User implements
             // set the owning side to null (unless already changed)
             if ($review->getUserUuid() === $this) {
                 $review->setUserUuid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): static
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setUserUuid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): static
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getUserUuid() === $this) {
+                $order->setUserUuid(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, WishList>
+     */
+    public function getWishLists(): Collection
+    {
+        return $this->wishLists;
+    }
+
+    public function addWishList(WishList $wishList): static
+    {
+        if (!$this->wishLists->contains($wishList)) {
+            $this->wishLists->add($wishList);
+            $wishList->setUserUuid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWishList(WishList $wishList): static
+    {
+        if ($this->wishLists->removeElement($wishList)) {
+            // set the owning side to null (unless already changed)
+            if ($wishList->getUserUuid() === $this) {
+                $wishList->setUserUuid(null);
             }
         }
 
