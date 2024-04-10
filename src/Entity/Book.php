@@ -67,12 +67,22 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\OneToMany(targetEntity: EBook::class, mappedBy: "book")]
     private Collection $eBooks;
 
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0, 'max' => 5])]
+    private int $rating = 0;
+
+    /**
+     * @var Collection<int, Review>
+     */
+    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'book', orphanRemoval: true)]
+    private Collection $reviews;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->audioBooks = new ArrayCollection();
         $this->paperBooks = new ArrayCollection();
         $this->eBooks = new ArrayCollection();
+        $this->reviews = new ArrayCollection();
     }
 
     private function getValueToSlugify(): string
@@ -245,6 +255,47 @@ class Book implements HasSlug, HasTimestamp
         if ($this->eBooks->removeElement($eBook)) {
             if ($eBook->getBook() === $this) {
                 $eBook->setBook(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getRating(): int
+    {
+        return $this->rating;
+    }
+
+    public function setRating(int $rating): self
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): self
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews->add($review);
+            $review->setBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): self
+    {
+        if ($this->reviews->removeElement($review)) {
+            if ($review->getBook() === $this) {
+                $review->setBook(null);
             }
         }
 

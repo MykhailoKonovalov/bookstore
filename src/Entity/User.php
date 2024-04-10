@@ -7,6 +7,8 @@ use App\Entity\Interfaces\HasUUID;
 use App\Entity\Traits\TimestampTrait;
 use App\Entity\Traits\UUIDTrait;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -15,9 +17,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: "users")]
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_EMAIL", fields: ["email"])]
-#[ORM\HasLifecycleCallbacks]
 #[ORM\Index(name: "user_email_idx", columns: ["email"])]
 #[ORM\Index(name: "user_phone_idx", columns: ["phone"])]
+#[ORM\HasLifecycleCallbacks]
 class User implements
     UserInterface,
     PasswordAuthenticatedUserInterface,
@@ -48,9 +50,16 @@ class User implements
     #[ORM\Column(type: Types::STRING)]
     private string $name;
 
+    /**
+     * @var Collection<int, Review>
+     */
+    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'userUuid', orphanRemoval: true)]
+    private Collection $reviews;
+
     public function __construct()
     {
         $this->roles = [self::ROLE_USER];
+        $this->reviews = new ArrayCollection();
     }
 
     public function getEmail(): string
@@ -138,6 +147,36 @@ class User implements
     public function setName(string $name): static
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Review>
+     */
+    public function getReviews(): Collection
+    {
+        return $this->reviews;
+    }
+
+    public function addReview(Review $review): static
+    {
+        if (!$this->reviews->contains($review)) {
+            $this->reviews->add($review);
+            $review->setUserUuid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReview(Review $review): static
+    {
+        if ($this->reviews->removeElement($review)) {
+            // set the owning side to null (unless already changed)
+            if ($review->getUserUuid() === $this) {
+                $review->setUserUuid(null);
+            }
+        }
 
         return $this;
     }
