@@ -4,14 +4,15 @@ namespace App\Entity\Traits;
 
 use DateTime;
 use DateTimeInterface;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 trait TimestampTrait
 {
-    #[ORM\Column(type: "datetime")]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private DateTimeInterface $createdAt;
 
-    #[ORM\Column(type: "datetime")]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?DateTimeInterface $updatedAt = null;
 
     public function getCreatedAt(): DateTimeInterface

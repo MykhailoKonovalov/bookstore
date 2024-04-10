@@ -7,45 +7,50 @@ use App\Entity\Interfaces\HasUUID;
 use App\Entity\Traits\TimestampTrait;
 use App\Entity\Traits\UUIDTrait;
 use App\Repository\UserRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: 'users')]
-#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_EMAIL', fields: ['email'])]
+#[ORM\Table(name: "users")]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_EMAIL", fields: ["email"])]
 #[ORM\HasLifecycleCallbacks]
+#[ORM\Index(name: "user_email_idx", columns: ["email"])]
+#[ORM\Index(name: "user_phone_idx", columns: ["phone"])]
 class User implements
     UserInterface,
     PasswordAuthenticatedUserInterface,
     HasUUID,
     HasTimestamp
 {
+    private const ROLE_USER = 'ROLE_USER';
+
     use UUIDTrait;
 
     use TimestampTrait;
 
-    #[ORM\Column(length: 180)]
+    #[ORM\Column(type: Types::STRING, length: 180)]
     private string $email;
 
     /**
      * @var list<string>
      */
-    #[ORM\Column]
+    #[ORM\Column(type: Types::JSON)]
     private array $roles;
 
-    #[ORM\Column]
+    #[ORM\Column(type: Types::STRING)]
     private string $password;
 
     #[ORM\Column(length: 13)]
     private string $phone;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(type: Types::STRING)]
     private string $name;
 
     public function __construct()
     {
-        $this->roles = ['ROLE_USER'];
+        $this->roles = [self::ROLE_USER];
     }
 
     public function getEmail(): string
