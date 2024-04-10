@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Constant\OrderStatuses;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Interfaces\HasUUID;
 use App\Entity\Traits\TimestampTrait;
@@ -28,7 +29,7 @@ class Order implements HasUUID, HasTimestamp
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, options: ['default' => '0.00'])]
     private string $totalPrice = '0.00';
 
-    #[ORM\Column(type: Types::STRING, length: 20)]
+    #[ORM\Column(type: Types::STRING, enumType: OrderStatuses::class)]
     private string $status;
 
     /**
