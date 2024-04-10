@@ -49,24 +49,6 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::STRING, length: 2)]
     private string $language;
 
-    /**
-     * @var Collection<int, AudioBook>
-     */
-    #[ORM\OneToMany(targetEntity: AudioBook::class, mappedBy: "book")]
-    private Collection $audioBooks;
-
-    /**
-     * @var Collection<int, PaperBook>
-     */
-    #[ORM\OneToMany(targetEntity: PaperBook::class, mappedBy: "book")]
-    private Collection $paperBooks;
-
-    /**
-     * @var Collection<int, EBook>
-     */
-    #[ORM\OneToMany(targetEntity: EBook::class, mappedBy: "book")]
-    private Collection $eBooks;
-
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0, 'max' => 5])]
     private int $rating = 0;
 
@@ -76,13 +58,17 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'book', orphanRemoval: true)]
     private Collection $reviews;
 
+    /**
+     * @var Collection<int, BookCopy>
+     */
+    #[ORM\OneToMany(targetEntity: BookCopy::class, mappedBy: 'book', orphanRemoval: true)]
+    private Collection $bookCopies;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
-        $this->audioBooks = new ArrayCollection();
-        $this->paperBooks = new ArrayCollection();
-        $this->eBooks = new ArrayCollection();
         $this->reviews = new ArrayCollection();
+        $this->bookCopies = new ArrayCollection();
     }
 
     private function getValueToSlugify(): string
@@ -174,93 +160,6 @@ class Book implements HasSlug, HasTimestamp
         return $this;
     }
 
-    /**
-     * @return Collection<int, AudioBook>
-     */
-    public function getAudioBooks(): Collection
-    {
-        return $this->audioBooks;
-    }
-
-    public function addAudioBook(AudioBook $audioBook): self
-    {
-        if (!$this->audioBooks->contains($audioBook)) {
-            $this->audioBooks->add($audioBook);
-            $audioBook->setBook($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAudioBook(AudioBook $audioBook): self
-    {
-        if ($this->audioBooks->removeElement($audioBook)) {
-            if ($audioBook->getBook() === $this) {
-                $audioBook->setBook(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, PaperBook>
-     */
-    public function getPaperBooks(): Collection
-    {
-        return $this->paperBooks;
-    }
-
-    public function addPaperBook(PaperBook $paperBook): self
-    {
-        if (!$this->paperBooks->contains($paperBook)) {
-            $this->paperBooks->add($paperBook);
-            $paperBook->setBook($this);
-        }
-
-        return $this;
-    }
-
-    public function removePaperBook(PaperBook $paperBook): self
-    {
-        if ($this->paperBooks->removeElement($paperBook)) {
-            if ($paperBook->getBook() === $this) {
-                $paperBook->setBook(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, EBook>
-     */
-    public function getEBooks(): Collection
-    {
-        return $this->eBooks;
-    }
-
-    public function addEBook(EBook $eBook): self
-    {
-        if (!$this->eBooks->contains($eBook)) {
-            $this->eBooks->add($eBook);
-            $eBook->setBook($this);
-        }
-
-        return $this;
-    }
-
-    public function removeEBook(EBook $eBook): self
-    {
-        if ($this->eBooks->removeElement($eBook)) {
-            if ($eBook->getBook() === $this) {
-                $eBook->setBook(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getRating(): int
     {
         return $this->rating;
@@ -296,6 +195,35 @@ class Book implements HasSlug, HasTimestamp
         if ($this->reviews->removeElement($review)) {
             if ($review->getBook() === $this) {
                 $review->setBook(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BookCopy>
+     */
+    public function getBookCopies(): Collection
+    {
+        return $this->bookCopies;
+    }
+
+    public function addBookCopy(BookCopy $bookCopy): self
+    {
+        if (!$this->bookCopies->contains($bookCopy)) {
+            $this->bookCopies->add($bookCopy);
+            $bookCopy->setBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBookType(BookCopy $bookCopy): self
+    {
+        if ($this->bookCopies->removeElement($bookCopy)) {
+            if ($bookCopy->getBook() === $this) {
+                $bookCopy->setBook(null);
             }
         }
 

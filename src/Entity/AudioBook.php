@@ -3,26 +3,26 @@
 namespace App\Entity;
 
 use App\Entity\Interfaces\HasTimestamp;
-use App\Entity\Interfaces\HasUUID;
+use App\Entity\Interfaces\ProductInterface;
+use App\Entity\Traits\ProductTrait;
 use App\Entity\Traits\TimestampTrait;
-use App\Entity\Traits\UUIDTrait;
 use App\Repository\AudioBooksRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AudioBooksRepository::class)]
 #[ORM\Table(name: "audio_books")]
-#[ORM\Index(name: "ab_book_idx", columns: ["book_slug"])]
 #[ORM\HasLifecycleCallbacks]
-class AudioBook implements HasUUID, HasTimestamp
+class AudioBook implements HasTimestamp, ProductInterface
 {
-    use UUIDTrait;
-
     use TimestampTrait;
 
-    #[ORM\ManyToOne(inversedBy: "audioBooks")]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
-    private ?Book $book = null;
+    use ProductTrait;
+
+    #[ORM\Id]
+    #[ORM\OneToOne(inversedBy: 'audioBook', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
+    private ?BookCopy $bookCopy = null;
 
     #[ORM\Column(type: Types::INTEGER)]
     private int $durationInMinutes;
@@ -33,14 +33,14 @@ class AudioBook implements HasUUID, HasTimestamp
     #[ORM\Column(type: Types::STRING)]
     private string $fileUrl;
 
-    public function getBook(): ?Book
+    public function getBookCopy(): BookCopy
     {
-        return $this->book;
+        return $this->bookCopy;
     }
 
-    public function setBook(?Book $book): self
+    public function setBookCopy(BookCopy $bookCopy): self
     {
-        $this->book = $book;
+        $this->bookCopy = $bookCopy;
 
         return $this;
     }

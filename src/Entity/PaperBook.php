@@ -3,31 +3,27 @@
 namespace App\Entity;
 
 use App\Entity\Interfaces\HasTimestamp;
-use App\Entity\Interfaces\HasUUID;
 use App\Entity\Interfaces\ProductInterface;
 use App\Entity\Traits\ProductTrait;
 use App\Entity\Traits\TimestampTrait;
-use App\Entity\Traits\UUIDTrait;
 use App\Repository\PaperBooksRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PaperBooksRepository::class)]
 #[ORM\Table(name: "paper_books")]
-#[ORM\Index(name: 'pb_book_idx', columns: ['book_slug'])]
 #[ORM\Index(name: "pb_publisher_idx", columns: ["publisher_slug"])]
 #[ORM\HasLifecycleCallbacks]
-class PaperBook implements HasUUID, HasTimestamp, ProductInterface
+class PaperBook implements HasTimestamp, ProductInterface
 {
-    use UUIDTrait;
-
     use TimestampTrait;
 
     use ProductTrait;
 
-    #[ORM\ManyToOne(inversedBy: 'paperBooks')]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
-    private ?Book $book = null;
+    #[ORM\Id]
+    #[ORM\OneToOne(inversedBy: 'paperBook', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
+    private ?BookCopy $bookCopy = null;
 
     #[ORM\ManyToOne(inversedBy: "paperBooks")]
     #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
@@ -51,14 +47,14 @@ class PaperBook implements HasUUID, HasTimestamp, ProductInterface
     #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true])]
     private int $publishedYear;
 
-    public function getBook(): ?Book
+    public function getBookCopy(): BookCopy
     {
-        return $this->book;
+        return $this->bookCopy;
     }
 
-    public function setBook(?Book $book): self
+    public function setBookCopy(BookCopy $bookCopy): static
     {
-        $this->book = $book;
+        $this->bookCopy = $bookCopy;
 
         return $this;
     }
