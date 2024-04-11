@@ -9,7 +9,7 @@ use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestInterface;
 use SymfonyCasts\Bundle\ResetPassword\Model\ResetPasswordRequestTrait;
 
 #[ORM\Entity(repositoryClass: ResetPasswordRequestRepository::class)]
-#[ORM\Index(name: "rpr_user_idx", columns: ["user_id"])]
+#[ORM\Index(columns: ["user_id"], name: "rpr_user_idx")]
 class ResetPasswordRequest implements ResetPasswordRequestInterface
 {
     use ResetPasswordRequestTrait;

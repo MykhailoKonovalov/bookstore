@@ -2,25 +2,27 @@
 
 namespace App\Entity\Traits;
 
-use DateTime;
 use DateTimeInterface;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 trait TimestampTrait
 {
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    #[Gedmo\Timestampable(on: "create")]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ['default' => 'CURRENT_TIMESTAMP'])]
     private DateTimeInterface $createdAt;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
-    private ?DateTimeInterface $updatedAt = null;
+    #[Gedmo\Timestampable(on: "update")]
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, options: ['default' => 'CURRENT_TIMESTAMP'])]
+    private DateTimeInterface $updatedAt;
 
     public function getCreatedAt(): DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): ?DateTimeInterface
+    public function getUpdatedAt(): DateTimeInterface
     {
         return $this->updatedAt;
     }
@@ -37,17 +39,5 @@ trait TimestampTrait
         $this->updatedAt = $updatedAt;
 
         return $this;
-    }
-
-    #[ORM\PrePersist]
-    public function setTimestampOnCreate(): void
-    {
-        $this->setCreatedAt(new DateTime());
-    }
-
-    #[ORM\PreUpdate]
-    public function setTimestampOnUpdate(): void
-    {
-        $this->setUpdatedAt(new DateTime());
     }
 }

@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: AuthorRepository::class)]
 #[ORM\Table(name: "authors")]
-#[ORM\Index(name: "author_name_idx", columns: ["name"])]
+#[ORM\Index(columns: ["name"], name: "author_name_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Author implements HasSlug, HasTimestamp
 {

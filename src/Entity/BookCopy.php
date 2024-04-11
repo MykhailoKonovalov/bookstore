@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: BookCopyRepository::class)]
 #[ORM\Table(name: 'book_copies')]
-#[ORM\Index(name: 'book_copies_books_idx', columns: ['book_slug'])]
-#[ORM\Index(name: 'book_copies_type_idx', columns: ['type'])]
+#[ORM\Index(columns: ['book_slug'], name: 'book_copies_books_idx')]
+#[ORM\Index(columns: ['type'], name: 'book_copies_type_idx')]
 #[ORM\HasLifecycleCallbacks]
 class BookCopy implements HasUUID
 {

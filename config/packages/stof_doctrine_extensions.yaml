@@ -1,0 +1,8 @@
+# I had to change version of the doctrine to 2.9 because this bundle is not applicable with version 3 yet =(
+# The option to configure doctrine extensions manually is not my choice.
+stof_doctrine_extensions:
+    default_locale: en_US
+    orm:
+        default:
+            sluggable: true
+            timestampable: true
