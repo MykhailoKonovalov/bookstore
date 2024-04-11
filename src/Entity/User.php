@@ -17,8 +17,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: "users")]
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_EMAIL", fields: ["email"])]
-#[ORM\Index(name: "user_email_idx", columns: ["email"])]
-#[ORM\Index(name: "user_phone_idx", columns: ["phone"])]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_PHONE", fields: ["phone"])]
+#[ORM\Index(columns: ["email"], name: "user_email_idx")]
+#[ORM\Index(columns: ["phone"], name: "user_phone_idx")]
 #[ORM\HasLifecycleCallbacks]
 class User implements
     UserInterface,
@@ -26,8 +27,6 @@ class User implements
     HasUUID,
     HasTimestamp
 {
-    private const ROLE_USER = 'ROLE_USER';
-
     use UUIDTrait;
 
     use TimestampTrait;
@@ -70,7 +69,7 @@ class User implements
 
     public function __construct()
     {
-        $this->roles = [self::ROLE_USER];
+        $this->roles = [UserRoles::ROLE_USER->value];
         $this->reviews = new ArrayCollection();
         $this->orders = new ArrayCollection();
         $this->wishLists = new ArrayCollection();

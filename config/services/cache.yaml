@@ -1,0 +1,13 @@
+services:
+  session_redis_cache_service:
+    class: Redis
+    calls:
+      - connect:
+          - '%env(REDIS_HOST)%'
+          - '%env(REDIS_PORT)%'
+      - select:
+          - '%env(REDIS_SESSION_DB)%'
+
+  Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+    arguments:
+      - '@session_redis_cache_service'

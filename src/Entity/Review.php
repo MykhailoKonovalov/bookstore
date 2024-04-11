@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ReviewRepository::class)]
 #[ORM\Table(name: "reviews")]
-#[ORM\Index(name: "review_book_idx", columns: ["book_slug"])]
-#[ORM\Index(name: "review_user_idx", columns: ["user_uuid"])]
+#[ORM\Index(columns: ["book_slug"], name: "review_book_idx")]
+#[ORM\Index(columns: ["user_uuid"], name: "review_user_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Review implements HasTimestamp
 {

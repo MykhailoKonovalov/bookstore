@@ -14,7 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: "categories")]
-#[ORM\Index(name: "category_name_idx", columns: ["name"])]
+#[ORM\Index(columns: ["name"], name: "category_name_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Category implements HasSlug, HasTimestamp
 {

@@ -11,18 +11,24 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ORM\Table(name: "books")]
-#[ORM\Index(name: "book_title_idx", columns: ["title"])]
-#[ORM\Index(name: "book_language_idx", columns: ["language"])]
-#[ORM\Index(name: "book_author_idx", columns: ["author_slug"])]
+#[ORM\Index(columns: ["title"], name: "book_title_idx")]
+#[ORM\Index(columns: ["language"], name: "book_language_idx")]
+#[ORM\Index(columns: ["author_slug"], name: "book_author_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Book implements HasSlug, HasTimestamp
 {
     use SlugTrait;
 
     use TimestampTrait;
+
+    #[ORM\Id]
+    #[ORM\Column(type: Types::STRING, unique: true)]
+    #[Gedmo\Slug(fields: ['title'])]
+    private string $slug;
 
     #[ORM\Column(type: Types::STRING)]
     private string $title;
@@ -64,16 +70,14 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\OneToMany(targetEntity: BookCopy::class, mappedBy: 'book', orphanRemoval: true)]
     private Collection $bookCopies;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $coverUrl = null;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->bookCopies = new ArrayCollection();
-    }
-
-    private function getValueToSlugify(): string
-    {
-        return $this->title;
     }
 
     public function getTitle(): string
@@ -226,6 +230,18 @@ class Book implements HasSlug, HasTimestamp
                 $bookCopy->setBook(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCoverUrl(): ?string
+    {
+        return $this->coverUrl;
+    }
+
+    public function setCoverUrl(?string $coverUrl): static
+    {
+        $this->coverUrl = $coverUrl;
 
         return $this;
     }

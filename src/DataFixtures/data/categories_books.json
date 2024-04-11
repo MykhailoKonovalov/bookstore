@@ -1,0 +1,202 @@
+[
+  {
+    "book_slug": "gamlet",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "gamlet",
+    "category_slug": "tragedy"
+  },
+  {
+    "book_slug": "gordist-i-uperedzhennya",
+    "category_slug": "roman"
+  },
+  {
+    "book_slug": "gordist-i-uperedzhennya",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "sto-rokiv-samotnosti",
+    "category_slug": "roman"
+  },
+  {
+    "book_slug": "garri-potter-i-filosofskij-kamin",
+    "category_slug": "fantazi"
+  },
+  {
+    "book_slug": "garri-potter-i-filosofskij-kamin",
+    "category_slug": "prigodi"
+  },
+  {
+    "book_slug": "norvezkyj-lis",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "norvezkyj-lis",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "1984",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "proces",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "proces",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "romeo-i-dzhuljetta",
+    "category_slug": "tragedy"
+  },
+  {
+    "book_slug": "romeo-i-dzhuljetta",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "ema",
+    "category_slug": "roman"
+  },
+  {
+    "book_slug": "osenya-kronosa",
+    "category_slug": "poeziya"
+  },
+  {
+    "book_slug": "garri-potter-i-tajemna-kimnata",
+    "category_slug": "fantazi"
+  },
+  {
+    "book_slug": "garri-potter-i-tajemna-kimnata",
+    "category_slug": "prigodi"
+  },
+  {
+    "book_slug": "kendzaburo-oe-zhyttya-v-temryavi",
+    "category_slug": "biografiya"
+  },
+  {
+    "book_slug": "malenkij-knyaz",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "metamorfozy",
+    "category_slug": "mistika"
+  },
+  {
+    "book_slug": "metamorfozy",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "lisova-pisnya",
+    "category_slug": "poeziya"
+  },
+  {
+    "book_slug": "vijna-svitiv",
+    "category_slug": "naukova-fantastika"
+  },
+  {
+    "book_slug": "vijna-svitiv",
+    "category_slug": "zhakhi"
+  },
+  {
+    "book_slug": "kviti-dlya-eldzhernona",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "chorne-vitrilo",
+    "category_slug": "naukova-fantastika"
+  },
+  {
+    "book_slug": "chorne-vitrilo",
+    "category_slug": "zhakhi"
+  },
+  {
+    "book_slug": "stariy-i-more",
+    "category_slug": "roman"
+  },
+  {
+    "book_slug": "sobaka-baskerviley",
+    "category_slug": "detektiv"
+  },
+  {
+    "book_slug": "gra-prestoliv",
+    "category_slug": "fantazi"
+  },
+  {
+    "book_slug": "burja-mechiv",
+    "category_slug": "fantazi"
+  },
+  {
+    "book_slug": "bitva-koroliv",
+    "category_slug": "fantazi"
+  },
+  {
+    "book_slug": "dyuna",
+    "category_slug": "naukova-fantastika"
+  },
+  {
+    "book_slug": "dyuna",
+    "category_slug": "prigodi"
+  },
+  {
+    "book_slug": "ditya-boga",
+    "category_slug": "naukova-fantastika"
+  },
+  {
+    "book_slug": "ditya-boga",
+    "category_slug": "prigodi"
+  },
+  {
+    "book_slug": "syayvo",
+    "category_slug": "triler"
+  },
+  {
+    "book_slug": "syayvo",
+    "category_slug": "zhakhi"
+  },
+  {
+    "book_slug": "it",
+    "category_slug": "triler"
+  },
+  {
+    "book_slug": "it",
+    "category_slug": "zhakhi"
+  },
+  {
+    "book_slug": "velikiy-getsbi",
+    "category_slug": "drama"
+  },
+  {
+    "book_slug": "velikiy-getsbi",
+    "category_slug": "roman"
+  },
+  {
+    "book_slug": "prigodi-geklberri-finna",
+    "category_slug": "prigodi"
+  },
+  {
+    "book_slug": "stepoviy-vovk",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "gitandzhali",
+    "category_slug": "poeziya"
+  },
+  {
+    "book_slug": "gitandzhali",
+    "category_slug": "filosofiya"
+  },
+  {
+    "book_slug": "kolorado-tik",
+    "category_slug": "komediya"
+  },
+  {
+    "book_slug": "kolorado-tik",
+    "category_slug": "naukova-fantastika"
+  },
+  {
+    "book_slug": "prigodi-sherloka-holmsa",
+    "category_slug": "detektiv"
+  }
+]

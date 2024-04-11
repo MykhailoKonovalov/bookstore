@@ -1,0 +1,398 @@
+[
+    {
+        "book_copy_uuid": "1007d399-a29b-4f62-acca-2ce297ae15c4",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 673,
+        "discount_percent": 0,
+        "discount_price": 673,
+        "sales_count": 389
+    },
+    {
+        "book_copy_uuid": "420cec45-bd9c-454a-821c-3c3383f9b4ac",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 274,
+        "discount_percent": 0,
+        "discount_price": 274,
+        "sales_count": 335
+    },
+    {
+        "book_copy_uuid": "f0554fa8-9654-424d-af56-cee9ad1cef15",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 251,
+        "discount_percent": 96,
+        "discount_price": 10.04,
+        "sales_count": 652
+    },
+    {
+        "book_copy_uuid": "31d6281e-aa59-4fa0-a5c1-f352c38df95e",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 601,
+        "discount_percent": 0,
+        "discount_price": 601,
+        "sales_count": 50
+    },
+    {
+        "book_copy_uuid": "5c7ec207-afd3-44a1-a34c-cef61010aa04",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 976,
+        "discount_percent": 0,
+        "discount_price": 976,
+        "sales_count": 120
+    },
+    {
+        "book_copy_uuid": "2147be3e-4049-4bae-9d81-6d8bd377b7dd",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 350,
+        "discount_percent": 0,
+        "discount_price": 350,
+        "sales_count": 401
+    },
+    {
+        "book_copy_uuid": "3af42dbd-1aa2-46d7-927e-1aa2ba479304",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 926,
+        "discount_percent": 0,
+        "discount_price": 926,
+        "sales_count": 386
+    },
+    {
+        "book_copy_uuid": "bb2d69dd-95cc-4f1d-85e3-475e9ccdda4d",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 291,
+        "discount_percent": 0,
+        "discount_price": 291,
+        "sales_count": 658
+    },
+    {
+        "book_copy_uuid": "e1644127-f894-48de-b046-95ca6f93242d",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 434,
+        "discount_percent": 0,
+        "discount_price": 434,
+        "sales_count": 580
+    },
+    {
+        "book_copy_uuid": "7cc535ef-3f87-48bc-8aeb-2dec3ffdd718",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 262,
+        "discount_percent": 0,
+        "discount_price": 262,
+        "sales_count": 450
+    },
+    {
+        "book_copy_uuid": "e4bf52b4-6962-4e8e-affd-b2c29c0b18af",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 929,
+        "discount_percent": 0,
+        "discount_price": 929,
+        "sales_count": 184
+    },
+    {
+        "book_copy_uuid": "da0e572a-7a61-4cc2-aae7-718b1b649071",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 378,
+        "discount_percent": 0,
+        "discount_price": 378,
+        "sales_count": 186
+    },
+    {
+        "book_copy_uuid": "d516e272-7489-47dd-a538-0688406983d2",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 660,
+        "discount_percent": 0,
+        "discount_price": 660,
+        "sales_count": 35
+    },
+    {
+        "book_copy_uuid": "faf38bf2-9e61-4d72-99f4-dcc29ba795e5",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 203,
+        "discount_percent": 0,
+        "discount_price": 203,
+        "sales_count": 654
+    },
+    {
+        "book_copy_uuid": "beb81390-8d2b-478f-a98b-2ec84d612a26",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 289,
+        "discount_percent": 0,
+        "discount_price": 289,
+        "sales_count": 959
+    },
+    {
+        "book_copy_uuid": "afee7905-86e0-44d8-94de-8d9b6f6fd9c8",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 102,
+        "discount_percent": 19,
+        "discount_price": 82.62,
+        "sales_count": 994
+    },
+    {
+        "book_copy_uuid": "22745c95-b5cc-4909-94b3-3caf33b53a1d",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 888,
+        "discount_percent": 0,
+        "discount_price": 888,
+        "sales_count": 70
+    },
+    {
+        "book_copy_uuid": "ee87cb03-4360-4615-8547-a97c7ece7651",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 983,
+        "discount_percent": 0,
+        "discount_price": 983,
+        "sales_count": 59
+    },
+    {
+        "book_copy_uuid": "324bc57a-9095-4862-90e9-254a9969ca98",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 233,
+        "discount_percent": 0,
+        "discount_price": 233,
+        "sales_count": 849
+    },
+    {
+        "book_copy_uuid": "4195177c-c95b-4fbc-881e-2d062477e387",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 362,
+        "discount_percent": 0,
+        "discount_price": 362,
+        "sales_count": 245
+    },
+    {
+        "book_copy_uuid": "538a38b6-4471-4bc1-83ef-3de786d97c0d",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 565,
+        "discount_percent": 0,
+        "discount_price": 565,
+        "sales_count": 588
+    },
+    {
+        "book_copy_uuid": "6af94e00-0f0f-471d-899e-90abe7d37d06",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 468,
+        "discount_percent": 0,
+        "discount_price": 468,
+        "sales_count": 435
+    },
+    {
+        "book_copy_uuid": "52a5c2e9-9d12-460e-af36-d1aafe865d59",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 674,
+        "discount_percent": 0,
+        "discount_price": 674,
+        "sales_count": 262
+    },
+    {
+        "book_copy_uuid": "35da798a-28f8-4815-b4a3-4a632f0bc72e",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 759,
+        "discount_percent": 0,
+        "discount_price": 759,
+        "sales_count": 139
+    },
+    {
+        "book_copy_uuid": "ad60e208-da5c-45c3-bb33-e9c5a762ec70",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 896,
+        "discount_percent": 0,
+        "discount_price": 896,
+        "sales_count": 108
+    },
+    {
+        "book_copy_uuid": "052d4791-39e8-4406-962f-51e2c0672401",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 765,
+        "discount_percent": 0,
+        "discount_price": 765,
+        "sales_count": 260
+    },
+    {
+        "book_copy_uuid": "17ce6330-9822-4b3b-bc5e-561d9794cb07",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 931,
+        "discount_percent": 0,
+        "discount_price": 931,
+        "sales_count": 121
+    },
+    {
+        "book_copy_uuid": "495ddfa4-6f85-46ed-8965-38e0071c36b1",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 182,
+        "discount_percent": 0,
+        "discount_price": 182,
+        "sales_count": 587
+    },
+    {
+        "book_copy_uuid": "871f61b6-19c7-474d-a712-86b37606b0a7",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 268,
+        "discount_percent": 0,
+        "discount_price": 268,
+        "sales_count": 688
+    },
+    {
+        "book_copy_uuid": "239db4ad-ae28-45a1-a8b3-2929abc07c17",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 834,
+        "discount_percent": 0,
+        "discount_price": 834,
+        "sales_count": 622
+    },
+    {
+        "book_copy_uuid": "44481fed-b5dc-4cbb-bfad-f7565283bc91",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 129,
+        "discount_percent": 3,
+        "discount_price": 125.13,
+        "sales_count": 592
+    },
+    {
+        "book_copy_uuid": "b695500c-0139-4f7f-aca2-f28cc6307eb6",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 385,
+        "discount_percent": 11,
+        "discount_price": 342.65,
+        "sales_count": 745
+    },
+    {
+        "book_copy_uuid": "6ac16a08-89c7-4a86-b32c-1335885651a3",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 780,
+        "discount_percent": 0,
+        "discount_price": 780,
+        "sales_count": 985
+    },
+    {
+        "book_copy_uuid": "65bed9d2-c6c2-4eb3-a85e-5970d9e8aae2",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 128,
+        "discount_percent": 0,
+        "discount_price": 128,
+        "sales_count": 529
+    },
+    {
+        "book_copy_uuid": "2c978ba6-b882-4075-b344-063b175c8d10",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 895,
+        "discount_percent": 0,
+        "discount_price": 895,
+        "sales_count": 523
+    },
+    {
+        "book_copy_uuid": "c77c74f8-4b3a-44a9-b132-ae582e68816a",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 736,
+        "discount_percent": 89,
+        "discount_price": 80.96,
+        "sales_count": 237
+    },
+    {
+        "book_copy_uuid": "42e2f949-214b-4d88-8843-48d0430b69df",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 266,
+        "discount_percent": 0,
+        "discount_price": 266,
+        "sales_count": 585
+    },
+    {
+        "book_copy_uuid": "706a7a87-9311-4246-8305-aeac17c67532",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 359,
+        "discount_percent": 0,
+        "discount_price": 359,
+        "sales_count": 193
+    },
+    {
+        "book_copy_uuid": "4cf0135d-1025-45a3-8070-893d58ac6e27",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 523,
+        "discount_percent": 100,
+        "discount_price": 0,
+        "sales_count": 594
+    },
+    {
+        "book_copy_uuid": "75036fe0-7d58-45d4-ac0c-58c7a3f54273",
+        "format": "epub",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 280,
+        "discount_percent": 0,
+        "discount_price": 280,
+        "sales_count": 322
+    },
+    {
+        "book_copy_uuid": "f9244847-2631-40ad-9aee-ba70bc398ac5",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 465,
+        "discount_percent": 0,
+        "discount_price": 465,
+        "sales_count": 707
+    },
+    {
+        "book_copy_uuid": "295db0b2-49c8-4025-842b-41adfd885458",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 298,
+        "discount_percent": 0,
+        "discount_price": 298,
+        "sales_count": 280
+    },
+    {
+        "book_copy_uuid": "08379d44-50e0-450c-b8ba-6707bf681303",
+        "format": "mobi",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 471,
+        "discount_percent": 0,
+        "discount_price": 471,
+        "sales_count": 431
+    },
+    {
+        "book_copy_uuid": "5c3a959e-e92b-4dce-8131-360354223b9c",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 727,
+        "discount_percent": 89,
+        "discount_price": 79.97,
+        "sales_count": 39
+    }
+]

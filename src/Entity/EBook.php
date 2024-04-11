@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EBooksRepository::class)]
 #[ORM\Table(name: "ebooks")]
-#[ORM\Index(name: 'eb_format_idx', columns: ['format'])]
+#[ORM\Index(columns: ['format'], name: 'eb_format_idx')]
 #[ORM\HasLifecycleCallbacks]
 class EBook implements HasTimestamp, ProductInterface
 {

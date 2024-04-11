@@ -19,3 +19,6 @@ consume:
 
 redis_flush:
 	docker-compose -f compose.yaml exec redis redis-cli flushall
+
+load_fixtures:
+	docker-compose -f compose.yaml exec php php bin/console doctrine:fixtures:load --no-interaction

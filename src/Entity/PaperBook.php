@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PaperBooksRepository::class)]
 #[ORM\Table(name: "paper_books")]
-#[ORM\Index(name: "pb_publisher_idx", columns: ["publisher_slug"])]
+#[ORM\Index(columns: ["publisher_slug"], name: "pb_publisher_idx")]
 #[ORM\HasLifecycleCallbacks]
 class PaperBook implements HasTimestamp, ProductInterface
 {
@@ -46,6 +46,9 @@ class PaperBook implements HasTimestamp, ProductInterface
 
     #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true])]
     private int $publishedYear;
+
+    #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true, 'default' => 0])]
+    private int $stockCount = 0;
 
     public function getBookCopy(): BookCopy
     {
@@ -139,6 +142,18 @@ class PaperBook implements HasTimestamp, ProductInterface
     public function setPublishedYear(int $publishedYear): self
     {
         $this->publishedYear = $publishedYear;
+
+        return $this;
+    }
+
+    public function getStockCount(): int
+    {
+        return $this->stockCount;
+    }
+
+    public function setStockCount(int $stockCount): self
+    {
+        $this->stockCount = $stockCount;
 
         return $this;
     }
