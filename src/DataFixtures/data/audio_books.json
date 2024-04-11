@@ -1,0 +1,442 @@
+[
+    {
+        "book_copy_uuid": "1007d399-a29b-4f62-acca-2ce297ae15c4",
+        "duration_in_minutes": 111,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 370,
+        "discount_percent": 0,
+        "discount_price": 370,
+        "sales_count": 916
+    },
+    {
+        "book_copy_uuid": "420cec45-bd9c-454a-821c-3c3383f9b4ac",
+        "duration_in_minutes": 218,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 990,
+        "discount_percent": 0,
+        "discount_price": 990,
+        "sales_count": 715
+    },
+    {
+        "book_copy_uuid": "f0554fa8-9654-424d-af56-cee9ad1cef15",
+        "duration_in_minutes": 269,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 681,
+        "discount_percent": 73,
+        "discount_price": 183.87,
+        "sales_count": 396
+    },
+    {
+        "book_copy_uuid": "31d6281e-aa59-4fa0-a5c1-f352c38df95e",
+        "duration_in_minutes": 229,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 560,
+        "discount_percent": 0,
+        "discount_price": 560,
+        "sales_count": 372
+    },
+    {
+        "book_copy_uuid": "5c7ec207-afd3-44a1-a34c-cef61010aa04",
+        "duration_in_minutes": 323,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 966,
+        "discount_percent": 0,
+        "discount_price": 966,
+        "sales_count": 128
+    },
+    {
+        "book_copy_uuid": "2147be3e-4049-4bae-9d81-6d8bd377b7dd",
+        "duration_in_minutes": 136,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 858,
+        "discount_percent": 0,
+        "discount_price": 858,
+        "sales_count": 622
+    },
+    {
+        "book_copy_uuid": "3af42dbd-1aa2-46d7-927e-1aa2ba479304",
+        "duration_in_minutes": 113,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 634,
+        "discount_percent": 0,
+        "discount_price": 634,
+        "sales_count": 950
+    },
+    {
+        "book_copy_uuid": "bb2d69dd-95cc-4f1d-85e3-475e9ccdda4d",
+        "duration_in_minutes": 35,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 746,
+        "discount_percent": 0,
+        "discount_price": 746,
+        "sales_count": 393
+    },
+    {
+        "book_copy_uuid": "e1644127-f894-48de-b046-95ca6f93242d",
+        "duration_in_minutes": 44,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 393,
+        "discount_percent": 28,
+        "discount_price": 282.96,
+        "sales_count": 100
+    },
+    {
+        "book_copy_uuid": "7cc535ef-3f87-48bc-8aeb-2dec3ffdd718",
+        "duration_in_minutes": 568,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 634,
+        "discount_percent": 56,
+        "discount_price": 278.96,
+        "sales_count": 116
+    },
+    {
+        "book_copy_uuid": "e4bf52b4-6962-4e8e-affd-b2c29c0b18af",
+        "duration_in_minutes": 441,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 283,
+        "discount_percent": 0,
+        "discount_price": 283,
+        "sales_count": 30
+    },
+    {
+        "book_copy_uuid": "da0e572a-7a61-4cc2-aae7-718b1b649071",
+        "duration_in_minutes": 36,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 986,
+        "discount_percent": 0,
+        "discount_price": 986,
+        "sales_count": 707
+    },
+    {
+        "book_copy_uuid": "d516e272-7489-47dd-a538-0688406983d2",
+        "duration_in_minutes": 599,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 670,
+        "discount_percent": 55,
+        "discount_price": 301.5,
+        "sales_count": 187
+    },
+    {
+        "book_copy_uuid": "faf38bf2-9e61-4d72-99f4-dcc29ba795e5",
+        "duration_in_minutes": 58,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 249,
+        "discount_percent": 0,
+        "discount_price": 249,
+        "sales_count": 4
+    },
+    {
+        "book_copy_uuid": "beb81390-8d2b-478f-a98b-2ec84d612a26",
+        "duration_in_minutes": 116,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 747,
+        "discount_percent": 0,
+        "discount_price": 747,
+        "sales_count": 373
+    },
+    {
+        "book_copy_uuid": "afee7905-86e0-44d8-94de-8d9b6f6fd9c8",
+        "duration_in_minutes": 198,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 133,
+        "discount_percent": 0,
+        "discount_price": 133,
+        "sales_count": 22
+    },
+    {
+        "book_copy_uuid": "22745c95-b5cc-4909-94b3-3caf33b53a1d",
+        "duration_in_minutes": 117,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 494,
+        "discount_percent": 0,
+        "discount_price": 494,
+        "sales_count": 505
+    },
+    {
+        "book_copy_uuid": "ee87cb03-4360-4615-8547-a97c7ece7651",
+        "duration_in_minutes": 409,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 875,
+        "discount_percent": 0,
+        "discount_price": 875,
+        "sales_count": 796
+    },
+    {
+        "book_copy_uuid": "324bc57a-9095-4862-90e9-254a9969ca98",
+        "duration_in_minutes": 190,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 404,
+        "discount_percent": 41,
+        "discount_price": 238.36,
+        "sales_count": 383
+    },
+    {
+        "book_copy_uuid": "4195177c-c95b-4fbc-881e-2d062477e387",
+        "duration_in_minutes": 63,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 501,
+        "discount_percent": 65,
+        "discount_price": 175.35,
+        "sales_count": 349
+    },
+    {
+        "book_copy_uuid": "538a38b6-4471-4bc1-83ef-3de786d97c0d",
+        "duration_in_minutes": 565,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 321,
+        "discount_percent": 0,
+        "discount_price": 321,
+        "sales_count": 125
+    },
+    {
+        "book_copy_uuid": "6af94e00-0f0f-471d-899e-90abe7d37d06",
+        "duration_in_minutes": 483,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 150,
+        "discount_percent": 0,
+        "discount_price": 150,
+        "sales_count": 746
+    },
+    {
+        "book_copy_uuid": "52a5c2e9-9d12-460e-af36-d1aafe865d59",
+        "duration_in_minutes": 458,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 255,
+        "discount_percent": 0,
+        "discount_price": 255,
+        "sales_count": 617
+    },
+    {
+        "book_copy_uuid": "35da798a-28f8-4815-b4a3-4a632f0bc72e",
+        "duration_in_minutes": 221,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 925,
+        "discount_percent": 0,
+        "discount_price": 925,
+        "sales_count": 52
+    },
+    {
+        "book_copy_uuid": "ad60e208-da5c-45c3-bb33-e9c5a762ec70",
+        "duration_in_minutes": 376,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 279,
+        "discount_percent": 0,
+        "discount_price": 279,
+        "sales_count": 208
+    },
+    {
+        "book_copy_uuid": "052d4791-39e8-4406-962f-51e2c0672401",
+        "duration_in_minutes": 42,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 552,
+        "discount_percent": 0,
+        "discount_price": 552,
+        "sales_count": 153
+    },
+    {
+        "book_copy_uuid": "17ce6330-9822-4b3b-bc5e-561d9794cb07",
+        "duration_in_minutes": 269,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 916,
+        "discount_percent": 0,
+        "discount_price": 916,
+        "sales_count": 549
+    },
+    {
+        "book_copy_uuid": "495ddfa4-6f85-46ed-8965-38e0071c36b1",
+        "duration_in_minutes": 398,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 788,
+        "discount_percent": 0,
+        "discount_price": 788,
+        "sales_count": 415
+    },
+    {
+        "book_copy_uuid": "871f61b6-19c7-474d-a712-86b37606b0a7",
+        "duration_in_minutes": 411,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 422,
+        "discount_percent": 0,
+        "discount_price": 422,
+        "sales_count": 999
+    },
+    {
+        "book_copy_uuid": "239db4ad-ae28-45a1-a8b3-2929abc07c17",
+        "duration_in_minutes": 63,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 771,
+        "discount_percent": 60,
+        "discount_price": 308.4,
+        "sales_count": 583
+    },
+    {
+        "book_copy_uuid": "44481fed-b5dc-4cbb-bfad-f7565283bc91",
+        "duration_in_minutes": 301,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 442,
+        "discount_percent": 0,
+        "discount_price": 442,
+        "sales_count": 953
+    },
+    {
+        "book_copy_uuid": "b695500c-0139-4f7f-aca2-f28cc6307eb6",
+        "duration_in_minutes": 182,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 942,
+        "discount_percent": 0,
+        "discount_price": 942,
+        "sales_count": 541
+    },
+    {
+        "book_copy_uuid": "6ac16a08-89c7-4a86-b32c-1335885651a3",
+        "duration_in_minutes": 160,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 263,
+        "discount_percent": 0,
+        "discount_price": 263,
+        "sales_count": 143
+    },
+    {
+        "book_copy_uuid": "65bed9d2-c6c2-4eb3-a85e-5970d9e8aae2",
+        "duration_in_minutes": 338,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 127,
+        "discount_percent": 0,
+        "discount_price": 127,
+        "sales_count": 93
+    },
+    {
+        "book_copy_uuid": "2c978ba6-b882-4075-b344-063b175c8d10",
+        "duration_in_minutes": 380,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 283,
+        "discount_percent": 0,
+        "discount_price": 283,
+        "sales_count": 190
+    },
+    {
+        "book_copy_uuid": "c77c74f8-4b3a-44a9-b132-ae582e68816a",
+        "duration_in_minutes": 32,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 570,
+        "discount_percent": 0,
+        "discount_price": 570,
+        "sales_count": 817
+    },
+    {
+        "book_copy_uuid": "42e2f949-214b-4d88-8843-48d0430b69df",
+        "duration_in_minutes": 13,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 682,
+        "discount_percent": 0,
+        "discount_price": 682,
+        "sales_count": 169
+    },
+    {
+        "book_copy_uuid": "706a7a87-9311-4246-8305-aeac17c67532",
+        "duration_in_minutes": 22,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 362,
+        "discount_percent": 0,
+        "discount_price": 362,
+        "sales_count": 653
+    },
+    {
+        "book_copy_uuid": "4cf0135d-1025-45a3-8070-893d58ac6e27",
+        "duration_in_minutes": 98,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 300,
+        "discount_percent": 0,
+        "discount_price": 300,
+        "sales_count": 855
+    },
+    {
+        "book_copy_uuid": "75036fe0-7d58-45d4-ac0c-58c7a3f54273",
+        "duration_in_minutes": 384,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 956,
+        "discount_percent": 0,
+        "discount_price": 956,
+        "sales_count": 1000
+    },
+    {
+        "book_copy_uuid": "f9244847-2631-40ad-9aee-ba70bc398ac5",
+        "duration_in_minutes": 543,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 246,
+        "discount_percent": 0,
+        "discount_price": 246,
+        "sales_count": 891
+    },
+    {
+        "book_copy_uuid": "295db0b2-49c8-4025-842b-41adfd885458",
+        "duration_in_minutes": 515,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 450,
+        "discount_percent": 0,
+        "discount_price": 450,
+        "sales_count": 85
+    },
+    {
+        "book_copy_uuid": "08379d44-50e0-450c-b8ba-6707bf681303",
+        "duration_in_minutes": 219,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 808,
+        "discount_percent": 21,
+        "discount_price": 638.32,
+        "sales_count": 286
+    },
+    {
+        "book_copy_uuid": "5c3a959e-e92b-4dce-8131-360354223b9c",
+        "duration_in_minutes": 442,
+        "narrator": "\u0406\u0432\u0430\u043d \u0406\u0432\u0430\u043d\u043e\u0432",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "price": 270,
+        "discount_percent": 0,
+        "discount_price": 270,
+        "sales_count": 78
+    }
+]

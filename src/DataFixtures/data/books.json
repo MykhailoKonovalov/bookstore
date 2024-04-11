@@ -1,0 +1,299 @@
+[
+  {
+    "title": "Гамлет",
+    "slug": "gamlet",
+    "author_slug": "viljam-shekspir",
+    "description": "Трагедія про непросте життя принца Данії Гамлета, який шукає відповіді на питання життя і смерті.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Гордість і упередження",
+    "slug": "gordist-i-uperedzhennya",
+    "author_slug": "dzhjejn-ostin",
+    "description": "Роман про драми та переживання молодих дівчат в англійському суспільстві 19 століття.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Сто років самотності",
+    "slug": "sto-rokiv-samotnosti",
+    "author_slug": "gabrijel-garsija-markes",
+    "description": "Епічний роман про сім'ю Буендія у вигаданому місті Макондо, який охоплює багато поколінь та подій.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Гаррі Поттер і філософський камінь",
+    "slug": "garri-potter-i-filosofskij-kamin",
+    "author_slug": "dj-k-rouling",
+    "description": "Перша книга з популярної серії про пригоди юного чарівника Гаррі Поттера в школі чарів та чародійств.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Норвезький ліс",
+    "slug": "norvezkyj-lis",
+    "author_slug": "haruki-murakami",
+    "description": "Роман, що розповідає про молодих людей у пошуках сенсу життя та змаганні з самими собою.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "1984",
+    "slug": "1984",
+    "author_slug": "dzhordzh-orvell",
+    "description": "Антиутопічний роман про життя у диктаторському суспільстві, де контролюються навіть думки людей.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Процес",
+    "slug": "proces",
+    "author_slug": "franc-kafka",
+    "description": "Роман про неправдивість судової системи та втрату особистої свободи у сучасному суспільстві.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Ромео і Джульєтта",
+    "slug": "romeo-i-dzhuljetta",
+    "author_slug": "viljam-shekspir",
+    "description": "Класична трагедія про кохання двох молодих людей з різних сімей, що призводить до трагічних наслідків.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Ема",
+    "slug": "ema",
+    "author_slug": "dzhjejn-ostin",
+    "description": "Роман про життя та пригоди молодої жінки Еми у пошуках кохання та щастя.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Осеня кроноса",
+    "slug": "osenya-kronosa",
+    "author_slug": "gabrijel-garsija-markes",
+    "description": "Поетична повість, що розповідає про кохання та розлуку у контексті міфічного світу.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Гаррі Поттер і таємна кімната",
+    "slug": "garri-potter-i-tajemna-kimnata",
+    "author_slug": "dj-k-rouling",
+    "description": "Друга книга з серії про Гаррі Поттера, де він вирушає у пригоди для розв'язання таємниць у школі чарів та чародійств.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Кендзабуро Ое: життя в темряві",
+    "slug": "kendzaburo-oe-zhyttya-v-temryavi",
+    "author_slug": "haruki-murakami",
+    "description": "Біографія японського письменника Кендзабуро Ое, яка відображає його літературний та особистий шлях.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Маленький княз",
+    "slug": "malenkij-knyaz",
+    "author_slug": "dzhordzh-orvell",
+    "description": "Філософська казка про зустріч пілота з маленьким князем, який має унікальні погляди на світ та життя.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Метаморфози",
+    "slug": "metamorfozy",
+    "author_slug": "franc-kafka",
+    "description": "Роман про перетворення головного героя у жука та його подальші відносини з оточуючим світом.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Лісова пісня",
+    "slug": "lisova-pisnya",
+    "author_slug": "lesja-ukrajinka",
+    "description": "Драматична поема про кохання, відданість та вірність українського народу.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Війна світів",
+    "slug": "vijna-svitiv",
+    "author_slug": "gerbert-vels",
+    "description": "Науково-фантастичний роман про інопланетну інвазію та боротьбу людства за виживання на Землі.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Квіти для Елджернона",
+    "slug": "kviti-dlya-eldzhernona",
+    "author_slug": "daniel-keyes",
+    "description": "Драматична повість про розвиток інтелекту та пошук сенсу життя через експерименти над людським розумом.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Чорне вітрило",
+    "slug": "chorne-vitrilo",
+    "author_slug": "ray-bradbury",
+    "description": "Колекція науково-фантастичних оповідань, що досліджують теми майбутнього та технологій.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Старий і море",
+    "slug": "stariy-i-more",
+    "author_slug": "ernest-heminguej",
+    "description": "Роман Ернеста Хемінгуея, який розповідає історію старого рибалки Сантьяго, який вирушає у великий поіменний похід на своєму човні. Ця книга є втіленням глибоких філософських думок про сили природи, мужність і безумство, боротьбу і примирення, які віддзеркалені в життєвому шляху головного героя.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Собака Баскервілей",
+    "slug": "sobaka-baskerviley",
+    "author_slug": "artur-konan-dojl",
+    "description": "Детективна повість про вирішення таємничої смерті у родині Баскервілів на тлі легенд про прокляття.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Гра Престолів",
+    "slug": "gra-prestoliv",
+    "author_slug": "dzhordzh-martin",
+    "description": "Перша книга з епічного фентезійного циклу, яка розповідає про інтриги та боротьбу за владу у країні Вестерос.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Буря мечів",
+    "slug": "burja-mechiv",
+    "author_slug": "dzhordzh-martin",
+    "description": "Друга книга з циклу, яка розгортає події після смерті короля та визначає майбутнє країни.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Битва королів",
+    "slug": "bitva-koroliv",
+    "author_slug": "dzhordzh-martin",
+    "description": "Третя книга з серії, що розгортає битви, інтриги та зміни влади серед різних фракцій у країні.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Дюна",
+    "slug": "dyuna",
+    "author_slug": "frenk-gerbert",
+    "description": "Науково-фантастичний роман про планету Арракіс, де розгортається епічна боротьба за контроль над цінним ресурсом меланжу.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Дитя Бога",
+    "slug": "ditya-boga",
+    "author_slug": "frenk-gerbert",
+    "description": "Фантастичний роман про дитинство та дорослість людини з надздібностями, яка стикається зі складними етичними питаннями.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Сяйво",
+    "slug": "syayvo",
+    "author_slug": "stiven-king",
+    "description": "Жахлива історія про хлопчика з надздібностями, який виявляється втягнутим у жахливі події відельського готелю.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Ворота в літо",
+    "slug": "vorota-v-lito",
+    "author_slug": "stiven-king",
+    "description": "Драматичний роман про події та таємниці, які розкриваються під час літніх канікул у містечку.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Іт",
+    "slug": "it",
+    "author_slug": "stiven-king",
+    "description": "Жахлива історія про демонічну істоту, що живе у каналізації міста та тероризує дітей та дорослих.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Великий Гетсбі",
+    "slug": "velikiy-getsbi",
+    "author_slug": "frensis-skott-fitsdzherald",
+    "description": "Класичний роман про життя та ілюзії у бурхливих 1920-х роках у США, розкриваючи теми кохання, багатства та мрій.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Пригоди Гекльберрі Фінна",
+    "slug": "prigodi-geklberri-finna",
+    "author_slug": "mark-tven",
+    "description": "Класична пригодницька повість, що розповідає про пригоди хлопчика Гекльберрі Фінна та його друга Тома Сойєра у південних штатах США.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Степовий вовк",
+    "slug": "stepoviy-vovk",
+    "author_slug": "german-hesse",
+    "description": "Роман про духовний шлях і пошук сенсу життя молодого індивіда, який подорожує через різні етапи свого життя.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Гітанджалі",
+    "slug": "gitandzhali",
+    "author_slug": "rabinndranat-tagor",
+    "description": "Збірка поетичних творів, що висловлюють філософські думки та почуття автора, відображаючи красу та прозорість душі.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Колорадо Тік",
+    "slug": "kolorado-tik",
+    "author_slug": "terri-pratchet",
+    "description": "Фентезійний роман, що розповідає про пригоди Моєтінгла Шалаша, антигероя, який стає свідком та учасником неймовірних подій у магічному світі.",
+    "language": "en",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  },
+  {
+    "title": "Пригоди Шерлока Холмса",
+    "slug": "prigodi-sherloka-holmsa",
+    "author_slug": "artur-konan-dojl",
+    "description": "Збірка найвідоміших пригод неперевершеного детектива Шерлока Холмса та його невід'ємного друга доктора Ватсона. Кожна історія заплутана в хитроумних деталях, викриттях злочинів та глибокому аналізі логіки. Читачі знайдуть в цій збірці захоплюючі пригоди, загадки та неперевершений розум Шерлока Холмса, який завжди знаходить правду в обличчі найскладніших випадків.",
+    "translator": "Іван Іванов",
+    "language": "ua",
+    "cover_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Latin_dictionary.jpg/640px-Latin_dictionary.jpg"
+  }
+]

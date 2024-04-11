@@ -1,0 +1,417 @@
+[
+    {
+        "uuid": "b659db20-fb55-41fe-afb0-06949251fd69",
+        "book_slug": "gamlet",
+        "type": "paper"
+    },
+    {
+        "uuid": "986ac37c-f41d-45bb-adf3-ce18f05b3458",
+        "book_slug": "gamlet",
+        "type": "audio"
+    },
+    {
+        "uuid": "84c099fa-cd54-4ce8-8b0e-b023e8bda33c",
+        "book_slug": "gordist-i-uperedzhennya",
+        "type": "paper"
+    },
+    {
+        "uuid": "1007d399-a29b-4f62-acca-2ce297ae15c4",
+        "book_slug": "gordist-i-uperedzhennya",
+        "type": "electronic"
+    },
+    {
+        "uuid": "420cec45-bd9c-454a-821c-3c3383f9b4ac",
+        "book_slug": "gordist-i-uperedzhennya",
+        "type": "electronic"
+    },
+    {
+        "uuid": "0c7e8bf3-b820-4140-8d6f-14c768f24c35",
+        "book_slug": "sto-rokiv-samotnosti",
+        "type": "paper"
+    },
+    {
+        "uuid": "5a801801-dcbd-4ca6-8d07-3649809632b8",
+        "book_slug": "garri-potter-i-filosofskij-kamin",
+        "type": "paper"
+    },
+    {
+        "uuid": "ae4a9e88-eba5-4663-baf7-76ad29fde75c",
+        "book_slug": "norvezkyj-lis",
+        "type": "paper"
+    },
+    {
+        "uuid": "f0554fa8-9654-424d-af56-cee9ad1cef15",
+        "book_slug": "norvezkyj-lis",
+        "type": "electronic"
+    },
+    {
+        "uuid": "31d6281e-aa59-4fa0-a5c1-f352c38df95e",
+        "book_slug": "norvezkyj-lis",
+        "type": "electronic"
+    },
+    {
+        "uuid": "5c7ec207-afd3-44a1-a34c-cef61010aa04",
+        "book_slug": "norvezkyj-lis",
+        "type": "electronic"
+    },
+    {
+        "uuid": "10c88c8a-c0f4-4db8-bf37-df1b081b8bc3",
+        "book_slug": "1984",
+        "type": "paper"
+    },
+    {
+        "uuid": "2147be3e-4049-4bae-9d81-6d8bd377b7dd",
+        "book_slug": "1984",
+        "type": "electronic"
+    },
+    {
+        "uuid": "1c19c4f1-92eb-414d-a1a0-d623d72b8893",
+        "book_slug": "proces",
+        "type": "paper"
+    },
+    {
+        "uuid": "3af42dbd-1aa2-46d7-927e-1aa2ba479304",
+        "book_slug": "proces",
+        "type": "electronic"
+    },
+    {
+        "uuid": "bb2d69dd-95cc-4f1d-85e3-475e9ccdda4d",
+        "book_slug": "proces",
+        "type": "electronic"
+    },
+    {
+        "uuid": "c6381842-6243-475e-be38-1571f27fb99c",
+        "book_slug": "romeo-i-dzhuljetta",
+        "type": "paper"
+    },
+    {
+        "uuid": "e1644127-f894-48de-b046-95ca6f93242d",
+        "book_slug": "romeo-i-dzhuljetta",
+        "type": "electronic"
+    },
+    {
+        "uuid": "18e1e6ef-46ad-49c7-9de7-7b6eae08ff89",
+        "book_slug": "romeo-i-dzhuljetta",
+        "type": "audio"
+    },
+    {
+        "uuid": "7b74fe1a-177a-4250-956a-01bac6d5ccfd",
+        "book_slug": "ema",
+        "type": "paper"
+    },
+    {
+        "uuid": "7cc535ef-3f87-48bc-8aeb-2dec3ffdd718",
+        "book_slug": "ema",
+        "type": "electronic"
+    },
+    {
+        "uuid": "e4bf52b4-6962-4e8e-affd-b2c29c0b18af",
+        "book_slug": "ema",
+        "type": "electronic"
+    },
+    {
+        "uuid": "98ea9e0b-e3ce-4f0f-a008-29c3c040fa99",
+        "book_slug": "osenya-kronosa",
+        "type": "paper"
+    },
+    {
+        "uuid": "1aebbe72-cc92-49df-991d-085de6db4dc7",
+        "book_slug": "garri-potter-i-tajemna-kimnata",
+        "type": "paper"
+    },
+    {
+        "uuid": "da0e572a-7a61-4cc2-aae7-718b1b649071",
+        "book_slug": "garri-potter-i-tajemna-kimnata",
+        "type": "electronic"
+    },
+    {
+        "uuid": "d516e272-7489-47dd-a538-0688406983d2",
+        "book_slug": "garri-potter-i-tajemna-kimnata",
+        "type": "electronic"
+    },
+    {
+        "uuid": "65bc105e-7c9e-4ad4-82c7-729ab9102a0d",
+        "book_slug": "kendzaburo-oe-zhyttya-v-temryavi",
+        "type": "paper"
+    },
+    {
+        "uuid": "faf38bf2-9e61-4d72-99f4-dcc29ba795e5",
+        "book_slug": "kendzaburo-oe-zhyttya-v-temryavi",
+        "type": "electronic"
+    },
+    {
+        "uuid": "beb81390-8d2b-478f-a98b-2ec84d612a26",
+        "book_slug": "kendzaburo-oe-zhyttya-v-temryavi",
+        "type": "electronic"
+    },
+    {
+        "uuid": "79e994c1-3a3a-4ede-8411-6eb1d69bbe64",
+        "book_slug": "malenkij-knyaz",
+        "type": "paper"
+    },
+    {
+        "uuid": "afee7905-86e0-44d8-94de-8d9b6f6fd9c8",
+        "book_slug": "malenkij-knyaz",
+        "type": "electronic"
+    },
+    {
+        "uuid": "22745c95-b5cc-4909-94b3-3caf33b53a1d",
+        "book_slug": "malenkij-knyaz",
+        "type": "electronic"
+    },
+    {
+        "uuid": "9ee7c29c-90dc-4f50-b0f7-edfe7f208f3f",
+        "book_slug": "metamorfozy",
+        "type": "paper"
+    },
+    {
+        "uuid": "ee87cb03-4360-4615-8547-a97c7ece7651",
+        "book_slug": "metamorfozy",
+        "type": "electronic"
+    },
+    {
+        "uuid": "fa57eb1f-1783-4825-89eb-88d631ab0945",
+        "book_slug": "lisova-pisnya",
+        "type": "paper"
+    },
+    {
+        "uuid": "324bc57a-9095-4862-90e9-254a9969ca98",
+        "book_slug": "lisova-pisnya",
+        "type": "electronic"
+    },
+    {
+        "uuid": "102fa8c9-741a-4923-8a4e-9ef9158fc904",
+        "book_slug": "vijna-svitiv",
+        "type": "paper"
+    },
+    {
+        "uuid": "4195177c-c95b-4fbc-881e-2d062477e387",
+        "book_slug": "vijna-svitiv",
+        "type": "electronic"
+    },
+    {
+        "uuid": "ede0b410-3ba3-4525-8669-de72055fde64",
+        "book_slug": "kviti-dlya-eldzhernona",
+        "type": "paper"
+    },
+    {
+        "uuid": "858ce054-ceca-49fb-b9bc-3b142e0cdf8e",
+        "book_slug": "chorne-vitrilo",
+        "type": "paper"
+    },
+    {
+        "uuid": "538a38b6-4471-4bc1-83ef-3de786d97c0d",
+        "book_slug": "chorne-vitrilo",
+        "type": "electronic"
+    },
+    {
+        "uuid": "6af94e00-0f0f-471d-899e-90abe7d37d06",
+        "book_slug": "chorne-vitrilo",
+        "type": "electronic"
+    },
+    {
+        "uuid": "bbb61609-ad9e-4b3d-8cd6-27dd89e629e7",
+        "book_slug": "stariy-i-more",
+        "type": "paper"
+    },
+    {
+        "uuid": "52a5c2e9-9d12-460e-af36-d1aafe865d59",
+        "book_slug": "stariy-i-more",
+        "type": "electronic"
+    },
+    {
+        "uuid": "35da798a-28f8-4815-b4a3-4a632f0bc72e",
+        "book_slug": "stariy-i-more",
+        "type": "electronic"
+    },
+    {
+        "uuid": "25b4b06e-958c-4ad1-9604-8036866fa944",
+        "book_slug": "sobaka-baskerviley",
+        "type": "paper"
+    },
+    {
+        "uuid": "ad60e208-da5c-45c3-bb33-e9c5a762ec70",
+        "book_slug": "sobaka-baskerviley",
+        "type": "electronic"
+    },
+    {
+        "uuid": "052d4791-39e8-4406-962f-51e2c0672401",
+        "book_slug": "sobaka-baskerviley",
+        "type": "electronic"
+    },
+    {
+        "uuid": "1af77d82-8cb0-4df1-a2f5-f288cbfa5c7b",
+        "book_slug": "sobaka-baskerviley",
+        "type": "audio"
+    },
+    {
+        "uuid": "f0b1d7c5-946b-4162-b31d-bad4b5e05fc5",
+        "book_slug": "gra-prestoliv",
+        "type": "paper"
+    },
+    {
+        "uuid": "17ce6330-9822-4b3b-bc5e-561d9794cb07",
+        "book_slug": "gra-prestoliv",
+        "type": "electronic"
+    },
+    {
+        "uuid": "495ddfa4-6f85-46ed-8965-38e0071c36b1",
+        "book_slug": "gra-prestoliv",
+        "type": "electronic"
+    },
+    {
+        "uuid": "24b1892c-6b3c-43af-951a-216f2cb55335",
+        "book_slug": "burja-mechiv",
+        "type": "paper"
+    },
+    {
+        "uuid": "871f61b6-19c7-474d-a712-86b37606b0a7",
+        "book_slug": "burja-mechiv",
+        "type": "electronic"
+    },
+    {
+        "uuid": "10b77a9c-02ba-4c9c-afbb-3efecfb2f8aa",
+        "book_slug": "bitva-koroliv",
+        "type": "paper"
+    },
+    {
+        "uuid": "f9debf1a-6da3-437f-bece-2e213c3cb6fd",
+        "book_slug": "dyuna",
+        "type": "paper"
+    },
+    {
+        "uuid": "aa90679d-051e-4241-b628-3cfe667268f1",
+        "book_slug": "ditya-boga",
+        "type": "paper"
+    },
+    {
+        "uuid": "239db4ad-ae28-45a1-a8b3-2929abc07c17",
+        "book_slug": "ditya-boga",
+        "type": "electronic"
+    },
+    {
+        "uuid": "44481fed-b5dc-4cbb-bfad-f7565283bc91",
+        "book_slug": "ditya-boga",
+        "type": "electronic"
+    },
+    {
+        "uuid": "aea47984-61ec-46f5-acfe-04412cd3ae32",
+        "book_slug": "syayvo",
+        "type": "paper"
+    },
+    {
+        "uuid": "b695500c-0139-4f7f-aca2-f28cc6307eb6",
+        "book_slug": "syayvo",
+        "type": "electronic"
+    },
+    {
+        "uuid": "3ea219f9-eaad-43c7-83cb-c528dc1e7090",
+        "book_slug": "syayvo",
+        "type": "audio"
+    },
+    {
+        "uuid": "449b294f-41b6-47f9-a3da-1d799d29284e",
+        "book_slug": "vorota-v-lito",
+        "type": "paper"
+    },
+    {
+        "uuid": "6ac16a08-89c7-4a86-b32c-1335885651a3",
+        "book_slug": "vorota-v-lito",
+        "type": "electronic"
+    },
+    {
+        "uuid": "65bed9d2-c6c2-4eb3-a85e-5970d9e8aae2",
+        "book_slug": "vorota-v-lito",
+        "type": "electronic"
+    },
+    {
+        "uuid": "2c978ba6-b882-4075-b344-063b175c8d10",
+        "book_slug": "vorota-v-lito",
+        "type": "electronic"
+    },
+    {
+        "uuid": "56b28151-e688-44c4-af72-0717e1441c98",
+        "book_slug": "it",
+        "type": "paper"
+    },
+    {
+        "uuid": "c77c74f8-4b3a-44a9-b132-ae582e68816a",
+        "book_slug": "it",
+        "type": "electronic"
+    },
+    {
+        "uuid": "30435d4a-4bc0-4d62-9667-6b20fbe37f3d",
+        "book_slug": "velikiy-getsbi",
+        "type": "paper"
+    },
+    {
+        "uuid": "42e2f949-214b-4d88-8843-48d0430b69df",
+        "book_slug": "velikiy-getsbi",
+        "type": "electronic"
+    },
+    {
+        "uuid": "706a7a87-9311-4246-8305-aeac17c67532",
+        "book_slug": "velikiy-getsbi",
+        "type": "electronic"
+    },
+    {
+        "uuid": "2109c594-e5ab-4d06-a7f8-b685fd67420e",
+        "book_slug": "velikiy-getsbi",
+        "type": "audio"
+    },
+    {
+        "uuid": "cd018101-e3c2-4272-9989-21bab418b559",
+        "book_slug": "prigodi-geklberri-finna",
+        "type": "paper"
+    },
+    {
+        "uuid": "4cf0135d-1025-45a3-8070-893d58ac6e27",
+        "book_slug": "prigodi-geklberri-finna",
+        "type": "electronic"
+    },
+    {
+        "uuid": "bbc72897-1246-4e16-9fc4-745e9a12993e",
+        "book_slug": "stepoviy-vovk",
+        "type": "paper"
+    },
+    {
+        "uuid": "75036fe0-7d58-45d4-ac0c-58c7a3f54273",
+        "book_slug": "stepoviy-vovk",
+        "type": "electronic"
+    },
+    {
+        "uuid": "f5254bb8-b920-4d10-91ec-e1185aa0c6e9",
+        "book_slug": "gitandzhali",
+        "type": "paper"
+    },
+    {
+        "uuid": "f9244847-2631-40ad-9aee-ba70bc398ac5",
+        "book_slug": "gitandzhali",
+        "type": "electronic"
+    },
+    {
+        "uuid": "6b446647-c906-46bd-987f-3e507a26a842",
+        "book_slug": "kolorado-tik",
+        "type": "paper"
+    },
+    {
+        "uuid": "295db0b2-49c8-4025-842b-41adfd885458",
+        "book_slug": "kolorado-tik",
+        "type": "electronic"
+    },
+    {
+        "uuid": "31c6b99f-49f5-4b7e-aa93-34e642dd3022",
+        "book_slug": "prigodi-sherloka-holmsa",
+        "type": "paper"
+    },
+    {
+        "uuid": "08379d44-50e0-450c-b8ba-6707bf681303",
+        "book_slug": "prigodi-sherloka-holmsa",
+        "type": "electronic"
+    },
+    {
+        "uuid": "5c3a959e-e92b-4dce-8131-360354223b9c",
+        "book_slug": "prigodi-sherloka-holmsa",
+        "type": "electronic"
+    }
+]
