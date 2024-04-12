@@ -26,7 +26,7 @@ class EBook implements HasTimestamp, ProductInterface
     #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
     private ?BookCopy $bookCopy = null;
 
-    #[ORM\Column(type: Types::STRING, enumType: EBookFormats::class)]
+    #[ORM\Column(type: Types::STRING, length: 4, enumType: EBookFormats::class)]
     private EBookFormats $format;
 
     #[ORM\Column(type: Types::STRING)]

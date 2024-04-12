@@ -22,7 +22,7 @@ class BookCopy implements HasUUID
     #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Book $book = null;
 
-    #[ORM\Column(type: Types::STRING, enumType: BookTypes::class)]
+    #[ORM\Column(type: Types::STRING, length: 16, enumType: BookTypes::class)]
     private BookTypes $type;
 
     #[ORM\OneToOne(mappedBy: 'bookCopy', cascade: ['persist', 'remove'])]
