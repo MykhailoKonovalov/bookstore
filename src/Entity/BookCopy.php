@@ -23,7 +23,7 @@ class BookCopy implements HasUUID
     private ?Book $book = null;
 
     #[ORM\Column(type: Types::STRING, enumType: BookTypes::class)]
-    private string $type;
+    private BookTypes $type;
 
     #[ORM\OneToOne(mappedBy: 'bookCopy', cascade: ['persist', 'remove'])]
     private ?AudioBook $audioBook = null;
@@ -39,7 +39,7 @@ class BookCopy implements HasUUID
         return $this->book;
     }
 
-    public function setBook(?Book $book): static
+    public function setBook(?Book $book): self
     {
         $this->book = $book;
 
@@ -48,10 +48,10 @@ class BookCopy implements HasUUID
 
     public function getType(): string
     {
-        return $this->type;
+        return $this->type->value;
     }
 
-    public function setType(string $type): self
+    public function setType(BookTypes $type): self
     {
         $this->type = $type;
 
@@ -60,12 +60,12 @@ class BookCopy implements HasUUID
 
     public function getAudioBook(): ?AudioBook
     {
-        return $this->type == BookTypes::AUDIO_BOOK->value ? $this->audioBook : null;
+        return $this->type == BookTypes::AUDIO_BOOK ? $this->audioBook : null;
     }
 
     public function setAudioBook(AudioBook $audioBook): self
     {
-        if ($this->type == BookTypes::AUDIO_BOOK->value) {
+        if ($this->type == BookTypes::AUDIO_BOOK) {
             if ($audioBook->getBookCopy() !== $this) {
                 $audioBook->setBookCopy($this);
             }
@@ -78,12 +78,12 @@ class BookCopy implements HasUUID
 
     public function getPaperBook(): ?PaperBook
     {
-        return $this->type == BookTypes::PAPER_BOOK->value ? $this->paperBook : null;
+        return $this->type == BookTypes::PAPER_BOOK ? $this->paperBook : null;
     }
 
     public function setPaperBook(PaperBook $paperBook): self
     {
-        if ($this->type == BookTypes::PAPER_BOOK->value) {
+        if ($this->type == BookTypes::PAPER_BOOK) {
             if ($paperBook->getBookCopy() !== $this) {
                 $paperBook->setBookCopy($this);
             }
@@ -96,12 +96,12 @@ class BookCopy implements HasUUID
 
     public function getEBook(): ?EBook
     {
-        return $this->type == BookTypes::ELECTRONIC_BOOK->value ? $this->eBook : null;
+        return $this->type == BookTypes::ELECTRONIC_BOOK ? $this->eBook : null;
     }
 
     public function setEBook(EBook $eBook): self
     {
-        if ($this->type == BookTypes::ELECTRONIC_BOOK->value) {
+        if ($this->type == BookTypes::ELECTRONIC_BOOK) {
             if ($eBook->getBookCopy() !== $this) {
                 $eBook->setBookCopy($this);
             }

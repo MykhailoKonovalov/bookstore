@@ -11,9 +11,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: PublisherRepository::class)]
 #[ORM\Table(name: "publishers")]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_PUBLISHER_NAME", fields: ["name"])]
+#[UniqueEntity(fields: ["name"], message: "This name is already exists")]
 #[ORM\Index(columns: ["name"], name: "publisher_name_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Publisher implements HasSlug, HasTimestamp
@@ -28,12 +31,17 @@ class Publisher implements HasSlug, HasTimestamp
     /**
      * @var Collection<int, PaperBook>
      */
-    #[ORM\OneToMany(targetEntity: PaperBook::class, mappedBy: "publisher")]
+    #[ORM\OneToMany(mappedBy: "publisher", targetEntity: PaperBook::class)]
     private Collection $paperBooks;
 
     public function __construct()
     {
         $this->paperBooks = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function getName(): string

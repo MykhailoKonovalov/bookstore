@@ -30,12 +30,12 @@ class Order implements HasUUID, HasTimestamp
     private string $totalPrice = '0.00';
 
     #[ORM\Column(type: Types::STRING, enumType: OrderStatuses::class)]
-    private string $status;
+    private OrderStatuses $status;
 
     /**
      * @var Collection<int, OrderItem>
      */
-    #[ORM\OneToMany(targetEntity: OrderItem::class, mappedBy: 'orderUuid', orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'orderUuid', targetEntity: OrderItem::class, orphanRemoval: true)]
     private Collection $orderItems;
 
     public function __construct()
@@ -69,10 +69,10 @@ class Order implements HasUUID, HasTimestamp
 
     public function getStatus(): ?string
     {
-        return $this->status;
+        return $this->status->value;
     }
 
-    public function setStatus(string $status): self
+    public function setStatus(OrderStatuses $status): self
     {
         $this->status = $status;
 

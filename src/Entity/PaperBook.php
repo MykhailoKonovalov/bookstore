@@ -50,12 +50,17 @@ class PaperBook implements HasTimestamp, ProductInterface
     #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true, 'default' => 0])]
     private int $stockCount = 0;
 
+    public function __toString(): string
+    {
+        return $this->getBookCopy()->getBook()->getTitle();
+    }
+
     public function getBookCopy(): BookCopy
     {
         return $this->bookCopy;
     }
 
-    public function setBookCopy(BookCopy $bookCopy): static
+    public function setBookCopy(BookCopy $bookCopy): self
     {
         $this->bookCopy = $bookCopy;
 

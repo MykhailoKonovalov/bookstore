@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Constant\UserRoles;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Interfaces\HasUUID;
 use App\Entity\Traits\TimestampTrait;
