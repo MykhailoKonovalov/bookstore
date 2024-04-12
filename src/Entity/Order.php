@@ -29,7 +29,7 @@ class Order implements HasUUID, HasTimestamp
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, options: ['default' => '0.00'])]
     private string $totalPrice = '0.00';
 
-    #[ORM\Column(type: Types::STRING, length: 32, enumType: OrderStatuses::class)]
+    #[ORM\Column(type: Types::STRING, length: 32, enumType: OrderStatuses::class, options: ['default' => OrderStatuses::STARTED])]
     private OrderStatuses $status;
 
     /**
