@@ -11,9 +11,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\Table(name: "categories")]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_CATEGORY_NAME", fields: ["name"])]
+#[UniqueEntity(fields: ["name"], message: "This name is already exists")]
 #[ORM\Index(columns: ["name"], name: "category_name_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Category implements HasSlug, HasTimestamp
@@ -34,6 +37,11 @@ class Category implements HasSlug, HasTimestamp
     public function __construct()
     {
         $this->books = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function getName(): string

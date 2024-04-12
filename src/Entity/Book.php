@@ -12,9 +12,12 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ORM\Table(name: "books")]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_TITLE", fields: ["title"])]
+#[UniqueEntity(fields: ["title"], message: "This title is already exists")]
 #[ORM\Index(columns: ["title"], name: "book_title_idx")]
 #[ORM\Index(columns: ["language"], name: "book_language_idx")]
 #[ORM\Index(columns: ["author_slug"], name: "book_author_idx")]
@@ -61,13 +64,13 @@ class Book implements HasSlug, HasTimestamp
     /**
      * @var Collection<int, Review>
      */
-    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'book', orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, orphanRemoval: true)]
     private Collection $reviews;
 
     /**
      * @var Collection<int, BookCopy>
      */
-    #[ORM\OneToMany(targetEntity: BookCopy::class, mappedBy: 'book', orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: BookCopy::class, orphanRemoval: true)]
     private Collection $bookCopies;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -78,6 +81,11 @@ class Book implements HasSlug, HasTimestamp
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->bookCopies = new ArrayCollection();
+    }
+
+    public function __toString(): string
+    {
+        return $this->title;
     }
 
     public function getTitle(): string

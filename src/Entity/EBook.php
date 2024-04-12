@@ -27,7 +27,7 @@ class EBook implements HasTimestamp, ProductInterface
     private ?BookCopy $bookCopy = null;
 
     #[ORM\Column(type: Types::STRING, enumType: EBookFormats::class)]
-    private string $format;
+    private EBookFormats $format;
 
     #[ORM\Column(type: Types::STRING)]
     private string $fileUrl;
@@ -37,7 +37,7 @@ class EBook implements HasTimestamp, ProductInterface
         return $this->bookCopy;
     }
 
-    public function setBookCopy(BookCopy $bookCopy): static
+    public function setBookCopy(BookCopy $bookCopy): self
     {
         $this->bookCopy = $bookCopy;
 
@@ -46,10 +46,10 @@ class EBook implements HasTimestamp, ProductInterface
 
     public function getFormat(): ?string
     {
-        return $this->format;
+        return $this->format->value;
     }
 
-    public function setFormat(string $format): self
+    public function setFormat(EBookFormats $format): self
     {
         $this->format = $format;
 
