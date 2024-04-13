@@ -1,0 +1,296 @@
+[
+    {
+        "id": 1,
+        "ebook": "332f1f47-be42-4df2-b6df-ec7676160218",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 2,
+        "ebook": "332f1f47-be42-4df2-b6df-ec7676160218",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 3,
+        "ebook": "332f1f47-be42-4df2-b6df-ec7676160218",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 4,
+        "ebook": "87f4a1c9-28ba-44f2-936c-79723ceb5afe",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 5,
+        "ebook": "87f4a1c9-28ba-44f2-936c-79723ceb5afe",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 6,
+        "ebook": "a84f718d-fb6a-449b-ab5f-d276525e2238",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 7,
+        "ebook": "a84f718d-fb6a-449b-ab5f-d276525e2238",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 8,
+        "ebook": "6b50624a-43aa-4228-ae32-6a7d8cc70abd",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 9,
+        "ebook": "6160f520-d1bc-4d66-82be-7dc758de9256",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 10,
+        "ebook": "6160f520-d1bc-4d66-82be-7dc758de9256",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 11,
+        "ebook": "6160f520-d1bc-4d66-82be-7dc758de9256",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 12,
+        "ebook": "ff0bcc7c-78d9-439c-a4cc-800f2a05ba93",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 13,
+        "ebook": "ff0bcc7c-78d9-439c-a4cc-800f2a05ba93",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 14,
+        "ebook": "560250b1-3ce7-45e3-b996-1c495c39d51f",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 15,
+        "ebook": "560250b1-3ce7-45e3-b996-1c495c39d51f",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 16,
+        "ebook": "560250b1-3ce7-45e3-b996-1c495c39d51f",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 17,
+        "ebook": "6eff5d42-57f4-4180-860a-9b787f3d0f4e",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 18,
+        "ebook": "6eff5d42-57f4-4180-860a-9b787f3d0f4e",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 19,
+        "ebook": "2e199d6c-812c-438d-8f20-6db5051f1319",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 20,
+        "ebook": "2e199d6c-812c-438d-8f20-6db5051f1319",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 21,
+        "ebook": "df45e0b5-db53-40d5-8665-3db3c7d0a780",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 22,
+        "ebook": "df45e0b5-db53-40d5-8665-3db3c7d0a780",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 23,
+        "ebook": "df45e0b5-db53-40d5-8665-3db3c7d0a780",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 24,
+        "ebook": "c0c8aeb3-63ba-4637-957e-6d001f7a2f4a",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 25,
+        "ebook": "c0c8aeb3-63ba-4637-957e-6d001f7a2f4a",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 26,
+        "ebook": "c0c8aeb3-63ba-4637-957e-6d001f7a2f4a",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 27,
+        "ebook": "537a2c25-1912-4331-80a0-42547cc06185",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 28,
+        "ebook": "537a2c25-1912-4331-80a0-42547cc06185",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 29,
+        "ebook": "ffc6ac93-b112-4d9a-b015-838266abc997",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 30,
+        "ebook": "ffc6ac93-b112-4d9a-b015-838266abc997",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 31,
+        "ebook": "0dcc975b-3e31-4031-b337-b5662794440c",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 32,
+        "ebook": "5c1af48c-60aa-4db2-89fc-a083d3b0cefb",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 33,
+        "ebook": "5c1af48c-60aa-4db2-89fc-a083d3b0cefb",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 34,
+        "ebook": "5e8ab352-8a19-4031-9ce6-b24ac3327805",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 35,
+        "ebook": "f06a1dc9-d95d-44f9-9c2f-d24e79bcff68",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 36,
+        "ebook": "bc5e0e8a-dea1-4e38-9ae7-d8f6ed81a8d9",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 37,
+        "ebook": "bc5e0e8a-dea1-4e38-9ae7-d8f6ed81a8d9",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 38,
+        "ebook": "bc5e0e8a-dea1-4e38-9ae7-d8f6ed81a8d9",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 39,
+        "ebook": "daca802a-a40f-47eb-a834-1212ea73956c",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 40,
+        "ebook": "02190ea0-68cf-499c-bff0-bb05683509f4",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 41,
+        "ebook": "7102b6b7-0ab0-4337-89f2-a9d028674e49",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 42,
+        "ebook": "7102b6b7-0ab0-4337-89f2-a9d028674e49",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 43,
+        "ebook": "d413a1ac-be1c-445d-8208-d72d7a7f9fb5",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 44,
+        "ebook": "b7e4f6cb-aab8-4514-98fb-97ed523e7020",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 45,
+        "ebook": "b7e4f6cb-aab8-4514-98fb-97ed523e7020",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 46,
+        "ebook": "b929d694-15b8-4845-bb27-98aed9d5cf2d",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    },
+    {
+        "id": 47,
+        "ebook": "b929d694-15b8-4845-bb27-98aed9d5cf2d",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "MOBI"
+    },
+    {
+        "id": 48,
+        "ebook": "b929d694-15b8-4845-bb27-98aed9d5cf2d",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "PDF"
+    },
+    {
+        "id": 49,
+        "ebook": "1ae73b28-5089-43fb-9a5a-98a66f48b17c",
+        "file_url": "http:\/\/localhost\/mock-file",
+        "format": "EBUP"
+    }
+]
