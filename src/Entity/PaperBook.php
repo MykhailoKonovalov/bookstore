@@ -2,10 +2,13 @@
 
 namespace App\Entity;
 
+use App\Constant\BookTypes;
 use App\Entity\Interfaces\HasTimestamp;
+use App\Entity\Interfaces\HasUUID;
 use App\Entity\Interfaces\ProductInterface;
 use App\Entity\Traits\ProductTrait;
 use App\Entity\Traits\TimestampTrait;
+use App\Entity\Traits\UUIDTrait;
 use App\Repository\PaperBooksRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -14,16 +17,13 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: "paper_books")]
 #[ORM\Index(columns: ["publisher_slug"], name: "pb_publisher_idx")]
 #[ORM\HasLifecycleCallbacks]
-class PaperBook implements HasTimestamp, ProductInterface
+class PaperBook implements HasUUID, HasTimestamp, ProductInterface
 {
+    use UUIDTrait;
+
     use TimestampTrait;
 
     use ProductTrait;
-
-    #[ORM\Id]
-    #[ORM\OneToOne(inversedBy: 'paperBook', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
-    private ?BookCopy $bookCopy = null;
 
     #[ORM\ManyToOne(inversedBy: "paperBooks")]
     #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
@@ -50,22 +50,9 @@ class PaperBook implements HasTimestamp, ProductInterface
     #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true, 'default' => 0])]
     private int $stockCount = 0;
 
-    public function __toString(): string
-    {
-        return $this->getBookCopy()->getBook()->getTitle();
-    }
-
-    public function getBookCopy(): BookCopy
-    {
-        return $this->bookCopy;
-    }
-
-    public function setBookCopy(BookCopy $bookCopy): self
-    {
-        $this->bookCopy = $bookCopy;
-
-        return $this;
-    }
+    #[ORM\OneToOne(mappedBy: 'paperBook', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    private ?Book $book = null;
 
     public function getPublisher(): ?Publisher
     {
@@ -161,5 +148,32 @@ class PaperBook implements HasTimestamp, ProductInterface
         $this->stockCount = $stockCount;
 
         return $this;
+    }
+
+    public function getBook(): ?Book
+    {
+        return $this->book;
+    }
+
+    public function setBook(?Book $book): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($book === null && $this->book !== null) {
+            $this->book->setPaperBook(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($book !== null && $book->getPaperBook() !== $this) {
+            $book->setPaperBook($this);
+        }
+
+        $this->book = $book;
+
+        return $this;
+    }
+
+    public function getBookType(): string
+    {
+        return BookTypes::PAPER_BOOK->value;
     }
 }

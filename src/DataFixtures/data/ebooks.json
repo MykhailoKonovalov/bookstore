@@ -1,398 +1,202 @@
 [
     {
-        "book_copy_uuid": "1007d399-a29b-4f62-acca-2ce297ae15c4",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 673,
-        "discount_percent": 0,
-        "discount_price": 673,
-        "sales_count": 389
+        "uuid": "332f1f47-be42-4df2-b6df-ec7676160218",
+        "book_slug": "gamlet",
+        "price": 906,
+        "discount_percent": 56,
+        "discount_price": 398.64,
+        "sales_count": 66
     },
     {
-        "book_copy_uuid": "420cec45-bd9c-454a-821c-3c3383f9b4ac",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 274,
-        "discount_percent": 0,
-        "discount_price": 274,
-        "sales_count": 335
+        "uuid": "87f4a1c9-28ba-44f2-936c-79723ceb5afe",
+        "book_slug": "sto-rokiv-samotnosti",
+        "price": 528,
+        "discount_percent": 64,
+        "discount_price": 190.08,
+        "sales_count": 84
     },
     {
-        "book_copy_uuid": "f0554fa8-9654-424d-af56-cee9ad1cef15",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 251,
-        "discount_percent": 96,
-        "discount_price": 10.04,
-        "sales_count": 652
+        "uuid": "a84f718d-fb6a-449b-ab5f-d276525e2238",
+        "book_slug": "garri-potter-i-filosofskij-kamin",
+        "price": 832,
+        "discount_percent": 27,
+        "discount_price": 607.36,
+        "sales_count": 56
     },
     {
-        "book_copy_uuid": "31d6281e-aa59-4fa0-a5c1-f352c38df95e",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 601,
-        "discount_percent": 0,
-        "discount_price": 601,
-        "sales_count": 50
+        "uuid": "6b50624a-43aa-4228-ae32-6a7d8cc70abd",
+        "book_slug": "norvezkyj-lis",
+        "price": 176,
+        "discount_percent": 90,
+        "discount_price": 17.6,
+        "sales_count": 26
     },
     {
-        "book_copy_uuid": "5c7ec207-afd3-44a1-a34c-cef61010aa04",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 976,
-        "discount_percent": 0,
-        "discount_price": 976,
-        "sales_count": 120
+        "uuid": "6160f520-d1bc-4d66-82be-7dc758de9256",
+        "book_slug": "1984",
+        "price": 529,
+        "discount_percent": 17,
+        "discount_price": 439.07,
+        "sales_count": 85
     },
     {
-        "book_copy_uuid": "2147be3e-4049-4bae-9d81-6d8bd377b7dd",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 350,
-        "discount_percent": 0,
-        "discount_price": 350,
-        "sales_count": 401
+        "uuid": "ff0bcc7c-78d9-439c-a4cc-800f2a05ba93",
+        "book_slug": "proces",
+        "price": 581,
+        "discount_percent": 60,
+        "discount_price": 232.4,
+        "sales_count": 79
     },
     {
-        "book_copy_uuid": "3af42dbd-1aa2-46d7-927e-1aa2ba479304",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 926,
-        "discount_percent": 0,
-        "discount_price": 926,
-        "sales_count": 386
+        "uuid": "560250b1-3ce7-45e3-b996-1c495c39d51f",
+        "book_slug": "romeo-i-dzhuljetta",
+        "price": 517,
+        "discount_percent": 60,
+        "discount_price": 206.8,
+        "sales_count": 77
     },
     {
-        "book_copy_uuid": "bb2d69dd-95cc-4f1d-85e3-475e9ccdda4d",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 291,
-        "discount_percent": 0,
-        "discount_price": 291,
-        "sales_count": 658
+        "uuid": "6eff5d42-57f4-4180-860a-9b787f3d0f4e",
+        "book_slug": "ema",
+        "price": 533,
+        "discount_percent": 71,
+        "discount_price": 154.57,
+        "sales_count": 21
     },
     {
-        "book_copy_uuid": "e1644127-f894-48de-b046-95ca6f93242d",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 434,
-        "discount_percent": 0,
-        "discount_price": 434,
-        "sales_count": 580
+        "uuid": "2e199d6c-812c-438d-8f20-6db5051f1319",
+        "book_slug": "osenya-kronosa",
+        "price": 407,
+        "discount_percent": 56,
+        "discount_price": 179.08,
+        "sales_count": 83
     },
     {
-        "book_copy_uuid": "7cc535ef-3f87-48bc-8aeb-2dec3ffdd718",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 262,
-        "discount_percent": 0,
-        "discount_price": 262,
-        "sales_count": 450
+        "uuid": "df45e0b5-db53-40d5-8665-3db3c7d0a780",
+        "book_slug": "garri-potter-i-tajemna-kimnata",
+        "price": 393,
+        "discount_percent": 94,
+        "discount_price": 23.58,
+        "sales_count": 45
     },
     {
-        "book_copy_uuid": "e4bf52b4-6962-4e8e-affd-b2c29c0b18af",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 929,
-        "discount_percent": 0,
-        "discount_price": 929,
-        "sales_count": 184
+        "uuid": "c0c8aeb3-63ba-4637-957e-6d001f7a2f4a",
+        "book_slug": "malenkij-knyaz",
+        "price": 458,
+        "discount_percent": 40,
+        "discount_price": 274.8,
+        "sales_count": 49
     },
     {
-        "book_copy_uuid": "da0e572a-7a61-4cc2-aae7-718b1b649071",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 378,
-        "discount_percent": 0,
-        "discount_price": 378,
-        "sales_count": 186
+        "uuid": "537a2c25-1912-4331-80a0-42547cc06185",
+        "book_slug": "metamorfozy",
+        "price": 585,
+        "discount_percent": 48,
+        "discount_price": 304.2,
+        "sales_count": 6
     },
     {
-        "book_copy_uuid": "d516e272-7489-47dd-a538-0688406983d2",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 660,
-        "discount_percent": 0,
-        "discount_price": 660,
-        "sales_count": 35
+        "uuid": "ffc6ac93-b112-4d9a-b015-838266abc997",
+        "book_slug": "chorne-vitrilo",
+        "price": 276,
+        "discount_percent": 27,
+        "discount_price": 201.48,
+        "sales_count": 60
     },
     {
-        "book_copy_uuid": "faf38bf2-9e61-4d72-99f4-dcc29ba795e5",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 203,
-        "discount_percent": 0,
-        "discount_price": 203,
-        "sales_count": 654
-    },
-    {
-        "book_copy_uuid": "beb81390-8d2b-478f-a98b-2ec84d612a26",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 289,
-        "discount_percent": 0,
-        "discount_price": 289,
-        "sales_count": 959
-    },
-    {
-        "book_copy_uuid": "afee7905-86e0-44d8-94de-8d9b6f6fd9c8",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 102,
-        "discount_percent": 19,
-        "discount_price": 82.62,
-        "sales_count": 994
-    },
-    {
-        "book_copy_uuid": "22745c95-b5cc-4909-94b3-3caf33b53a1d",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 888,
-        "discount_percent": 0,
-        "discount_price": 888,
-        "sales_count": 70
-    },
-    {
-        "book_copy_uuid": "ee87cb03-4360-4615-8547-a97c7ece7651",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 983,
-        "discount_percent": 0,
-        "discount_price": 983,
-        "sales_count": 59
-    },
-    {
-        "book_copy_uuid": "324bc57a-9095-4862-90e9-254a9969ca98",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 233,
-        "discount_percent": 0,
-        "discount_price": 233,
-        "sales_count": 849
-    },
-    {
-        "book_copy_uuid": "4195177c-c95b-4fbc-881e-2d062477e387",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 362,
-        "discount_percent": 0,
-        "discount_price": 362,
-        "sales_count": 245
-    },
-    {
-        "book_copy_uuid": "538a38b6-4471-4bc1-83ef-3de786d97c0d",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 565,
-        "discount_percent": 0,
-        "discount_price": 565,
-        "sales_count": 588
-    },
-    {
-        "book_copy_uuid": "6af94e00-0f0f-471d-899e-90abe7d37d06",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 468,
-        "discount_percent": 0,
-        "discount_price": 468,
-        "sales_count": 435
-    },
-    {
-        "book_copy_uuid": "52a5c2e9-9d12-460e-af36-d1aafe865d59",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 674,
-        "discount_percent": 0,
-        "discount_price": 674,
-        "sales_count": 262
-    },
-    {
-        "book_copy_uuid": "35da798a-28f8-4815-b4a3-4a632f0bc72e",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 759,
-        "discount_percent": 0,
-        "discount_price": 759,
-        "sales_count": 139
-    },
-    {
-        "book_copy_uuid": "ad60e208-da5c-45c3-bb33-e9c5a762ec70",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 896,
-        "discount_percent": 0,
-        "discount_price": 896,
-        "sales_count": 108
-    },
-    {
-        "book_copy_uuid": "052d4791-39e8-4406-962f-51e2c0672401",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 765,
-        "discount_percent": 0,
-        "discount_price": 765,
-        "sales_count": 260
-    },
-    {
-        "book_copy_uuid": "17ce6330-9822-4b3b-bc5e-561d9794cb07",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 931,
-        "discount_percent": 0,
-        "discount_price": 931,
-        "sales_count": 121
-    },
-    {
-        "book_copy_uuid": "495ddfa4-6f85-46ed-8965-38e0071c36b1",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 182,
-        "discount_percent": 0,
-        "discount_price": 182,
-        "sales_count": 587
-    },
-    {
-        "book_copy_uuid": "871f61b6-19c7-474d-a712-86b37606b0a7",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 268,
-        "discount_percent": 0,
-        "discount_price": 268,
-        "sales_count": 688
-    },
-    {
-        "book_copy_uuid": "239db4ad-ae28-45a1-a8b3-2929abc07c17",
-        "format": "pdf",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 834,
-        "discount_percent": 0,
-        "discount_price": 834,
-        "sales_count": 622
-    },
-    {
-        "book_copy_uuid": "44481fed-b5dc-4cbb-bfad-f7565283bc91",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 129,
-        "discount_percent": 3,
-        "discount_price": 125.13,
-        "sales_count": 592
-    },
-    {
-        "book_copy_uuid": "b695500c-0139-4f7f-aca2-f28cc6307eb6",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 385,
-        "discount_percent": 11,
-        "discount_price": 342.65,
-        "sales_count": 745
-    },
-    {
-        "book_copy_uuid": "6ac16a08-89c7-4a86-b32c-1335885651a3",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 780,
-        "discount_percent": 0,
-        "discount_price": 780,
-        "sales_count": 985
-    },
-    {
-        "book_copy_uuid": "65bed9d2-c6c2-4eb3-a85e-5970d9e8aae2",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 128,
-        "discount_percent": 0,
-        "discount_price": 128,
-        "sales_count": 529
-    },
-    {
-        "book_copy_uuid": "2c978ba6-b882-4075-b344-063b175c8d10",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 895,
-        "discount_percent": 0,
-        "discount_price": 895,
-        "sales_count": 523
-    },
-    {
-        "book_copy_uuid": "c77c74f8-4b3a-44a9-b132-ae582e68816a",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 736,
-        "discount_percent": 89,
-        "discount_price": 80.96,
-        "sales_count": 237
-    },
-    {
-        "book_copy_uuid": "42e2f949-214b-4d88-8843-48d0430b69df",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 266,
-        "discount_percent": 0,
-        "discount_price": 266,
-        "sales_count": 585
-    },
-    {
-        "book_copy_uuid": "706a7a87-9311-4246-8305-aeac17c67532",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 359,
-        "discount_percent": 0,
-        "discount_price": 359,
-        "sales_count": 193
-    },
-    {
-        "book_copy_uuid": "4cf0135d-1025-45a3-8070-893d58ac6e27",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
+        "uuid": "0dcc975b-3e31-4031-b337-b5662794440c",
+        "book_slug": "sobaka-baskerviley",
         "price": 523,
-        "discount_percent": 100,
-        "discount_price": 0,
-        "sales_count": 594
+        "discount_percent": 64,
+        "discount_price": 188.28,
+        "sales_count": 93
     },
     {
-        "book_copy_uuid": "75036fe0-7d58-45d4-ac0c-58c7a3f54273",
-        "format": "epub",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 280,
+        "uuid": "5c1af48c-60aa-4db2-89fc-a083d3b0cefb",
+        "book_slug": "gra-prestoliv",
+        "price": 243,
+        "discount_percent": 19,
+        "discount_price": 196.83,
+        "sales_count": 38
+    },
+    {
+        "uuid": "5e8ab352-8a19-4031-9ce6-b24ac3327805",
+        "book_slug": "burja-mechiv",
+        "price": 411,
+        "discount_percent": 25,
+        "discount_price": 308.25,
+        "sales_count": 69
+    },
+    {
+        "uuid": "f06a1dc9-d95d-44f9-9c2f-d24e79bcff68",
+        "book_slug": "bitva-koroliv",
+        "price": 966,
+        "discount_percent": 52,
+        "discount_price": 463.68,
+        "sales_count": 47
+    },
+    {
+        "uuid": "bc5e0e8a-dea1-4e38-9ae7-d8f6ed81a8d9",
+        "book_slug": "ditya-boga",
+        "price": 106,
+        "discount_percent": 3,
+        "discount_price": 102.82,
+        "sales_count": 79
+    },
+    {
+        "uuid": "daca802a-a40f-47eb-a834-1212ea73956c",
+        "book_slug": "syayvo",
+        "price": 451,
+        "discount_percent": 39,
+        "discount_price": 275.11,
+        "sales_count": 62
+    },
+    {
+        "uuid": "02190ea0-68cf-499c-bff0-bb05683509f4",
+        "book_slug": "vorota-v-lito",
+        "price": 825,
         "discount_percent": 0,
-        "discount_price": 280,
-        "sales_count": 322
+        "discount_price": 825,
+        "sales_count": 12
     },
     {
-        "book_copy_uuid": "f9244847-2631-40ad-9aee-ba70bc398ac5",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 465,
-        "discount_percent": 0,
-        "discount_price": 465,
-        "sales_count": 707
+        "uuid": "7102b6b7-0ab0-4337-89f2-a9d028674e49",
+        "book_slug": "it",
+        "price": 282,
+        "discount_percent": 88,
+        "discount_price": 33.84,
+        "sales_count": 96
     },
     {
-        "book_copy_uuid": "295db0b2-49c8-4025-842b-41adfd885458",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 298,
-        "discount_percent": 0,
-        "discount_price": 298,
-        "sales_count": 280
+        "uuid": "d413a1ac-be1c-445d-8208-d72d7a7f9fb5",
+        "book_slug": "prigodi-geklberri-finna",
+        "price": 572,
+        "discount_percent": 30,
+        "discount_price": 400.4,
+        "sales_count": 67
     },
     {
-        "book_copy_uuid": "08379d44-50e0-450c-b8ba-6707bf681303",
-        "format": "mobi",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 471,
-        "discount_percent": 0,
-        "discount_price": 471,
-        "sales_count": 431
-    },
-    {
-        "book_copy_uuid": "5c3a959e-e92b-4dce-8131-360354223b9c",
-        "format": "fb2",
-        "file_url": "http:\/\/localhost\/mock-file",
-        "price": 727,
-        "discount_percent": 89,
-        "discount_price": 79.97,
+        "uuid": "b7e4f6cb-aab8-4514-98fb-97ed523e7020",
+        "book_slug": "stepoviy-vovk",
+        "price": 765,
+        "discount_percent": 96,
+        "discount_price": 30.6,
         "sales_count": 39
+    },
+    {
+        "uuid": "b929d694-15b8-4845-bb27-98aed9d5cf2d",
+        "book_slug": "gitandzhali",
+        "price": 517,
+        "discount_percent": 43,
+        "discount_price": 294.69,
+        "sales_count": 56
+    },
+    {
+        "uuid": "1ae73b28-5089-43fb-9a5a-98a66f48b17c",
+        "book_slug": "prigodi-sherloka-holmsa",
+        "price": 152,
+        "discount_percent": 83,
+        "discount_price": 25.84,
+        "sales_count": 34
     }
 ]

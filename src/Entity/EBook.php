@@ -2,69 +2,95 @@
 
 namespace App\Entity;
 
-use App\Constant\EBookFormats;
+use App\Constant\BookTypes;
 use App\Entity\Interfaces\HasTimestamp;
+use App\Entity\Interfaces\HasUUID;
 use App\Entity\Interfaces\ProductInterface;
 use App\Entity\Traits\ProductTrait;
 use App\Entity\Traits\TimestampTrait;
+use App\Entity\Traits\UUIDTrait;
 use App\Repository\EBooksRepository;
-use Doctrine\DBAL\Types\Types;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: EBooksRepository::class)]
 #[ORM\Table(name: "ebooks")]
-#[ORM\Index(columns: ['format'], name: 'eb_format_idx')]
 #[ORM\HasLifecycleCallbacks]
-class EBook implements HasTimestamp, ProductInterface
+class EBook implements HasUUID, HasTimestamp, ProductInterface
 {
+    use UUIDTrait;
+
     use TimestampTrait;
 
     use ProductTrait;
 
-    #[ORM\Id]
-    #[ORM\OneToOne(inversedBy: 'eBook', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "book_copy_uuid", referencedColumnName: "uuid", nullable: false)]
-    private ?BookCopy $bookCopy = null;
+    /**
+     * @var Collection<int, EBookFormat>
+     */
+    #[ORM\OneToMany(mappedBy: 'eBook', targetEntity: EBookFormat::class, orphanRemoval: true)]
+    private Collection $eBookFormats;
 
-    #[ORM\Column(type: Types::STRING, length: 4, enumType: EBookFormats::class)]
-    private EBookFormats $format;
+    #[ORM\OneToOne(mappedBy: 'eBook', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "cascade")]
+    private ?Book $book = null;
 
-    #[ORM\Column(type: Types::STRING)]
-    private string $fileUrl;
-
-    public function getBookCopy(): BookCopy
+    public function __construct()
     {
-        return $this->bookCopy;
+        $this->eBookFormats = new ArrayCollection();
     }
 
-    public function setBookCopy(BookCopy $bookCopy): self
+    /**
+     * @return Collection<int, EBookFormat>
+     */
+    public function getEBookFormats(): Collection
     {
-        $this->bookCopy = $bookCopy;
+        return $this->eBookFormats;
+    }
+
+    public function addEBookFormat(EBookFormat $eBookFormat): self
+    {
+        if (!$this->eBookFormats->contains($eBookFormat)) {
+            $this->eBookFormats->add($eBookFormat);
+            $eBookFormat->setEbookUuid($this);
+        }
 
         return $this;
     }
 
-    public function getFormat(): ?string
+    public function removeEBookFormat(EBookFormat $eBookFormat): self
     {
-        return $this->format->value;
-    }
-
-    public function setFormat(EBookFormats $format): self
-    {
-        $this->format = $format;
+        if ($this->eBookFormats->removeElement($eBookFormat)) {
+            if ($eBookFormat->getEbookUuid() === $this) {
+                $eBookFormat->setEbookUuid(null);
+            }
+        }
 
         return $this;
     }
 
-    public function getFileUrl(): ?string
+    public function getBook(): ?Book
     {
-        return $this->fileUrl;
+        return $this->book;
     }
 
-    public function setFileUrl(string $fileUrl): self
+    public function setBook(?Book $book): self
     {
-        $this->fileUrl = $fileUrl;
+        if ($book === null && $this->book !== null) {
+            $this->book->setEBook(null);
+        }
+
+        if ($book !== null && $book->getEBook() !== $this) {
+            $book->setEBook($this);
+        }
+
+        $this->book = $book;
 
         return $this;
+    }
+
+    public function getBookType(): string
+    {
+        return BookTypes::ELECTRONIC_BOOK->value;
     }
 }
