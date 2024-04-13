@@ -51,7 +51,7 @@ class PaperBook implements HasUUID, HasTimestamp, ProductInterface
     private int $stockCount = 0;
 
     #[ORM\OneToOne(mappedBy: 'paperBook', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Book $book = null;
 
     public function getPublisher(): ?Publisher

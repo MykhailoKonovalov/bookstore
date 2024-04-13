@@ -32,7 +32,7 @@ class EBook implements HasUUID, HasTimestamp, ProductInterface
     private Collection $eBookFormats;
 
     #[ORM\OneToOne(mappedBy: 'eBook', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "cascade")]
     private ?Book $book = null;
 
     public function __construct()

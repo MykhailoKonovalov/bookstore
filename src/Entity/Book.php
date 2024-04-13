@@ -71,15 +71,15 @@ class Book implements HasSlug, HasTimestamp
     private ?string $coverUrl = null;
 
     #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "paper_book_uuid", referencedColumnName: "uuid", nullable: true)]
+    #[ORM\JoinColumn(name: "paper_book_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
     private ?PaperBook $paperBook = null;
 
     #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "audio_book_uuid", referencedColumnName: "uuid", nullable: true)]
+    #[ORM\JoinColumn(name: "audio_book_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
     private ?AudioBook $audioBook = null;
 
     #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "ebook_uuid", referencedColumnName: "uuid", nullable: true)]
+    #[ORM\JoinColumn(name: "ebook_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
     private ?EBook $eBook = null;
 
     public function __construct()

@@ -34,7 +34,7 @@ class AudioBook implements HasUUID, HasTimestamp, ProductInterface
     private string $fileUrl;
 
     #[ORM\OneToOne(mappedBy: 'audioBook', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "cascade")]
     private ?Book $book = null;
 
     public function getDurationInMinutes(): int
