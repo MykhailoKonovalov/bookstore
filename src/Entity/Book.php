@@ -67,20 +67,25 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, orphanRemoval: true)]
     private Collection $reviews;
 
-    /**
-     * @var Collection<int, BookCopy>
-     */
-    #[ORM\OneToMany(mappedBy: 'book', targetEntity: BookCopy::class, orphanRemoval: true)]
-    private Collection $bookCopies;
-
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $coverUrl = null;
+
+    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "paper_book_uuid", referencedColumnName: "uuid", nullable: true)]
+    private ?PaperBook $paperBook = null;
+
+    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "audio_book_uuid", referencedColumnName: "uuid", nullable: true)]
+    private ?AudioBook $audioBook = null;
+
+    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(name: "ebook_uuid", referencedColumnName: "uuid", nullable: true)]
+    private ?EBook $eBook = null;
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
-        $this->bookCopies = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -213,43 +218,50 @@ class Book implements HasSlug, HasTimestamp
         return $this;
     }
 
-    /**
-     * @return Collection<int, BookCopy>
-     */
-    public function getBookCopies(): Collection
-    {
-        return $this->bookCopies;
-    }
-
-    public function addBookCopy(BookCopy $bookCopy): self
-    {
-        if (!$this->bookCopies->contains($bookCopy)) {
-            $this->bookCopies->add($bookCopy);
-            $bookCopy->setBook($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBookType(BookCopy $bookCopy): self
-    {
-        if ($this->bookCopies->removeElement($bookCopy)) {
-            if ($bookCopy->getBook() === $this) {
-                $bookCopy->setBook(null);
-            }
-        }
-
-        return $this;
-    }
-
     public function getCoverUrl(): ?string
     {
         return $this->coverUrl;
     }
 
-    public function setCoverUrl(?string $coverUrl): static
+    public function setCoverUrl(?string $coverUrl): self
     {
         $this->coverUrl = $coverUrl;
+
+        return $this;
+    }
+
+    public function getPaperBook(): ?PaperBook
+    {
+        return $this->paperBook;
+    }
+
+    public function setPaperBook(?PaperBook $paperBook): self
+    {
+        $this->paperBook = $paperBook;
+
+        return $this;
+    }
+
+    public function getAudioBook(): ?AudioBook
+    {
+        return $this->audioBook;
+    }
+
+    public function setAudioBook(?AudioBook $audioBook): self
+    {
+        $this->audioBook = $audioBook;
+
+        return $this;
+    }
+
+    public function getEBook(): ?EBook
+    {
+        return $this->eBook;
+    }
+
+    public function setEBook(?EBook $eBook): self
+    {
+        $this->eBook = $eBook;
 
         return $this;
     }

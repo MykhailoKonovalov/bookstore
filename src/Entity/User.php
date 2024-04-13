@@ -53,19 +53,19 @@ class User implements
     /**
      * @var Collection<int, Review>
      */
-    #[ORM\OneToMany(targetEntity: Review::class, mappedBy: 'userUuid', orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'userUuid', targetEntity: Review::class, orphanRemoval: true)]
     private Collection $reviews;
 
     /**
      * @var Collection<int, Order>
      */
-    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'userUuid')]
+    #[ORM\OneToMany(mappedBy: 'userUuid', targetEntity: Order::class)]
     private Collection $orders;
 
     /**
      * @var Collection<int, WishList>
      */
-    #[ORM\OneToMany(targetEntity: WishList::class, mappedBy: 'userUuid', orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'userUuid', targetEntity: WishList::class, orphanRemoval: true)]
     private Collection $wishLists;
 
     public function __construct()
@@ -81,7 +81,7 @@ class User implements
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
@@ -111,7 +111,7 @@ class User implements
     /**
      * @param list<string> $roles
      */
-    public function setRoles(array $roles): static
+    public function setRoles(array $roles): self
     {
         $this->roles = $roles;
 
@@ -126,7 +126,7 @@ class User implements
         return $this->password;
     }
 
-    public function setPassword(string $password): static
+    public function setPassword(string $password): self
     {
         $this->password = $password;
 
@@ -146,7 +146,7 @@ class User implements
         return $this->phone;
     }
 
-    public function setPhone(string $phone): static
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
 
@@ -158,7 +158,7 @@ class User implements
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -173,7 +173,7 @@ class User implements
         return $this->reviews;
     }
 
-    public function addReview(Review $review): static
+    public function addReview(Review $review): self
     {
         if (!$this->reviews->contains($review)) {
             $this->reviews->add($review);
@@ -183,7 +183,7 @@ class User implements
         return $this;
     }
 
-    public function removeReview(Review $review): static
+    public function removeReview(Review $review): self
     {
         if ($this->reviews->removeElement($review)) {
             // set the owning side to null (unless already changed)
@@ -203,7 +203,7 @@ class User implements
         return $this->orders;
     }
 
-    public function addOrder(Order $order): static
+    public function addOrder(Order $order): self
     {
         if (!$this->orders->contains($order)) {
             $this->orders->add($order);
@@ -213,7 +213,7 @@ class User implements
         return $this;
     }
 
-    public function removeOrder(Order $order): static
+    public function removeOrder(Order $order): self
     {
         if ($this->orders->removeElement($order)) {
             // set the owning side to null (unless already changed)
@@ -233,7 +233,7 @@ class User implements
         return $this->wishLists;
     }
 
-    public function addWishList(WishList $wishList): static
+    public function addWishList(WishList $wishList): self
     {
         if (!$this->wishLists->contains($wishList)) {
             $this->wishLists->add($wishList);
@@ -243,7 +243,7 @@ class User implements
         return $this;
     }
 
-    public function removeWishList(WishList $wishList): static
+    public function removeWishList(WishList $wishList): self
     {
         if ($this->wishLists->removeElement($wishList)) {
             // set the owning side to null (unless already changed)

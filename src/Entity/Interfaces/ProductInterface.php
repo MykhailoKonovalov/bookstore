@@ -2,13 +2,15 @@
 
 namespace App\Entity\Interfaces;
 
-use App\Entity\BookCopy;
+use App\Entity\Book;
 
 interface ProductInterface
 {
-    public function getBookCopy(): BookCopy;
+    public function getBookType(): string;
 
-    public function setBookCopy(BookCopy $bookCopy): self;
+    public function getBook(): ?Book;
+
+    public function setBook(?Book $book): self;
 
     public function getPrice(): string;
 

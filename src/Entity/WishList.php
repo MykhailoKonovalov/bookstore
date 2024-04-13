@@ -6,6 +6,7 @@ use App\Repository\WishListRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WishListRepository::class)]
+#[ORM\Table(name: 'wish_lists')]
 class WishList
 {
     #[ORM\Id]
@@ -31,7 +32,7 @@ class WishList
         return $this->bookSlug;
     }
 
-    public function setBookSlug(?Book $bookSlug): static
+    public function setBookSlug(?Book $bookSlug): self
     {
         $this->bookSlug = $bookSlug;
 
@@ -43,7 +44,7 @@ class WishList
         return $this->userUuid;
     }
 
-    public function setUserUuid(?User $userUuid): static
+    public function setUserUuid(?User $userUuid): self
     {
         $this->userUuid = $userUuid;
 
