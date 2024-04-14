@@ -9,10 +9,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     librabbitmq-dev \
     git
 
-RUN docker-php-ext-install intl
-RUN docker-php-ext-install opcache
-RUN docker-php-ext-install pdo
-RUN docker-php-ext-install pdo_pgsql
+RUN docker-php-ext-install intl opcache pdo pdo_pgsql
 
 RUN pecl install apcu && docker-php-ext-enable apcu
 RUN pecl install redis && docker-php-ext-enable redis
@@ -22,6 +19,10 @@ RUN pecl install amqp && docker-php-ext-enable amqp
 #    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 #    && echo "xdebug.discover_client_host=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 #    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+RUN curl -sL https://deb.nodesource.com/setup_21.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install --global yarn
 
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 

@@ -2,7 +2,7 @@
 
 {% block title %}Reset your password{% endblock %}
 
-{% block body %}
+{% block content %}
     <h1>Reset your password</h1>
 
     {{ form_start(requestForm) }}
@@ -16,4 +16,4 @@
 
         <button class="btn btn-primary">Send password reset email</button>
     {{ form_end(requestForm) }}
-{% endblock %}
+{% endblock content %}

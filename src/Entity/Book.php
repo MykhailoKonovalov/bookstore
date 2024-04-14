@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Constant\BookTypes;
 use App\Entity\Interfaces\HasSlug;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\SlugTrait;
@@ -374,5 +375,23 @@ class Book implements HasSlug, HasTimestamp
         }
 
         return $this;
+    }
+
+    public function getPaperBook(): ?Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::PAPER_BOOK->value;
+            }
+        )->first();
+    }
+
+    public function getEBook(): ?Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::ELECTRONIC_BOOK->value;
+            }
+        )->first();
     }
 }

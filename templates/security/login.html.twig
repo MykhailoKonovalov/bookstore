@@ -2,7 +2,7 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block body %}
+{% block content %}
 <form method="post">
     {% if error %}
         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -40,4 +40,4 @@
         <a href="{{ path('connect_google_start') }}">Login with Google</a>
     </div>
 </form>
-{% endblock %}
+{% endblock content %}
