@@ -1,0 +1,164 @@
+[
+    {
+        "id": 1,
+        "product_uuid": "9f4231f8-f379-4b10-9dba-aad170da245c",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 2,
+        "product_uuid": "6fe1172c-2ab6-4f8c-8f2c-7de31507c53d",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 3,
+        "product_uuid": "ceff4ead-68cd-42ab-87c8-d4b31c71cdee",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 4,
+        "product_uuid": "d4b65864-84fb-4e74-ab12-349aba90c72d",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 5,
+        "product_uuid": "ef354b9e-6159-4a20-8be4-37de577b014b",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 6,
+        "product_uuid": "ef354b9e-6159-4a20-8be4-37de577b014b",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 7,
+        "product_uuid": "c2a37010-79bb-4ff4-b150-28bf2902d9bd",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 8,
+        "product_uuid": "cafb06eb-4154-4d4f-974b-bbe952d5cae8",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 9,
+        "product_uuid": "cafb06eb-4154-4d4f-974b-bbe952d5cae8",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 10,
+        "product_uuid": "e6ba8aed-627c-4e96-863b-342d515f819d",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 11,
+        "product_uuid": "e6ba8aed-627c-4e96-863b-342d515f819d",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 12,
+        "product_uuid": "6062d19c-2a03-46ae-8d5c-957dcebc8209",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 13,
+        "product_uuid": "9fc10759-6430-4c05-a2b1-f24d6a3b317b",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 14,
+        "product_uuid": "82582676-cc5e-46ee-bfce-42a52b19c2bc",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 15,
+        "product_uuid": "b8eb4e2e-ce18-4ca7-bb5b-9044f3b50d3e",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 16,
+        "product_uuid": "b8eb4e2e-ce18-4ca7-bb5b-9044f3b50d3e",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 17,
+        "product_uuid": "6a7a408b-06f2-446f-acff-246c6d0a7285",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 18,
+        "product_uuid": "67625891-8a7d-4143-89fa-ea356a05dbdd",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 19,
+        "product_uuid": "22578354-ed15-428b-a32b-7be5886126ac",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 20,
+        "product_uuid": "b87f23d2-6c70-4d31-9d15-365fd2e87b99",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 21,
+        "product_uuid": "bfa4cdb6-ea5f-4286-8019-1ea37d0b52b1",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 22,
+        "product_uuid": "1f7d31ba-fc87-4dfe-ba6a-bec2c7714233",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 23,
+        "product_uuid": "ec1e410e-4e4f-4690-9181-0ba8db50be80",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 24,
+        "product_uuid": "71369a5f-9bad-4248-96c0-07a92d951b3f",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 25,
+        "product_uuid": "71369a5f-9bad-4248-96c0-07a92d951b3f",
+        "format": "fb2",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 26,
+        "product_uuid": "249c6016-c46c-4a3e-bccf-e979ca838cde",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    },
+    {
+        "id": 27,
+        "product_uuid": "f00e52ad-7cff-40ec-9822-f2c8284556ce",
+        "format": "pdf",
+        "file_url": "http:\/\/localhost\/mock-file"
+    }
+]

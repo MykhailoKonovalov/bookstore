@@ -41,10 +41,6 @@ abstract class MainAbstractFixture extends Fixture
             );
 
             $this->connection->executeQuery($query);
-
-            $this->additionalStep($this->connection, $item);
         }
     }
-
-    protected function additionalStep(Connection $connection, array $item): void {}
 }

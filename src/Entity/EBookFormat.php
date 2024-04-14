@@ -10,7 +10,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: EBookFormatRepository::class)]
 #[ORM\Table(name: "ebook_formats")]
-#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_FORMAT", fields: ["format", 'product_uuid'])]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_FORMAT", fields: ["format", 'product'])]
 #[UniqueEntity(fields: ["format", 'product'], message: "This format is already exists for this book")]
 class EBookFormat
 {

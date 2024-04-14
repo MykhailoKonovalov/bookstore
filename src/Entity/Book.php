@@ -64,7 +64,7 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0, 'max' => 5])]
     private int $rating = 0;
 
-    #[ORM\ManyToOne(inversedBy: "paperBooks")]
+    #[ORM\ManyToOne(inversedBy: "books")]
     #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Publisher $publisher = null;
 

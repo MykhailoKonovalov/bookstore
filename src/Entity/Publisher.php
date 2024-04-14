@@ -74,7 +74,7 @@ class Publisher implements HasSlug, HasTimestamp
         return $this;
     }
 
-    public function removePaperBook(Book $book): self
+    public function removeBook(Book $book): self
     {
         if ($this->books->removeElement($book)) {
             if ($book->getPublisher() === $this) {

@@ -16,7 +16,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
 #[ORM\Table(name: 'products')]
-#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_TYPE", fields: ["type", "book_slug"])]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_TYPE", fields: ["type", "book"])]
 #[UniqueEntity(fields: ["type", "book"], message: "This type is already exists for this book")]
 #[ORM\HasLifecycleCallbacks]
 class Product implements HasUUID, HasTimestamp

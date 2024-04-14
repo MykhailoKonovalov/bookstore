@@ -22,7 +22,7 @@ class PublisherCrudController extends AbstractCrudController
         return match ($pageName) {
             Crud::PAGE_DETAIL => [
                 TextField::new('name'),
-                CollectionField::new('paperBooks')
+                CollectionField::new('books')
             ],
             default => [
                 TextField::new('name'),

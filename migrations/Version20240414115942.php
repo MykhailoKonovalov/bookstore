@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240414111341 extends AbstractMigration
+final class Version20240414115942 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -37,7 +37,7 @@ final class Version20240414111341 extends AbstractMigration
         $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_CATEGORY_NAME ON categories (name)');
         $this->addSql('CREATE TABLE ebook_formats (id INT NOT NULL, product_uuid UUID NOT NULL, format VARCHAR(4) NOT NULL, file_url VARCHAR(255) NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX IDX_F9E17B0A5C977207 ON ebook_formats (product_uuid)');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_BOOK_FORMAT ON ebook_formats (format)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_BOOK_FORMAT ON ebook_formats (format, product_uuid)');
         $this->addSql('COMMENT ON COLUMN ebook_formats.product_uuid IS \'(DC2Type:uuid)\'');
         $this->addSql('CREATE TABLE order_items (id INT NOT NULL, order_uuid UUID NOT NULL, product_uuid UUID NOT NULL, quantity INT NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, PRIMARY KEY(id))');
         $this->addSql('CREATE INDEX order_idx ON order_items (order_uuid)');
@@ -51,7 +51,7 @@ final class Version20240414111341 extends AbstractMigration
         $this->addSql('COMMENT ON COLUMN orders.user_uuid IS \'(DC2Type:uuid)\'');
         $this->addSql('CREATE TABLE products (uuid UUID NOT NULL, book_slug VARCHAR(255) NOT NULL, type VARCHAR(10) DEFAULT \'paper\' NOT NULL, price NUMERIC(8, 2) NOT NULL, discount_percent INT DEFAULT 0 NOT NULL, discount_price NUMERIC(8, 2) NOT NULL, sales_count INT DEFAULT 0 NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, PRIMARY KEY(uuid))');
         $this->addSql('CREATE INDEX IDX_B3BA5A5A8100D06A ON products (book_slug)');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_BOOK_TYPE ON products (type)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_BOOK_TYPE ON products (type, book_slug)');
         $this->addSql('COMMENT ON COLUMN products.uuid IS \'(DC2Type:uuid)\'');
         $this->addSql('CREATE TABLE publishers (slug VARCHAR(255) NOT NULL, name VARCHAR(255) NOT NULL, created_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, updated_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT CURRENT_TIMESTAMP NOT NULL, PRIMARY KEY(slug))');
         $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_PUBLISHER_NAME ON publishers (name)');
