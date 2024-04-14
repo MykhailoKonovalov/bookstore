@@ -58,8 +58,36 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::STRING, length: 2)]
     private string $language;
 
+    #[ORM\Column(type: Types::STRING, nullable: true)]
+    private ?string $coverUrl = null;
+
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0, 'max' => 5])]
     private int $rating = 0;
+
+    #[ORM\ManyToOne(inversedBy: "paperBooks")]
+    #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    private ?Publisher $publisher = null;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    private string $width;
+
+    #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
+    private string $height;
+
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $illustration = false;
+
+    #[ORM\Column(type: Types::BOOLEAN, options: ['default' => false])]
+    private bool $isSoftCover = false;
+
+    #[ORM\Column(type: Types::INTEGER)]
+    private int $pageCount;
+
+    #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true])]
+    private int $publishedYear;
+
+    #[ORM\Column(type: Types::INTEGER, options: ["unsigned" => true, 'default' => 0])]
+    private int $stockCount = 0;
 
     /**
      * @var Collection<int, Review>
@@ -67,25 +95,17 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, orphanRemoval: true)]
     private Collection $reviews;
 
-    #[ORM\Column(type: Types::STRING, nullable: true)]
-    private ?string $coverUrl = null;
-
-    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "paper_book_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
-    private ?PaperBook $paperBook = null;
-
-    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "audio_book_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
-    private ?AudioBook $audioBook = null;
-
-    #[ORM\OneToOne(inversedBy: 'book', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(name: "ebook_uuid", referencedColumnName: "uuid", nullable: true, onDelete: "CASCADE")]
-    private ?EBook $eBook = null;
+    /**
+     * @var Collection<int, Product>
+     */
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Product::class, orphanRemoval: true)]
+    private Collection $products;
 
     public function __construct()
     {
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
+        $this->products = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -230,38 +250,128 @@ class Book implements HasSlug, HasTimestamp
         return $this;
     }
 
-    public function getPaperBook(): ?PaperBook
+    public function getPublisher(): ?Publisher
     {
-        return $this->paperBook;
+        return $this->publisher;
     }
 
-    public function setPaperBook(?PaperBook $paperBook): self
+    public function setPublisher(?Publisher $publisher): self
     {
-        $this->paperBook = $paperBook;
+        $this->publisher = $publisher;
 
         return $this;
     }
 
-    public function getAudioBook(): ?AudioBook
+    public function getWidth(): string
     {
-        return $this->audioBook;
+        return $this->width;
     }
 
-    public function setAudioBook(?AudioBook $audioBook): self
+    public function setWidth(string $width): self
     {
-        $this->audioBook = $audioBook;
+        $this->width = $width;
 
         return $this;
     }
 
-    public function getEBook(): ?EBook
+    public function getHeight(): string
     {
-        return $this->eBook;
+        return $this->height;
     }
 
-    public function setEBook(?EBook $eBook): self
+    public function setHeight(string $height): self
     {
-        $this->eBook = $eBook;
+        $this->height = $height;
+
+        return $this;
+    }
+
+    public function isIllustration(): bool
+    {
+        return $this->illustration;
+    }
+
+    public function setIllustration(bool $illustration): self
+    {
+        $this->illustration = $illustration;
+
+        return $this;
+    }
+
+    public function isSoftCover(): bool
+    {
+        return $this->isSoftCover;
+    }
+
+    public function setIsSoftCover(bool $isSoftCover): self
+    {
+        $this->isSoftCover = $isSoftCover;
+
+        return $this;
+    }
+
+    public function getPageCount(): int
+    {
+        return $this->pageCount;
+    }
+
+    public function setPageCount(int $pageCount): self
+    {
+        $this->pageCount = $pageCount;
+
+        return $this;
+    }
+
+    public function getPublishedYear(): int
+    {
+        return $this->publishedYear;
+    }
+
+    public function setPublishedYear(int $publishedYear): self
+    {
+        $this->publishedYear = $publishedYear;
+
+        return $this;
+    }
+
+    public function getStockCount(): int
+    {
+        return $this->stockCount;
+    }
+
+    public function setStockCount(int $stockCount): self
+    {
+        $this->stockCount = $stockCount;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Product>
+     */
+    public function getProducts(): Collection
+    {
+        return $this->products;
+    }
+
+    public function addProduct(Product $product): static
+    {
+        if (!$this->products->contains($product)) {
+            $this->products->add($product);
+            $product->setBook($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProduct(Product $product): static
+    {
+        if ($this->products->removeElement($product)) {
+            // set the owning side to null (unless already changed)
+            if ($product->getBook() === $this) {
+                $product->setBook(null);
+            }
+        }
 
         return $this;
     }

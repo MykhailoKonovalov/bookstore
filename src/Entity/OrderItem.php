@@ -2,15 +2,21 @@
 
 namespace App\Entity;
 
-use App\Constant\BookTypes;
+use App\Entity\Interfaces\HasTimestamp;
+use App\Entity\Traits\TimestampTrait;
 use App\Repository\OrderItemRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderItemRepository::class)]
 #[ORM\Table(name: 'order_items')]
-class OrderItem
+#[ORM\Index(columns: ["order_uuid"], name: "order_idx")]
+#[ORM\Index(columns: ["product_uuid"], name: "order_product_idx")]
+#[ORM\HasLifecycleCallbacks]
+class OrderItem implements HasTimestamp
 {
+    use TimestampTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -24,11 +30,8 @@ class OrderItem
     private int $quantity = 0;
 
     #[ORM\ManyToOne]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
-    private ?Book $book = null;
-
-    #[ORM\Column(type: Types::STRING, length: 255, nullable: false, enumType: BookTypes::class)]
-    private BookTypes $bookType;
+    #[ORM\JoinColumn(name: 'product_uuid', referencedColumnName: 'uuid', nullable: false, onDelete: 'CASCADE')]
+    private ?Product $product = null;
 
     public function getId(): ?int
     {
@@ -59,26 +62,14 @@ class OrderItem
         return $this;
     }
 
-    public function getBook(): ?Book
+    public function getProduct(): ?Product
     {
-        return $this->book;
+        return $this->product;
     }
 
-    public function setBook(?Book $book): self
+    public function setProduct(?Product $product): static
     {
-        $this->book = $book;
-
-        return $this;
-    }
-
-    public function getBookType(): string
-    {
-        return $this->bookType->value;
-    }
-
-    public function setBookType(BookTypes $bookType): self
-    {
-        $this->bookType = $bookType;
+        $this->product = $product;
 
         return $this;
     }

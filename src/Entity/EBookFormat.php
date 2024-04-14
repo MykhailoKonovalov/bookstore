@@ -10,9 +10,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: EBookFormatRepository::class)]
 #[ORM\Table(name: "ebook_formats")]
-#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_FORMAT", fields: ["format", "eBook"])]
-#[UniqueEntity(fields: ["eBook", "format"], message: "This format is already exists for this book")]
-#[ORM\Index(columns: ["eBook", "format"], name: "ebook_format_idx")]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_FORMAT", fields: ["format", 'product_uuid'])]
+#[UniqueEntity(fields: ["format", 'product'], message: "This format is already exists for this book")]
 class EBookFormat
 {
     #[ORM\Id]
@@ -27,9 +26,8 @@ class EBookFormat
     private string $fileUrl;
 
     #[ORM\ManyToOne(inversedBy: 'eBookFormats')]
-    #[ORM\JoinColumn(name: "ebook_uuid", referencedColumnName: "uuid", nullable: false)]
-    #[ORM\Column(name: 'eBook')]
-    private ?EBook $eBook = null;
+    #[ORM\JoinColumn(name: "product_uuid", referencedColumnName: "uuid", nullable: false, onDelete: "CASCADE")]
+    private ?Product $product = null;
 
     public function getId(): ?int
     {
@@ -60,14 +58,14 @@ class EBookFormat
         return $this;
     }
 
-    public function getEbook(): ?EBook
+    public function getProduct(): ?Product
     {
-        return $this->eBook;
+        return $this->product;
     }
 
-    public function setEbook(?EBook $ebook): self
+    public function setProduct(?Product $product): self
     {
-        $this->eBook = $ebook;
+        $this->product = $product;
 
         return $this;
     }

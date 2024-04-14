@@ -29,14 +29,14 @@ class Publisher implements HasSlug, HasTimestamp
     private string $name;
 
     /**
-     * @var Collection<int, PaperBook>
+     * @var Collection<int, Book>
      */
-    #[ORM\OneToMany(mappedBy: "publisher", targetEntity: PaperBook::class)]
-    private Collection $paperBooks;
+    #[ORM\OneToMany(mappedBy: "publisher", targetEntity: Book::class)]
+    private Collection $books;
 
     public function __construct()
     {
-        $this->paperBooks = new ArrayCollection();
+        $this->books = new ArrayCollection();
     }
 
     public function __toString(): string
@@ -57,28 +57,28 @@ class Publisher implements HasSlug, HasTimestamp
     }
 
     /**
-     * @return Collection<int, PaperBook>
+     * @return Collection<int, Book>
      */
-    public function getPaperBooks(): Collection
+    public function getBooks(): Collection
     {
-        return $this->paperBooks;
+        return $this->books;
     }
 
-    public function addBook(PaperBook $paperBook): self
+    public function addBook(Book $book): self
     {
-        if (!$this->paperBooks->contains($paperBook)) {
-            $this->paperBooks->add($paperBook);
-            $paperBook->setPublisher($this);
+        if (!$this->books->contains($book)) {
+            $this->books->add($book);
+            $book->setPublisher($this);
         }
 
         return $this;
     }
 
-    public function removePaperBook(PaperBook $paperBooks): self
+    public function removePaperBook(Book $book): self
     {
-        if ($this->paperBooks->removeElement($paperBooks)) {
-            if ($paperBooks->getPublisher() === $this) {
-                $paperBooks->setPublisher(null);
+        if ($this->books->removeElement($book)) {
+            if ($book->getPublisher() === $this) {
+                $book->setPublisher(null);
             }
         }
 

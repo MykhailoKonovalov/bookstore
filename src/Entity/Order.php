@@ -15,6 +15,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
 #[ORM\Table(name: 'orders')]
+#[ORM\Index(columns: ["user_uuid"], name: "order_user_idx")]
+#[ORM\Index(columns: ["status"], name: "order_status_idx")]
 #[ORM\HasLifecycleCallbacks]
 class Order implements HasUUID, HasTimestamp
 {
@@ -23,7 +25,7 @@ class Order implements HasUUID, HasTimestamp
     use TimestampTrait;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
-    #[ORM\JoinColumn(name: "user_id", referencedColumnName: "uuid", nullable: false)]
+    #[ORM\JoinColumn(name: "user_uuid", referencedColumnName: "uuid", nullable: false)]
     private ?User $userUuid = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2, options: ['default' => '0.00'])]
