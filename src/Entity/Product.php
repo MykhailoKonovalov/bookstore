@@ -21,6 +21,8 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\HasLifecycleCallbacks]
 class Product implements HasUUID, HasTimestamp
 {
+    public const CURRENCY_CODE = 'UAH';
+
     use UUIDTrait;
 
     use TimestampTrait;
@@ -37,13 +39,13 @@ class Product implements HasUUID, HasTimestamp
     )]
     private BookTypes $type = BookTypes::PAPER_BOOK;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private string $price;
 
-    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'max' => 100, 'default' => 0])]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0])]
     private int $discountPercent = 0;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private string $discountPrice;
 
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0])]

@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Constant\BookTypes;
 use App\Entity\Interfaces\HasSlug;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\SlugTrait;
@@ -37,7 +38,7 @@ class Book implements HasSlug, HasTimestamp
     private string $title;
 
     #[ORM\ManyToOne(inversedBy: "books")]
-    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", onDelete: "SET NULL")]
     private ?Author $author = null;
 
     /**
@@ -55,7 +56,7 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $translator = null;
 
-    #[ORM\Column(type: Types::STRING, length: 2)]
+    #[ORM\Column(type: Types::STRING, length: 3)]
     private string $language;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -65,7 +66,7 @@ class Book implements HasSlug, HasTimestamp
     private int $rating = 0;
 
     #[ORM\ManyToOne(inversedBy: "books")]
-    #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", onDelete: "SET NULL")]
     private ?Publisher $publisher = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
@@ -374,5 +375,30 @@ class Book implements HasSlug, HasTimestamp
         }
 
         return $this;
+    }
+
+    public function getPaperBook(): false|Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::PAPER_BOOK->value;
+            }
+        )->first();
+    }
+
+    public function getEBook(): false|Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::ELECTRONIC_BOOK->value;
+            }
+        )->first();
+    }
+
+    public function getGeneralSalesCount(): int
+    {
+        return array_reduce($this->getProducts()->toArray(), function ($carry, Product $product) {
+            return $carry + $product->getSalesCount();
+        }, 0);
     }
 }
