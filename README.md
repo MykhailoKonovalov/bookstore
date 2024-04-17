@@ -14,3 +14,4 @@ A pet project that is an imitation of a bookstore website.
 * `make consume` - To run messenger workers   
 * `make redis_flush` - To flush all Redis databases
 * `make load_fixtures` - To load with mock data to DB
+* `make run_watch` - To run yarn encore in dev watch mode

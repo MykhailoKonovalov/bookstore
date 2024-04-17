@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -25,6 +26,8 @@ class AuthorCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
+            DateTimeField::new('createdAt')->onlyOnDetail(),
+            DateTimeField::new('updatedAt')->onlyOnDetail(),
             CollectionField::new('books')->onlyOnDetail()
                 ->formatValue(
                     function ($value, $entity) {
@@ -58,5 +61,11 @@ class AuthorCrudController extends AbstractCrudController
     {
         return $filters
             ->add(TextFilter::new('name'));
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+                     ->showEntityActionsInlined();
     }
 }

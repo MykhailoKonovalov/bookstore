@@ -34,10 +34,9 @@ class Product implements HasUUID, HasTimestamp
     #[ORM\Column(
         type: Types::STRING,
         length: 10,
-        enumType: BookTypes::class,
-        options: ['default' => BookTypes::PAPER_BOOK->value]
+        options: ['default' => BookTypes::PAPER->value]
     )]
-    private BookTypes $type = BookTypes::PAPER_BOOK;
+    private string $type = BookTypes::PAPER->value;
 
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private string $price;
@@ -76,10 +75,10 @@ class Product implements HasUUID, HasTimestamp
 
     public function getType(): string
     {
-        return $this->type->value;
+        return $this->type;
     }
 
-    public function setType(BookTypes $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 

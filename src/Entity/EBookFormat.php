@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Constant\EBookFormats;
 use App\Repository\EBookFormatRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -19,8 +18,8 @@ class EBookFormat
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(type: Types::STRING, length: 4, enumType: EBookFormats::class)]
-    private EBookFormats $format;
+    #[ORM\Column(type: Types::STRING, length: 4)]
+    private string $format;
 
     #[ORM\Column(type: Types::STRING)]
     private string $fileUrl;
@@ -29,6 +28,11 @@ class EBookFormat
     #[ORM\JoinColumn(name: "product_uuid", referencedColumnName: "uuid", nullable: false, onDelete: "CASCADE")]
     private ?Product $product = null;
 
+    public function __toString(): string
+    {
+        return sprintf('#%d. %s - %s', $this->id, $this->product->getBook(), strtoupper($this->format));
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -36,10 +40,10 @@ class EBookFormat
 
     public function getFormat(): ?string
     {
-        return $this->format->value;
+        return $this->format;
     }
 
-    public function setFormat(EBookFormats $format): self
+    public function setFormat(string $format): self
     {
         $this->format = $format;
 

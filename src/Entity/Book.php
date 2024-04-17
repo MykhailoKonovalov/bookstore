@@ -355,7 +355,7 @@ class Book implements HasSlug, HasTimestamp
         return $this->products;
     }
 
-    public function addProduct(Product $product): static
+    public function addProduct(Product $product): self
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
@@ -365,7 +365,7 @@ class Book implements HasSlug, HasTimestamp
         return $this;
     }
 
-    public function removeProduct(Product $product): static
+    public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
@@ -381,16 +381,25 @@ class Book implements HasSlug, HasTimestamp
     {
         return $this->getProducts()->filter(
             function (Product $product) {
-                return $product->getType() === BookTypes::PAPER_BOOK->value;
+                return $product->getType() === BookTypes::PAPER->value;
             }
         )->first();
+    }
+
+    public function setPaperBook(Product $product): self
+    {
+        if (!$this->getPaperBook()) {
+            $this->addProduct($product);
+        }
+
+        return $this;
     }
 
     public function getEBook(): false|Product
     {
         return $this->getProducts()->filter(
             function (Product $product) {
-                return $product->getType() === BookTypes::ELECTRONIC_BOOK->value;
+                return $product->getType() === BookTypes::ELECTRONIC->value;
             }
         )->first();
     }

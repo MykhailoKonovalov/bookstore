@@ -13,7 +13,7 @@ trait EnumToArrayTrait
         $enumArray = [];
 
         foreach ($constants as $key => $value) {
-            $enumArray[$key] = $value;
+            $enumArray[$key] = $value->value;
         }
 
         return $enumArray;

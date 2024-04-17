@@ -2,9 +2,13 @@
 
 namespace App\Constant;
 
+use App\Constant\Trait\EnumToArrayTrait;
+
 enum BookTypes: string
 {
-    case PAPER_BOOK = 'paper';
+    use EnumToArrayTrait;
 
-    case ELECTRONIC_BOOK = 'electronic';
+    case PAPER = 'paper';
+
+    case ELECTRONIC = 'electronic';
 }

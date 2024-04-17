@@ -10,6 +10,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 
@@ -27,6 +28,8 @@ class UserCrudController extends AbstractCrudController
             TextField::new('email'),
             TextField::new('phone'),
             ArrayField::new('roles')->hideOnForm(),
+            DateTimeField::new('createdAt')->onlyOnDetail(),
+            DateTimeField::new('updatedAt')->onlyOnDetail(),
         ];
     }
 
@@ -47,5 +50,11 @@ class UserCrudController extends AbstractCrudController
             ->add(TextFilter::new('name'))
             ->add(TextFilter::new('email'))
             ->add(TextFilter::new('phone'));
+    }
+
+    public function configureCrud(Crud $crud): Crud
+    {
+        return parent::configureCrud($crud)
+                     ->showEntityActionsInlined();
     }
 }
