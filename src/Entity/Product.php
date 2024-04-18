@@ -21,29 +21,30 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\HasLifecycleCallbacks]
 class Product implements HasUUID, HasTimestamp
 {
+    public const CURRENCY_CODE = 'UAH';
+
     use UUIDTrait;
 
     use TimestampTrait;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\ManyToOne(targetEntity: Book::class, cascade: ['persist'], inversedBy: 'products')]
+    #[ORM\JoinColumn(referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Book $book = null;
 
     #[ORM\Column(
         type: Types::STRING,
         length: 10,
-        enumType: BookTypes::class,
-        options: ['default' => BookTypes::PAPER_BOOK->value]
+        options: ['default' => BookTypes::PAPER->value]
     )]
-    private BookTypes $type = BookTypes::PAPER_BOOK;
+    private string $type = BookTypes::PAPER->value;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private string $price;
 
-    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'max' => 100, 'default' => 0])]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0])]
     private int $discountPercent = 0;
 
-    #[ORM\Column(type: Types::DECIMAL, precision: 8, scale: 2)]
+    #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true])]
     private string $discountPrice;
 
     #[ORM\Column(type: Types::INTEGER, options: ['unsigned' => true, 'default' => 0])]
@@ -60,6 +61,15 @@ class Product implements HasUUID, HasTimestamp
         $this->eBookFormats = new ArrayCollection();
     }
 
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function checkType(): void
+    {
+        if ($this->getType() === BookTypes::PAPER->value) {
+            $this->getEBookFormats()->clear();
+        }
+    }
+
     public function getBook(): ?Book
     {
         return $this->book;
@@ -74,10 +84,10 @@ class Product implements HasUUID, HasTimestamp
 
     public function getType(): string
     {
-        return $this->type->value;
+        return $this->type;
     }
 
-    public function setType(BookTypes $type): self
+    public function setType(string $type): self
     {
         $this->type = $type;
 
@@ -158,7 +168,6 @@ class Product implements HasUUID, HasTimestamp
     public function removeEBookFormat(EBookFormat $eBookFormat): static
     {
         if ($this->eBookFormats->removeElement($eBookFormat)) {
-            // set the owning side to null (unless already changed)
             if ($eBookFormat->getProduct() === $this) {
                 $eBookFormat->setProduct(null);
             }

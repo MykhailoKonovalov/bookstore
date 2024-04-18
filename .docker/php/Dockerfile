@@ -23,6 +23,10 @@ RUN pecl install amqp && docker-php-ext-enable amqp
 #    && echo "xdebug.discover_client_host=1" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
 #    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
+RUN curl -sL https://deb.nodesource.com/setup_21.x | bash -
+RUN apt-get -y install nodejs
+RUN npm install --global yarn
+
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
 RUN chmod 777 /usr/src --recursive

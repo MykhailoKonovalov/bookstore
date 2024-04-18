@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Constant\BookTypes;
 use App\Entity\Interfaces\HasSlug;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\SlugTrait;
@@ -11,8 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ORM\Table(name: "books")]
@@ -30,14 +31,13 @@ class Book implements HasSlug, HasTimestamp
 
     #[ORM\Id]
     #[ORM\Column(type: Types::STRING, unique: true)]
-    #[Gedmo\Slug(fields: ['title'])]
     private string $slug;
 
     #[ORM\Column(type: Types::STRING)]
     private string $title;
 
     #[ORM\ManyToOne(inversedBy: "books")]
-    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", onDelete: "SET NULL")]
     private ?Author $author = null;
 
     /**
@@ -45,7 +45,7 @@ class Book implements HasSlug, HasTimestamp
      */
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: "books")]
     #[ORM\JoinTable(name: "categories_books")]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug")]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
     #[ORM\InverseJoinColumn("category_slug", referencedColumnName: "slug")]
     private Collection $category;
 
@@ -55,7 +55,7 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::STRING, nullable: true)]
     private ?string $translator = null;
 
-    #[ORM\Column(type: Types::STRING, length: 2)]
+    #[ORM\Column(type: Types::STRING, length: 3)]
     private string $language;
 
     #[ORM\Column(type: Types::STRING, nullable: true)]
@@ -65,7 +65,7 @@ class Book implements HasSlug, HasTimestamp
     private int $rating = 0;
 
     #[ORM\ManyToOne(inversedBy: "books")]
-    #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(name: "publisher_slug", referencedColumnName: "slug", onDelete: "SET NULL")]
     private ?Publisher $publisher = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 2)]
@@ -92,13 +92,13 @@ class Book implements HasSlug, HasTimestamp
     /**
      * @var Collection<int, Review>
      */
-    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $reviews;
 
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Product::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Product::class, cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $products;
 
     public function __construct()
@@ -106,6 +106,16 @@ class Book implements HasSlug, HasTimestamp
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->products = new ArrayCollection();
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function generateSlug(): void
+    {
+        $slugger = new AsciiSlugger();
+        $slug = $slugger->slug($this->title);
+
+        $this->slug = $slug;
     }
 
     public function __toString(): string
@@ -354,7 +364,7 @@ class Book implements HasSlug, HasTimestamp
         return $this->products;
     }
 
-    public function addProduct(Product $product): static
+    public function addProduct(Product $product): self
     {
         if (!$this->products->contains($product)) {
             $this->products->add($product);
@@ -364,7 +374,7 @@ class Book implements HasSlug, HasTimestamp
         return $this;
     }
 
-    public function removeProduct(Product $product): static
+    public function removeProduct(Product $product): self
     {
         if ($this->products->removeElement($product)) {
             // set the owning side to null (unless already changed)
@@ -374,5 +384,39 @@ class Book implements HasSlug, HasTimestamp
         }
 
         return $this;
+    }
+
+    public function getPaperBook(): false|Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::PAPER->value;
+            }
+        )->first();
+    }
+
+    public function setPaperBook(Product $product): self
+    {
+        if (!$this->getPaperBook()) {
+            $this->addProduct($product);
+        }
+
+        return $this;
+    }
+
+    public function getEBook(): false|Product
+    {
+        return $this->getProducts()->filter(
+            function (Product $product) {
+                return $product->getType() === BookTypes::ELECTRONIC->value;
+            }
+        )->first();
+    }
+
+    public function getGeneralSalesCount(): int
+    {
+        return array_reduce($this->getProducts()->toArray(), function ($carry, Product $product) {
+            return $carry + $product->getSalesCount();
+        }, 0);
     }
 }
