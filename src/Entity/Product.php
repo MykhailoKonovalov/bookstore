@@ -27,8 +27,8 @@ class Product implements HasUUID, HasTimestamp
 
     use TimestampTrait;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\ManyToOne(targetEntity: Book::class, cascade: ['persist'], inversedBy: 'products')]
+    #[ORM\JoinColumn(referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Book $book = null;
 
     #[ORM\Column(
@@ -59,6 +59,15 @@ class Product implements HasUUID, HasTimestamp
     public function __construct()
     {
         $this->eBookFormats = new ArrayCollection();
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function checkType(): void
+    {
+        if ($this->getType() === BookTypes::PAPER->value) {
+            $this->getEBookFormats()->clear();
+        }
     }
 
     public function getBook(): ?Book
@@ -159,7 +168,6 @@ class Product implements HasUUID, HasTimestamp
     public function removeEBookFormat(EBookFormat $eBookFormat): static
     {
         if ($this->eBookFormats->removeElement($eBookFormat)) {
-            // set the owning side to null (unless already changed)
             if ($eBookFormat->getProduct() === $this) {
                 $eBookFormat->setProduct(null);
             }

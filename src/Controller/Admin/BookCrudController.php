@@ -2,7 +2,9 @@
 
 namespace App\Controller\Admin;
 
+use App\Constant\BookTypes;
 use App\Entity\Book;
+use App\Entity\EBookFormat;
 use App\Entity\Product;
 use App\Form\Admin\Type\ProductFormType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -27,8 +29,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\NumericFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use Symfony\Component\Asset\Package;
-use Symfony\Component\Asset\VersionStrategy\EmptyVersionStrategy;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 class BookCrudController extends AbstractCrudController
 {
@@ -83,10 +84,42 @@ class BookCrudController extends AbstractCrudController
             IntegerField::new('pageCount')->hideOnIndex(),
             IntegerField::new('publishedYear')->hideOnIndex(),
 
-            FormField::addTab('Related Products Information'),
+            FormField::addTab('Options For Sale'),
             CollectionField::new('products')->hideOnIndex()
-                ->setFormTypeOption('entry_options', ['by_reference' => true])
-                ->setEntryType(ProductFormType::class),
+                           ->setFormTypeOption('entry_options', ['by_reference' => true])
+                           ->setEntryType(ProductFormType::class)
+                           ->formatValue(
+                               function ($value, $entity) {
+                                   $products    = $entity->getProducts();
+                                   $productData = [];
+
+                                   /** @var Product $product */
+                                   foreach ($products as $product) {
+                                       $productData[] = sprintf(
+                                               '</br>%s, price: %s, discount: %s, discountPrice: %s',
+                                               $product,
+                                               $product->getPrice(),
+                                               $product->getDiscountPercent(),
+                                               $product->getDiscountPrice(),
+                                           ) . (
+                                           $product->getType() === BookTypes::ELECTRONIC->value
+                                               ? sprintf(
+                                               ', formats: [%s]', implode(
+                                               ', ',
+                                               array_map(
+                                                   function (EBookFormat $value) {
+                                                       return strtoupper($value->getFormat());
+                                                   },
+                                                   $product->getEBookFormats()->getValues(),
+                                               ),
+                                           ))
+                                               : ''
+                                           );
+                                   }
+
+                                   return implode(', ', $productData);
+                               },
+                           ),
         ];
     }
 
@@ -117,5 +150,31 @@ class BookCrudController extends AbstractCrudController
     {
         return $assets
             ->addWebpackEncoreEntry('bookProduct');
+    }
+
+    private function persistAllStuff(EntityManagerInterface $entityManager, Book $book): void
+    {
+        $products = $book->getProducts();
+
+        foreach ($products as $product) {
+            foreach ($product->getEBookFormats() as $format) {
+                $entityManager->persist($format);
+            }
+
+            $entityManager->persist($product);
+        }
+
+        $entityManager->persist($book);
+        $entityManager->flush();
+    }
+
+    public function updateEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->persistAllStuff($entityManager, $entityInstance);
+    }
+
+    public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->persistAllStuff($entityManager, $entityInstance);
     }
 }

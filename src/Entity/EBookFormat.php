@@ -14,7 +14,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 class EBookFormat
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
+    #[ORM\GeneratedValue(strategy: "IDENTITY")]
     #[ORM\Column]
     private ?int $id = null;
 
@@ -24,13 +24,13 @@ class EBookFormat
     #[ORM\Column(type: Types::STRING)]
     private string $fileUrl;
 
-    #[ORM\ManyToOne(inversedBy: 'eBookFormats')]
+    #[ORM\ManyToOne(cascade: ['persist'], inversedBy: 'eBookFormats')]
     #[ORM\JoinColumn(name: "product_uuid", referencedColumnName: "uuid", nullable: false, onDelete: "CASCADE")]
     private ?Product $product = null;
 
     public function __toString(): string
     {
-        return sprintf('#%d. %s - %s', $this->id, $this->product->getBook(), strtoupper($this->format));
+        return sprintf('#%d: %s - %s', $this->id, $this->getProduct()->getBook(), strtoupper($this->format));
     }
 
     public function getId(): ?int

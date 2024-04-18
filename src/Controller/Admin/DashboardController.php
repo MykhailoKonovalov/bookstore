@@ -39,7 +39,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Categories', 'fas fa-layer-group', Category::class);
         yield MenuItem::linkToCrud('Books', 'fa fa-book', Book::class);
         yield MenuItem::linkToCrud('Users', 'fa fa-user', User::class);
-        yield MenuItem::linkToCrud('Product', null, Product::class);
     }
 
     public function configureUserMenu(UserInterface $user): UserMenu

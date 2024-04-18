@@ -12,8 +12,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\String\Slugger\AsciiSlugger;
 
 #[ORM\Entity(repositoryClass: BookRepository::class)]
 #[ORM\Table(name: "books")]
@@ -31,7 +31,6 @@ class Book implements HasSlug, HasTimestamp
 
     #[ORM\Id]
     #[ORM\Column(type: Types::STRING, unique: true)]
-    #[Gedmo\Slug(fields: ['title'])]
     private string $slug;
 
     #[ORM\Column(type: Types::STRING)]
@@ -46,7 +45,7 @@ class Book implements HasSlug, HasTimestamp
      */
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: "books")]
     #[ORM\JoinTable(name: "categories_books")]
-    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug")]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
     #[ORM\InverseJoinColumn("category_slug", referencedColumnName: "slug")]
     private Collection $category;
 
@@ -93,13 +92,13 @@ class Book implements HasSlug, HasTimestamp
     /**
      * @var Collection<int, Review>
      */
-    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Review::class, cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $reviews;
 
     /**
      * @var Collection<int, Product>
      */
-    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Product::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'book', targetEntity: Product::class, cascade: ["persist", "remove"], orphanRemoval: true)]
     private Collection $products;
 
     public function __construct()
@@ -107,6 +106,16 @@ class Book implements HasSlug, HasTimestamp
         $this->category = new ArrayCollection();
         $this->reviews = new ArrayCollection();
         $this->products = new ArrayCollection();
+    }
+
+    #[ORM\PrePersist]
+    #[ORM\PreUpdate]
+    public function generateSlug(): void
+    {
+        $slugger = new AsciiSlugger();
+        $slug = $slugger->slug($this->title);
+
+        $this->slug = $slug;
     }
 
     public function __toString(): string
