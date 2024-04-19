@@ -4,7 +4,6 @@ namespace App\Service\Book\DTOBuilder;
 
 use App\DTO\BookPreviewDTO;
 use App\Entity\Book;
-use App\Entity\Interfaces\ProductInterface;
 use App\Entity\Product;
 
 class BookPreviewBuilder

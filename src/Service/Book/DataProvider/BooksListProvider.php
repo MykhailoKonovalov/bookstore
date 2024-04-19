@@ -3,31 +3,31 @@
 namespace App\Service\Book\DataProvider;
 
 use App\DTO\BooksListDTO;
-use App\Repository\BookRepository;
-use App\Service\Book\DTOBuilder\BookPreviewBuilder;
+use App\Repository\BookListRepository;
+use App\Service\Book\DTOBuilder\BookListBuilder;
 
-class BooksListProvider
+readonly class BooksListProvider
 {
-    public const NEW_BOOKS_LIST_NAME = 'Новинки';
-
     public function __construct(
-        private readonly BookRepository $bookRepository,
-        private readonly BookPreviewBuilder $bookPreviewBuilder,
+        private BookListRepository $bookListRepository,
+        private BookListBuilder $bookListBuilder,
     ) {}
 
-    public function getLatestBooksList(): BooksListDTO
+    /**
+     * @return BooksListDTO[]
+     */
+    public function getBookLists(): array
     {
-        $books = $this->bookRepository->findLatest();
-        $booksList = [];
+        $bookLists    = $this->bookListRepository->findBy(
+            [
+                'published' => true,
+            ], ['priority' => 'ASC']);
+        $bookListDTOs = [];
 
-        foreach ($books as $book) {
-            $booksList[] = $this->bookPreviewBuilder->build($book);
+        foreach ($bookLists as $bookList) {
+            $bookListDTOs[] = $this->bookListBuilder->build($bookList);
         }
 
-        return new BooksListDTO(
-            self::NEW_BOOKS_LIST_NAME,
-            0,
-            $booksList
-        );
+        return $bookListDTOs;
     }
 }

@@ -20,7 +20,7 @@ class HomeController extends AbstractController
     {
         return $this->render(
             'home/index.html.twig', [
-            'newBooks' => $this->booksListProvider->getLatestBooksList(),
+            'bookLists' => $this->booksListProvider->getBookLists(),
         ]);
     }
 }
