@@ -28,7 +28,7 @@ class Product implements HasUUID, HasTimestamp
     use TimestampTrait;
 
     #[ORM\ManyToOne(targetEntity: Book::class, cascade: ['persist'], inversedBy: 'products')]
-    #[ORM\JoinColumn(referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
+    #[ORM\JoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false, onDelete: "CASCADE")]
     private ?Book $book = null;
 
     #[ORM\Column(
