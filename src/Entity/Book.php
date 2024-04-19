@@ -120,7 +120,7 @@ class Book implements HasSlug, HasTimestamp
 
     public function __toString(): string
     {
-        return $this->title;
+        return sprintf('"%s" %s. %s', $this->title, $this->author, $this->publisher);
     }
 
     public function getTitle(): string

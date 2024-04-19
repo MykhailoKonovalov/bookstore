@@ -41,7 +41,7 @@ class CategoryCrudController extends AbstractCrudController
                                                ->setEntityId($book->getSlug())
                                                ->generateUrl();
 
-                        $bookNames[] = '<a href="' . $url . '">' . $book->getTitle() . '</a>';
+                        $bookNames[] = '<a href="' . $url . '">' . $book . '</a>';
                     }
 
                     return implode(', </br>', $bookNames);
