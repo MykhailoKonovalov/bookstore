@@ -9,16 +9,16 @@ readonly class BookCompilationBuilder
 {
     public function __construct(private BookPreviewBuilder $bookPreviewBuilder) {}
 
-    public function build(Compilation $bookList): BookCompilationDTO
+    public function build(Compilation $compilation): BookCompilationDTO
     {
         $bookPreviewList = [];
 
-        foreach ($bookList->getBooks() as $book) {
+        foreach ($compilation->getBooks() as $book) {
             $bookPreviewList[] = $this->bookPreviewBuilder->build($book);
         }
 
         return new BookCompilationDTO(
-            $bookList->getTitle(),
+            $compilation->getTitle(),
             $bookPreviewList,
         );
     }

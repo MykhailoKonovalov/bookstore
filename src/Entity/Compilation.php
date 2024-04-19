@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Validation\PublishedCompilationsLimit as CompilationsLimit;
 
 #[ORM\Entity(repositoryClass: CompilationRepository::class)]
 #[ORM\Table(name: 'compilations')]
@@ -17,6 +18,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_COMPILATION_NAME_PUB", fields: ['title', 'published'])]
 #[UniqueEntity(fields: ['priority'], message: 'This priority already exists.')]
 #[UniqueEntity(fields: ['title', 'published'], message: 'Compilation with the same title already published.')]
+#[CompilationsLimit\CompilationsLimit(limit: 5)]
 class Compilation implements HasTimestamp
 {
     use TimestampTrait;

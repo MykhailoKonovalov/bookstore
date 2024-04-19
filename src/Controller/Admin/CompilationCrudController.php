@@ -19,7 +19,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
-class BookListCrudController extends AbstractCrudController
+class CompilationCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
@@ -32,7 +32,7 @@ class BookListCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('title'),
             IntegerField::new('priority'),
-            BooleanField::new('published'),
+            BooleanField::new('published')->renderAsSwitch(false),
             AssociationField::new('books')->onlyOnForms(),
             CollectionField::new('books')->onlyOnDetail()
                 ->formatValue(
