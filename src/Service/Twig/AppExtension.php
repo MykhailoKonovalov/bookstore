@@ -2,12 +2,11 @@
 
 namespace App\Service\Twig;
 
-use App\Entity\User;
 use App\Service\User\UserDataService;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-class TwigExtension extends AbstractExtension
+class AppExtension extends AbstractExtension
 {
     public function __construct(
         private readonly UserDataService $userDataService,

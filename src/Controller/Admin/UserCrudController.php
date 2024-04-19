@@ -2,64 +2,53 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Book;
-use App\Entity\Category;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
-class CategoryCrudController extends AbstractCrudController
+class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Category::class;
+        return User::class;
     }
 
     public function configureFields(string $pageName): iterable
     {
         return [
             TextField::new('name'),
+            TextField::new('email'),
+            TextField::new('phone'),
+            ArrayField::new('roles')->hideOnForm(),
             DateTimeField::new('createdAt')->onlyOnDetail(),
             DateTimeField::new('updatedAt')->onlyOnDetail(),
-            CollectionField::new('books')->onlyOnDetail()
-                ->formatValue(function ($value, $entity) {
-                    /** @var Book[] $books */
-                    $books     = $entity->getBooks();
-                    $bookNames = [];
-
-                    foreach ($books as $book) {
-                        $url = $this->container->get(AdminUrlGenerator::class)
-                                               ->setController(BookCrudController::class)
-                                               ->setAction(Action::DETAIL)
-                                               ->setEntityId($book->getSlug())
-                                               ->generateUrl();
-
-                        $bookNames[] = '<a href="' . $url . '">' . $book . '</a>';
-                    }
-
-                    return implode(', </br>', $bookNames);
-                },
-            ),
         ];
     }
 
     public function configureActions(Actions $actions): Actions
     {
         return $actions
+            ->remove(Crud::PAGE_INDEX, Action::NEW)
+            ->remove(Crud::PAGE_INDEX, Action::EDIT)
+            ->remove(Crud::PAGE_INDEX, Action::DELETE)
+            ->remove(Crud::PAGE_DETAIL, Action::DELETE)
+            ->remove(Crud::PAGE_DETAIL, Action::EDIT)
             ->add(Crud::PAGE_INDEX, Action::DETAIL);
     }
 
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
-            ->add(TextFilter::new('name'));
+            ->add(TextFilter::new('name'))
+            ->add(TextFilter::new('email'))
+            ->add(TextFilter::new('phone'));
     }
 
     public function configureCrud(Crud $crud): Crud

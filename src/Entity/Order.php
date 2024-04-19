@@ -69,9 +69,9 @@ class Order implements HasUUID, HasTimestamp
         return $this;
     }
 
-    public function getStatus(): ?string
+    public function getStatus(): OrderStatuses
     {
-        return $this->status->value;
+        return $this->status;
     }
 
     public function setStatus(OrderStatuses $status): self

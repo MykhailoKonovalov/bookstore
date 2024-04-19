@@ -25,3 +25,6 @@ redis_flush:
 
 load_fixtures:
 	docker-compose -f compose.yaml exec php php bin/console doctrine:fixtures:load --no-interaction
+
+run_watch:
+	docker-compose -f compose.yaml exec php yarn encore dev --watch

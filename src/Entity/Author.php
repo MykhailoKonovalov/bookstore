@@ -31,7 +31,7 @@ class Author implements HasSlug, HasTimestamp
     /**
      * @var Collection<int, Book>
      */
-    #[ORM\OneToMany(mappedBy: "author", targetEntity: Book::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: "author", targetEntity: Book::class)]
     private Collection $books;
 
     public function __construct()
