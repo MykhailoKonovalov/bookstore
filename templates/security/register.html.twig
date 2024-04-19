@@ -3,18 +3,48 @@
 {% block title %}Register{% endblock %}
 
 {% block content %}
-    <h1>Register</h1>
-
-    {{ form_errors(registrationForm) }}
-
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.name) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.phone) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+    <div class="container card w-50 bg-form-card">
+        <div class="card-body m-auto w-75">
+            <h5>Register</h5>
+            {{ form_errors(registrationForm) }}
+            {{ form_start(registrationForm) }}
+                <div class="form-outline mb-4">
+                    {{ form_label(registrationForm.name) }}
+                    {{ form_widget(registrationForm.name, { 'attr': { 'class': 'form-control' } }) }}
+                    <div class="control__help-text">{{ form_errors(registrationForm.name)|striptags|raw }}</div>
+                </div>
+                <div class="form-outline mb-4">
+                    {{ form_label(registrationForm.email) }}
+                    {{ form_widget(registrationForm.email, { 'attr': { 'class': 'form-control' } }) }}
+                    <div class="control__help-text">{{ form_errors(registrationForm.email)|striptags|raw }}</div>
+                </div>
+                <div class="form-outline mb-4">
+                    {{ form_label(registrationForm.phone) }}
+                    {{ form_widget(registrationForm.phone, { 'attr': { 'class': 'form-control' } }) }}
+                    <div class="control__help-text">{{ form_errors(registrationForm.phone)|striptags|raw }}</div>
+                </div>
+                <div class="form-outline mb-4">
+                    {{ form_label(registrationForm.plainPassword) }}
+                    <div class="input-group" {{ stimulus_controller('password-visibility') }}>
+                        {{ form_widget(registrationForm.plainPassword, {
+                            'attr': { 'class': 'form-control', 'data-password-visibility-target': "input"} })
+                        }}
+                        <button data-action="password-visibility#toggle" class="input-group-text">
+                            <i class="fa fa-eye" data-password-visibility-target="icon"></i>
+                        </button>
+                    </div>
+                    <div class="control__help-text">{{ form_errors(registrationForm.plainPassword)|striptags|raw }}</div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn m-auto btn-primary btn-block mb-4 w-75">Register</button>
+                </div>
+            {{ form_end(registrationForm) }}
+            <div class="text-center">
+                <p>Or sign up with:</p>
+                <a href="{{ path('connect_google_start') }}" class="">
+                    <i class='fa fa-google' style='font-size:24px;'></i> Google
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock content %}

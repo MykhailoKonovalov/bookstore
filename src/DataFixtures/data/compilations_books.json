@@ -1,122 +1,122 @@
 [
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "gordist-i-uperedzhennya"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "1984"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "proces"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "osenya-kronosa"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "garri-potter-i-tajemna-kimnata"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "kviti-dlya-eldzhernona"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "dyuna"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "ditya-boga"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "prigodi-geklberri-finna"
     },
     {
-        "book_list_id": 1,
+        "compilation_id": 1,
         "book_slug": "kolorado-tik"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "garri-potter-i-filosofskij-kamin"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "ema"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "kendzaburo-oe-zhyttya-v-temryavi"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "metamorfozy"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "vijna-svitiv"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "chorne-vitrilo"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "stariy-i-more"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "sobaka-baskerviley"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "prigodi-geklberri-finna"
     },
     {
-        "book_list_id": 2,
+        "compilation_id": 2,
         "book_slug": "stepoviy-vovk"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "sto-rokiv-samotnosti"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "norvezkyj-lis"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "1984"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "romeo-i-dzhuljetta"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "metamorfozy"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "kviti-dlya-eldzhernona"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "gra-prestoliv"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "bitva-koroliv"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "prigodi-geklberri-finna"
     },
     {
-        "book_list_id": 3,
+        "compilation_id": 3,
         "book_slug": "gitandzhali"
     }
 ]

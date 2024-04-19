@@ -2,14 +2,14 @@
 
 namespace App\Service\Book\DTOBuilder;
 
-use App\DTO\BooksListDTO;
-use App\Entity\BookList;
+use App\DTO\BookCompilationDTO;
+use App\Entity\Compilation;
 
-readonly class BookListBuilder
+readonly class BookCompilationBuilder
 {
     public function __construct(private BookPreviewBuilder $bookPreviewBuilder) {}
 
-    public function build(BookList $bookList): BooksListDTO
+    public function build(Compilation $bookList): BookCompilationDTO
     {
         $bookPreviewList = [];
 
@@ -17,7 +17,7 @@ readonly class BookListBuilder
             $bookPreviewList[] = $this->bookPreviewBuilder->build($book);
         }
 
-        return new BooksListDTO(
+        return new BookCompilationDTO(
             $bookList->getTitle(),
             $bookPreviewList,
         );

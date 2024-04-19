@@ -3,7 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Book;
-use App\Entity\BookList;
+use App\Entity\Compilation;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -23,7 +23,7 @@ class BookListCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return BookList::class;
+        return Compilation::class;
     }
 
     public function configureFields(string $pageName): iterable

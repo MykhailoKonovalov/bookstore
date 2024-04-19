@@ -1,0 +1,14 @@
+{% for type, flashes in app.session.flashbag.all %}
+    {% for flash in flashes %}
+        <div class="alert alert-{{ replaceWithBootstrapClass(type) }} alert-dismissible fade show">
+            <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    data-bs-dismiss="alert">
+                &times
+            </button>
+            {{ flash|raw }}
+        </div>
+    {% endfor %}
+{% endfor %}

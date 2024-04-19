@@ -3,10 +3,21 @@
 {% block title %}Reset your password{% endblock %}
 
 {% block content %}
-    <h1>Reset your password</h1>
+    <div class="container card w-50 bg-form-card">
+        <div class="card-body m-auto w-75">
+            <h5>Reset your password</h5>
 
-    {{ form_start(resetForm) }}
-        {{ form_row(resetForm.plainPassword) }}
-        <button class="btn btn-primary">Reset password</button>
-    {{ form_end(resetForm) }}
+            {{ form_start(resetForm) }}
+                <div class="form-outline mb-4">
+                    {{ form_label(resetForm.plainPassword) }}
+                    {{ form_widget(resetForm.plainPassword, { 'attr': { 'class': 'form-control' } }) }}
+                    <div class="control__help-text">{{ form_errors(resetForm.plainPassword)|striptags|raw }}</div>
+                </div>
+
+            <div class="row">
+                <button type="submit" class="btn m-auto btn-primary btn-block mb-4 w-75">Reset password</button>
+            </div>
+            {{ form_end(resetForm) }}
+        </div>
+    </div>
 {% endblock content %}

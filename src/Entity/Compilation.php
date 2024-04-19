@@ -4,20 +4,20 @@ namespace App\Entity;
 
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\TimestampTrait;
-use App\Repository\BookListRepository;
+use App\Repository\CompilationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ORM\Entity(repositoryClass: BookListRepository::class)]
-#[ORM\Table(name: 'book_lists')]
-#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_LIST_PRIORITY", fields: ["priority"])]
-#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_LIST_NAME_PUB", fields: ['title', 'published'])]
+#[ORM\Entity(repositoryClass: CompilationRepository::class)]
+#[ORM\Table(name: 'compilations')]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_COMPILATION_PRIORITY", fields: ["priority"])]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_COMPILATION_NAME_PUB", fields: ['title', 'published'])]
 #[UniqueEntity(fields: ['priority'], message: 'This priority already exists.')]
-#[UniqueEntity(fields: ['title', 'published'], message: 'Book List with the same title already published.')]
-class BookList implements HasTimestamp
+#[UniqueEntity(fields: ['title', 'published'], message: 'Compilation with the same title already published.')]
+class Compilation implements HasTimestamp
 {
     use TimestampTrait;
 
@@ -39,8 +39,8 @@ class BookList implements HasTimestamp
      * @var Collection<int, Book>
      */
     #[ORM\ManyToMany(targetEntity: Book::class)]
-    #[ORM\JoinTable(name: "books_list_books")]
-    #[ORM\JoinColumn("book_list_id", referencedColumnName: "id", nullable: false)]
+    #[ORM\JoinTable(name: "compilations_books")]
+    #[ORM\JoinColumn("compilation_id", referencedColumnName: "id", nullable: false)]
     #[ORM\InverseJoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
     private Collection $books;
 

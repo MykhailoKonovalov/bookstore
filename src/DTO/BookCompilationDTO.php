@@ -2,7 +2,7 @@
 
 namespace App\DTO;
 
-class BooksListDTO
+class BookCompilationDTO
 {
     public function __construct(
         public string $title,
