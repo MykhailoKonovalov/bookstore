@@ -70,3 +70,6 @@ a {
 .book-preview a:hover {
     text-decoration: underline;
 }
+.book-preview-data {
+    min-height: 10rem;
+}
