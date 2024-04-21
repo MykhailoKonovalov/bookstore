@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% import ('profile/components/sidebar.html.twig') as sidebar %}
+
+{% block content %}
+    <div class="container light-style flex-grow-1 container-p-y">
+
+        <h4 class="font-weight-bold py-3 mb-4">
+            {% block title %}{% endblock title %}
+        </h4>
+
+        <div class="row">
+            <div class="col-3">
+                {% block sidebar %}
+                    {{ sidebar.render(activePage) }}
+                {% endblock sidebar %}
+            </div>
+            <div class="col-9">
+                {% block pageContent %}{% endblock pageContent %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

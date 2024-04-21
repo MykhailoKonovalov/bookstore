@@ -10,9 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    public function __construct(
-        private readonly BookCompilationProvider $bookCompilationProvider,
-    ) {}
+    public function __construct(private readonly BookCompilationProvider $bookCompilationProvider) {}
 
     #[Route('/', name: 'home')]
     #[Cache(expires: 3600, public: true, mustRevalidate: true)]
@@ -21,16 +19,6 @@ class HomeController extends AbstractController
         return $this->render(
             'home/index.html.twig', [
             'compilations' => $this->bookCompilationProvider->getBookCompilations(),
-        ]);
-    }
-
-    #[Route('/private/user-block', name: 'user_block', methods: ['GET'])]
-    #[Cache(expires: 3600, public: true, mustRevalidate: true)]
-    public function userBlock(): Response
-    {
-        return $this->render(
-            'components/userBlock.html.twig', [
-            'currentUser' => $this->getUser(),
         ]);
     }
 }

@@ -1,0 +1,32 @@
+{% macro render(activePage) %}
+    <div class="container-fluid">
+        <div class="card p-3">
+            <div class="list-group list-group-flush account-settings-links">
+                <a class="list-group-item list-group-item-action {% if activePage == 1 %} active {% endif %}"
+                   data-toggle="list" href="{{ path('profile_account') }}">
+                    Мій аккаунт
+                </a>
+                <a class="list-group-item list-group-item-action {% if activePage == 2 %} active {% endif %}"
+                   data-toggle="list" href="#">
+                    Замовлення
+                </a>
+                <a class="list-group-item list-group-item-action {% if activePage == 3 %} active {% endif %}"
+                   data-toggle="list" href="#">
+                    Список бажаного
+                </a>
+                <a class="list-group-item list-group-item-action {% if activePage == 4 %} active {% endif %}"
+                   data-toggle="list" href="#">
+                    Моя бібліотека
+                </a>
+                <a class="list-group-item list-group-item-action {% if activePage == 5 %} active {% endif %}"
+                   data-toggle="list" href="{{ path('profile_change_password') }}">
+                    Змінити пароль
+                </a>
+                <a class="list-group-item list-group-item-action {% if activePage == 6 %} active {% endif %}"
+                   data-toggle="list" href="{{ path('profile_delete') }}">
+                    Видалити акаунт
+                </a>
+            </div>
+        </div>
+    </div>
+{% endmacro %}
