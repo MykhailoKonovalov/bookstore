@@ -1,5 +1,6 @@
 import {Controller} from "@hotwired/stimulus";
 
+/* stimulusFetch: 'lazy' */
 export default class BookProductController extends Controller {
     protected bookTypeFields: NodeListOf<Element>;
 

@@ -6,6 +6,7 @@ framework:
         cookie_lifetime: 604800
         cookie_secure: auto
         cookie_samesite: lax
+    esi: true
 
 when@test:
     framework:

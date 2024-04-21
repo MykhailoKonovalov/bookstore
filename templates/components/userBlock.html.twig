@@ -1,0 +1,28 @@
+<div class="btn-group mx-5">
+    {% if currentUser is empty %}
+        <a class="header-link" href="{{ path('login') }}">Увійти</a>
+    {% else %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
+                aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ currentUser.name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                        <li><a class="dropdown-item" href="#">Мій профіль</a></li>
+                        <li><a class="dropdown-item" href="#">Замовлення</a></li>
+                        <li><a class="dropdown-item" href="#">Список бажаного</a></li>
+                        <li><a class="dropdown-item" href="#">Моя бібліотека</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" href="{{ path('logout') }}">Вийти</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    {% endif %}
+</div>

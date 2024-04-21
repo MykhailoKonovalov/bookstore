@@ -2,42 +2,70 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block body %}
-<form method="post">
+{% block flash %}
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger fade show">
+            <button
+                    type="button"
+                    class="close"
+                    aria-label="Close"
+                    data-bs-dismiss="alert">
+                &times
+            </button>
+            {{ error.messageKey|trans(error.messageData, 'security') }}
+        </div>
     {% endif %}
+{% endblock flash %}
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+{% block content %}
+<form method="post">
+    <div class="container card w-50 bg-form-card">
+        <div class="card-body m-auto w-75">
+            <h5>Please Sign In</h5>
+            <div class="form-outline mb-4">
+                <label for="inputEmail">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+            </div>
+            <div class="form-outline mb-4">
+                <label for="inputPassword">Password</label>
+                <div class="input-group" {{ stimulus_controller('password-visibility') }}>
+                    <input type="password" name="password" id="inputPassword" class="form-control"
+                           autocomplete="current-password" required data-password-visibility-target="input"
+                           spellcheck="false" />
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
+                    <button data-action="password-visibility#toggle" class="input-group-text">
+                        <i class="fa fa-eye" data-password-visibility-target="icon"></i>
+                    </button>
+                </div>
 
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" name="_remember_me"> Remember me
-        </label>
-    </div>
-    
-    <div>
-        <a href="{{ path('forgot_password_request') }}">Forgot password?</a>
-    </div>
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-
-    <div>
-        <span>First time on BookStore? </span><a href="{{ path('register') }}">Sign up</a>.
-    </div>
-
-    <div>
-        <a href="{{ path('connect_google_start') }}">Login with Google</a>
+                <input type="hidden" name="_csrf_token"
+                       value="{{ csrf_token('authenticate') }}"
+                >
+            </div>
+            <div class="row mb-4">
+                <div class="col d-flex justify-content-center">
+                    <div class="form-check">
+                        <input type="checkbox" name="_remember_me" class="form-check-input" id="dropdownCheck">
+                        <label class="form-check-label" for="dropdownCheck">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="{{ path('forgot_password_request') }}">Forgot password?</a>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn m-auto btn-primary btn-block mb-4 w-75">Sign in</button>
+            </div>
+            <div class="text-center">
+                <span>First time on BookStore? </span><a href="{{ path('register') }}">Sign up</a>.
+                <p>or sign up with:</p>
+                <a href="{{ path('connect_google_start') }}" class="">
+                    <i class='fa fa-google' style='font-size:24px;'></i> Google
+                </a>
+            </div>
+        </div>
     </div>
 </form>
-{% endblock %}
+{% endblock content %}

@@ -2,18 +2,35 @@
 
 namespace App\Controller;
 
+use App\Service\Book\DataProvider\BookCompilationProvider;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Attribute\Cache;
 use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
+    public function __construct(
+        private readonly BookCompilationProvider $bookCompilationProvider,
+    ) {}
+
     #[Route('/', name: 'home')]
+    #[Cache(expires: 3600, public: true, mustRevalidate: true)]
     public function index(): Response
     {
         return $this->render(
             'home/index.html.twig', [
-            'controller_name' => 'HomeController',
+            'compilations' => $this->bookCompilationProvider->getBookCompilations(),
+        ]);
+    }
+
+    #[Route('/private/user-block', name: 'user_block', methods: ['GET'])]
+    #[Cache(expires: 3600, public: true, mustRevalidate: true)]
+    public function userBlock(): Response
+    {
+        return $this->render(
+            'components/userBlock.html.twig', [
+            'currentUser' => $this->getUser(),
         ]);
     }
 }
