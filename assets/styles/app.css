@@ -1,11 +1,9 @@
 body {
     background-color: #d2d2d5;
 }
-
 a {
     color: #4b4949;
 }
-
 .badge:after{
     content:attr(value);
     font-size:12px;
@@ -18,19 +16,18 @@ a {
     top:-10px;
     opacity:0.9;
 }
-
 .bg-form-card {
     background-color: rgb(197, 199, 206);
 }
-
 .book-list {
     padding: 5em 1em 1em 1em;
 }
-
 .header-link {
     color: whitesmoke;
 }
-
+.book-title {
+    min-height: 3rem;
+}
 .compilation {
     padding: 1em;
 }

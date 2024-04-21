@@ -12,11 +12,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Gedmo\SoftDeleteable\Traits\SoftDeleteableEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ORM\Table(name: "users")]
+#[Gedmo\SoftDeleteable(fieldName: 'deletedAt', timeAware: false, hardDelete: false)]
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_EMAIL", fields: ["email"])]
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_PHONE", fields: ["phone"])]
 #[ORM\Index(columns: ["email"], name: "user_email_idx")]
@@ -31,6 +34,8 @@ class User implements
     use UUIDTrait;
 
     use TimestampTrait;
+
+    use SoftDeleteableEntity;
 
     #[ORM\Column(type: Types::STRING, length: 180)]
     private string $email;

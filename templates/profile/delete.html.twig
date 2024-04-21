@@ -1,0 +1,17 @@
+{% extends 'profile/basePage.html.twig' %}
+
+{% set activePage = 6 %}
+
+{% block title %}Видалити аккаунт{% endblock %}
+
+{% block pageContent %}
+    <div class="card p-5">
+        {{ form_start(form) }}
+        <div class="form-outline mb-4 form-check form-switch">
+            {{ form_widget(form.confirm, { 'attr': { 'class': 'form-check-input' } }) }}
+            {{ form_label(form.confirm) }}
+        </div>
+        <button type="submit" class="btn btn-danger">Delete Account</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock pageContent %}
