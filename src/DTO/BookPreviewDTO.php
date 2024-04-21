@@ -11,5 +11,6 @@ class BookPreviewDTO
         public string $author,
         public ?string $price = null,
         public ?string $discountPrice = null,
+        public ?string $type = null,
     ) {}
 }

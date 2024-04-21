@@ -19,6 +19,7 @@ readonly class BookCompilationBuilder
 
         return new BookCompilationDTO(
             $compilation->getTitle(),
+            $compilation->getStickerColor(),
             $bookPreviewList,
         );
     }

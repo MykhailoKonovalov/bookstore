@@ -18,7 +18,8 @@ class BookPreviewBuilder
             $book->getCoverUrl(),
             $book->getAuthor(),
             $product?->getPrice(),
-            $product?->getDiscountPrice()
+            $product?->getDiscountPercent() ? $product->getDiscountPrice() : null,
+            $product?->getType()
         );
     }
 

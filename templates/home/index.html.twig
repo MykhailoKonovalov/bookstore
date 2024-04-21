@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% import ('home/components/compilation.html.twig') as compilation %}
+
 {% block content %}
-    {% include 'home/components/compilation.html.twig' %}
+    <div class="card">
+        {{ compilation.render(compilations) }}
+    </div>
 {% endblock content %}

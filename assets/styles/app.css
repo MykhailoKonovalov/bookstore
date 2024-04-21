@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(44, 46, 49);
+    background-color: #d2d2d5;
 }
 
 a {
@@ -29,4 +29,44 @@ a {
 
 .header-link {
     color: whitesmoke;
+}
+
+.compilation {
+    padding: 1em;
+}
+.card .img-wrapper {
+    max-width: 100%;
+    height: 13em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card img {
+    max-height: 100%;
+}
+@media (max-width: 767px) {
+    .card .img-wrapper {
+        height: 17em;
+    }
+}
+.sticker {
+    margin-bottom: -1rem;
+    margin-left: 1.5rem;
+    float: left;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    padding: 10px 20px 30px 20px;
+    color: white;
+}
+.crossed {
+    text-decoration-line: line-through;
+}
+.discount {
+    color: #d32030;
+}
+.book-preview a {
+    text-decoration: none;
+}
+.book-preview a:hover {
+    text-decoration: underline;
 }

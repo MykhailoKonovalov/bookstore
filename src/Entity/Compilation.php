@@ -18,7 +18,7 @@ use App\Validation\PublishedCompilationsLimit as CompilationsLimit;
 #[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_COMPILATION_NAME_PUB", fields: ['title', 'published'])]
 #[UniqueEntity(fields: ['priority'], message: 'This priority already exists.')]
 #[UniqueEntity(fields: ['title', 'published'], message: 'Compilation with the same title already published.')]
-#[CompilationsLimit\CompilationsLimit(limit: 5)]
+#[CompilationsLimit\CompilationsLimit(limit: 10)]
 class Compilation implements HasTimestamp
 {
     use TimestampTrait;
@@ -45,6 +45,9 @@ class Compilation implements HasTimestamp
     #[ORM\JoinColumn("compilation_id", referencedColumnName: "id", nullable: false)]
     #[ORM\InverseJoinColumn(name: "book_slug", referencedColumnName: "slug", nullable: false)]
     private Collection $books;
+
+    #[ORM\Column(type: Types::STRING, length: 7, nullable: false)]
+    private string $stickerColor;
 
     public function __construct()
     {
@@ -112,6 +115,18 @@ class Compilation implements HasTimestamp
     public function removeBook(Book $book): self
     {
         $this->books->removeElement($book);
+
+        return $this;
+    }
+
+    public function getStickerColor(): ?string
+    {
+        return $this->stickerColor;
+    }
+
+    public function setStickerColor(string $stickerColor): static
+    {
+        $this->stickerColor = $stickerColor;
 
         return $this;
     }

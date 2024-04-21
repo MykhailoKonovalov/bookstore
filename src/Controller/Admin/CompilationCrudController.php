@@ -12,9 +12,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -33,6 +33,7 @@ class CompilationCrudController extends AbstractCrudController
             TextField::new('title'),
             IntegerField::new('priority'),
             BooleanField::new('published')->renderAsSwitch(false),
+            ColorField::new('stickerColor'),
             AssociationField::new('books')->onlyOnForms(),
             CollectionField::new('books')->onlyOnDetail()
                 ->formatValue(
@@ -66,7 +67,9 @@ class CompilationCrudController extends AbstractCrudController
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
-            ->add(TextFilter::new('title'));
+            ->add(TextFilter::new('title'))
+            ->add(TextFilter::new('priority'))
+            ->add(TextFilter::new('published'));
     }
 
     public function configureCrud(Crud $crud): Crud

@@ -1,0 +1,70 @@
+{% macro render(compilations) %}
+
+{% for compilation in compilations %}
+    <div class="container">
+        <div class="compilation">
+            <div class="sticker" style="background-color: {{ compilation.color }}">
+                <span>{{ compilation.title }}</span>
+            </div>
+            <div class="container swiper" data-controller="carousel" >
+                <div class="swiper-wrapper">
+                    {% for book in compilation.books %}
+                        <div class="swiper-slide active" data-slider-target="item">
+                            <div class="card book-preview">
+                                <div class="img-wrapper">
+                                    <img src="{{ book.coverUrl }}" class="d-block w-100" alt="{{ book.title }}">
+                                </div>
+                                <div class="card-body">
+                                    <div class="row text-center">
+                                        <a href="#" class="fw-bolder book-preview-title">"{{ book.title }}"</a>
+                                    </div>
+                                    <div class="row text-center">
+                                        <a href="#" class="fw-bolder text-secondary">{{ book.author }}</a>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6 col-xs-12 card-text">
+                                            {% if book.discountPrice is null %}
+                                                <span class="fw-bolder p-1">
+                                                    {{ (book.price / 100)|number_format(2, '.', '') }}
+                                                </span>
+                                            {% else %}
+                                                <span class="fw-bolder crossed p-1">
+                                                    {{ (book.price / 100)|number_format(2, '.', '') }}
+                                                </span>
+                                                <span class="fw-bolder discount p-1">
+                                                    {{ (book.discountPrice / 100)|number_format(2, '.', '') }}
+                                                </span>
+                                            {% endif %}
+                                        </div>
+
+                                        <div class="col-6 col-xs-12 card-text">
+                                            {% if book.type == "paper" %}
+                                                <span class="text-success" style="float: right">
+                                                    <i class="fa fa-shopping-bag"></i>
+                                                    У наявності
+                                                </span>
+                                            {% elseif book.type == "electronic" %}
+                                                <span class="text-info float-right" style="float: right">
+                                                    <i class="fa fa-download"></i>
+                                                    Електронна книга
+                                                </span>
+                                            {% elseif book.type is null %}
+                                                <span class="text-muted float-right" style="float: right">
+                                                    Немає в наявності
+                                                </span>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% endmacro %}
