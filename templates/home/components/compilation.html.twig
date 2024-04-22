@@ -15,7 +15,10 @@
                                     </div>
                                     <div class="card-body book-preview-data">
                                         <div class="row text-center book-title">
-                                            <a href="#" class="fw-bolder book-preview-title">"{{ book.title }}"</a>
+                                            <a href="{{ path('book_show', { 'slug': book.slug }) }}"
+                                               class="fw-bolder book-preview-title">
+                                                "{{ book.title }}"
+                                            </a>
                                         </div>
                                         <div class="row text-center">
                                             <a href="#" class="fw-bolder text-secondary">{{ book.author }}</a>
@@ -24,14 +27,14 @@
                                             <div class="card-text">
                                                 {% if book.discountPrice is null %}
                                                     <span class="fw-bolder p-1">
-                                                        {{ (book.price / 100)|number_format(2, '.', '') ~ ' грн' }}
+                                                        {{ book.price ~ ' грн' }}
                                                     </span>
                                                 {% else %}
                                                     <span class="fw-bolder crossed p-1">
-                                                        {{ (book.price / 100)|number_format(2, '.', '') ~ ' грн' }}
+                                                        {{ book.price ~ ' грн' }}
                                                     </span>
                                                     <span class="fw-bolder discount p-1">
-                                                        {{ (book.discountPrice / 100)|number_format(2, '.', '') ~ ' грн' }}
+                                                        {{ book.discountPrice ~ ' грн' }}
                                                     </span>
                                                 {% endif %}
                                             </div>

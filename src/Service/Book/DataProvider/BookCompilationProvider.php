@@ -21,7 +21,7 @@ readonly class BookCompilationProvider
         $compilations    = $this->compilationRepository->findBy(
             [
                 'published' => true,
-            ], ['priority' => 'ASC'], 5);
+            ], ['priority' => 'ASC'], 10);
         $compilationDTOs = [];
 
         foreach ($compilations as $compilation) {

@@ -5,6 +5,7 @@ namespace App\Service\Book\DTOBuilder;
 use App\DTO\BookPreviewDTO;
 use App\Entity\Book;
 use App\Entity\Product;
+use App\Service\Common\DTOValuesService;
 
 class BookPreviewBuilder
 {
@@ -17,8 +18,10 @@ class BookPreviewBuilder
             $book->getTitle(),
             $book->getCoverUrl(),
             $book->getAuthor(),
-            $product?->getPrice(),
-            $product?->getDiscountPercent() ? $product->getDiscountPrice() : null,
+            DTOValuesService::formatPriceValue($product?->getPrice()),
+            $product?->getDiscountPercent()
+                ? DTOValuesService::formatPriceValue($product->getDiscountPrice())
+                : null,
             $product?->getType()
         );
     }
