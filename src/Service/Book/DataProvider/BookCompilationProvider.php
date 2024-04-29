@@ -2,7 +2,6 @@
 
 namespace App\Service\Book\DataProvider;
 
-use App\DTO\BookCompilationDTO;
 use App\Repository\CompilationRepository;
 use App\Service\Book\DTOBuilder\BookCompilationBuilder;
 
@@ -13,21 +12,17 @@ readonly class BookCompilationProvider
         private BookCompilationBuilder $bookCompilationBuilder,
     ) {}
 
-    /**
-     * @return BookCompilationDTO[]
-     */
-    public function getBookCompilations(): array
+    public function getBookCompilations(): iterable
     {
-        $compilations    = $this->compilationRepository->findBy(
+        $compilations = $this->compilationRepository->findBy(
             [
                 'published' => true,
             ], ['priority' => 'ASC'], 10);
-        $compilationDTOs = [];
 
         foreach ($compilations as $compilation) {
-            $compilationDTOs[] = $this->bookCompilationBuilder->build($compilation);
+            if ($compilation = $this->bookCompilationBuilder->build($compilation)) {
+                yield $compilation;
+            }
         }
-
-        return $compilationDTOs;
     }
 }

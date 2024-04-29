@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Book;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,11 +22,14 @@ class BookRepository extends ServiceEntityRepository
         parent::__construct($registry, Book::class);
     }
 
-    public function findLatest(int $limit = 10): array
+    /**
+     * @return Book[]
+     */
+    public function getBooksForPagination(): array
     {
-        return $this->createQueryBuilder('b')
+        return $this
+            ->createQueryBuilder('b')
             ->orderBy('b.createdAt', 'DESC')
-            ->setMaxResults($limit)
             ->getQuery()
             ->getResult();
     }

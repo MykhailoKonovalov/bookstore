@@ -91,7 +91,7 @@ class ProfileController extends AbstractController
             $user = $this->getUser();
 
             if ($form->get('confirm')->getData()) {
-                $this->entityHelper->deleteOne($user);
+                $this->entityHelper->delete($user);
 
                 return $this->redirectToRoute('logout');
             }

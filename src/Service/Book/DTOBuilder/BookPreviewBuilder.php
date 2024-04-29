@@ -22,6 +22,7 @@ class BookPreviewBuilder
             $product?->getDiscountPercent()
                 ? DTOValuesService::formatPriceValue($product->getDiscountPrice())
                 : null,
+            $product?->getDiscountPercent(),
             $product?->getType()
         );
     }

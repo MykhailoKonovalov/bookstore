@@ -2,6 +2,9 @@
 
 {% block title %}{{ book.title }}{% endblock %}
 
+{% import ('components/priceBlock.html.twig') as priceBlock %}
+{% import ('components/productInfo.html.twig') as productInfo %}
+
 {% block javascripts %}
     {{ parent() }}
 
@@ -15,61 +18,35 @@
                 <div class="container px-2 my-1">
                     <div class="row gx-4 gx-lg-5">
                         <div class="col-4">
-                            <img class="card-img-top"
-                                 src="{{ book.coverUrl }}" alt="{{ book.title }}">
-                            <div class="container">
-                                {% for product in book.products %}
-                                    <div class="product-info {% if loop.index != 1 %}d-none{% endif %}"
-                                         data-value="{{ product.type }}">
-                                        {% if product.discountPercentage > 0 %}
-                                            <span class="fw-bolder discount p-1">
-                                                {{ product.discountPrice ~ ' грн' }}
-                                            </span>
-                                            <span class="fw-bolder crossed p-1">
-                                                {{ product.price ~ ' грн' }}
-                                            </span>
-                                            <mark> -{{ product.discountPercentage }}%</mark>
-                                        {% else %}
-                                            <span class="fw-bolder p-1">
-                                                {{ product.price ~ ' грн' }}
-                                            </span>
-                                        {% endif %}
-                                        <div class="row">
-                                            <span class="fw-bold">
-                                                {% if product.type == 'paper' %}
-                                                    Паперова книга -
-                                                    {% if book.stockCount > 0 %}
-                                                       <span class="text-success">У наявності</span>
-                                                    {% else %}
-                                                        <span class="text-muted">Немає в наявності</span>
-                                                    {% endif %}
-                                                {% elseif product.type == 'electronic' %}
-                                                    Електронна книга -
-                                                    <span class="text-info">
-                                                        {{ product.formats|join(',') }}
-                                                    </span>
-                                                {% endif %}
-                                            </span>
+                            <div class="fixed-block">
+                                <img class="card-img-top"
+                                     src="{{ book.coverUrl }}" alt="{{ book.title }}">
+                                <div class="container pt-3">
+                                    {% for product in book.products %}
+                                        <div class="product-info {% if loop.index != 1 %}d-none{% endif %}"
+                                             data-value="{{ product.type }}">
+                                                {{ priceBlock.render(product.price, product.discountPrice, product.discountPercentage) }}
+                                                {{ productInfo.render(product.type, book.stockCount, product.formats) }}
                                         </div>
-                                    </div>
-                                {% endfor %}
-                            </div>
-                            <div class="row my-3">
-                                <div class="col-6">
-                                    <button class="btn btn-success flex-shrink-0" type="button">
-                                        <i class="fa fa-shopping-bag"></i>
-                                        Додати в кошик
-                                    </button>
+                                    {% endfor %}
                                 </div>
-                                <div class="col-6">
-                                    <button class="btn btn-danger flex-shrink-0" type="button">
-                                        <i class="fa fa-heart"></i>
-                                        Додати в бажане
-                                    </button>
+                                <div class="row my-3">
+                                    <div class="col-6">
+                                        <button class="btn btn-success flex-shrink-0" type="button">
+                                            <i class="fa fa-shopping-bag"></i>
+                                            Додати в кошик
+                                        </button>
+                                    </div>
+                                    <div class="col-6">
+                                        <button class="btn btn-danger flex-shrink-0" type="button">
+                                            <i class="fa fa-heart"></i>
+                                            Додати в бажане
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-8 position-relative">
                             <h1 class="display-5 fw-bolder">{{ book.title }}</h1>
                             <div class="small mb-1">{{ book.author }}</div>
                             <div class="container my-3">

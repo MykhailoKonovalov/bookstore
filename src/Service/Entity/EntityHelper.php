@@ -20,7 +20,7 @@ readonly class EntityHelper
         $this->entityManager->flush();
     }
 
-    public function deleteOne(object $entity): void
+    public function delete(object $entity): void
     {
         $this->entityManager->remove($entity);
         $this->entityManager->flush();

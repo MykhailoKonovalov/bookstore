@@ -18,7 +18,9 @@ class HomeController extends AbstractController
     {
         return $this->render(
             'home/index.html.twig', [
-            'compilations' => $this->bookCompilationProvider->getBookCompilations(),
+            'compilations' => iterator_to_array(
+                $this->bookCompilationProvider->getBookCompilations()
+            ),
         ]);
     }
 }
