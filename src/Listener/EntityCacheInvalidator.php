@@ -10,7 +10,7 @@ use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
 
 #[AsEntityListener]
-readonly class EntityChangeSubscriber implements EventSubscriber
+readonly class EntityCacheInvalidator implements EventSubscriber
 {
     public function __construct(private CacheItemPoolInterface $cacheItemPool) {}
 

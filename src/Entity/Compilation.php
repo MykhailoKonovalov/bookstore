@@ -2,8 +2,10 @@
 
 namespace App\Entity;
 
+use App\Entity\Interfaces\CachedEntityInterface;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\TimestampTrait;
+use App\Listener\EntityCacheInvalidator;
 use App\Repository\CompilationRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -19,8 +21,12 @@ use App\Validation\PublishedCompilationsLimit as CompilationsLimit;
 #[UniqueEntity(fields: ['priority'], message: 'This priority already exists.')]
 #[UniqueEntity(fields: ['title', 'published'], message: 'Compilation with the same title already published.')]
 #[CompilationsLimit\CompilationsLimit(limit: 10)]
-class Compilation implements HasTimestamp
+#[ORM\EntityListeners([EntityCacheInvalidator::class])]
+#[ORM\HasLifecycleCallbacks]
+class Compilation implements HasTimestamp, CachedEntityInterface
 {
+    public const CACHE_KEY = 'book_compilation_list';
+
     use TimestampTrait;
 
     #[ORM\Id]
@@ -129,5 +135,10 @@ class Compilation implements HasTimestamp
         $this->stickerColor = $stickerColor;
 
         return $this;
+    }
+
+    public function getCacheKey(): string
+    {
+        return self::CACHE_KEY;
     }
 }
