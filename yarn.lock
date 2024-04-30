@@ -1088,9 +1088,6 @@
 "@symfony/ux-autocomplete@file:vendor/symfony/ux-autocomplete/assets":
   version "1.0.0"
 
-"@symfony/ux-turbo@file:vendor/symfony/ux-turbo/assets":
-  version "0.1.0"
-
 "@symfony/webpack-encore@^4.0.0":
   version "4.6.1"
   resolved "https://registry.npmjs.org/@symfony/webpack-encore/-/webpack-encore-4.6.1.tgz"

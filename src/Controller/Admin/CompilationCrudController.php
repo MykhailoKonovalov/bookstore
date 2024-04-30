@@ -16,6 +16,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\NumericFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
@@ -35,6 +36,7 @@ class CompilationCrudController extends AbstractCrudController
             BooleanField::new('published')->renderAsSwitch(false),
             ColorField::new('stickerColor'),
             AssociationField::new('books')->onlyOnForms(),
+            IntegerField::new('books.count', 'Books Count')->onlyOnIndex(),
             CollectionField::new('books')->onlyOnDetail()
                 ->formatValue(
                     function ($value, $entity) {

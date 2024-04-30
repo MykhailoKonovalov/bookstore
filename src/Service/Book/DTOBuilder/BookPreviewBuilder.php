@@ -9,9 +9,9 @@ use App\Service\Common\DTOValuesService;
 
 class BookPreviewBuilder
 {
-    public function build(Book $book): BookPreviewDTO
+    public function build(Book $book, ?Product $product = null): BookPreviewDTO
     {
-        $product = $this->findActualProduct($book);
+        $product = $product ?: $this->findActualProduct($book);
 
         return new BookPreviewDTO(
             $book->getSlug(),
@@ -22,6 +22,7 @@ class BookPreviewBuilder
             $product?->getDiscountPercent()
                 ? DTOValuesService::formatPriceValue($product->getDiscountPrice())
                 : null,
+            $product?->getDiscountPercent(),
             $product?->getType()
         );
     }

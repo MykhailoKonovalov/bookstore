@@ -2,18 +2,18 @@
     {% if currentUser is empty %}
         <a class="header-link" href="{{ path('login') }}">Увійти</a>
     {% else %}
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown"
-                aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userMenu"
+                aria-controls="userMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+        <div class="collapse navbar-collapse" id="userMenu">
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" id="userMenuLink" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {{ currentUser.name }}
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="userMenuLink">
                         <li><a class="dropdown-item" href="{{ path('profile_account') }}">Мій профіль</a></li>
                         <li><a class="dropdown-item" href="#">Замовлення</a></li>
                         <li><a class="dropdown-item" href="#">Список бажаного</a></li>

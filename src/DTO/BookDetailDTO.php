@@ -5,6 +5,7 @@ namespace App\DTO;
 class BookDetailDTO
 {
     public function __construct(
+        public string $slug,
         public string $title,
         public string $author,
         public string $publisher,

@@ -1,0 +1,22 @@
+{% macro render(type, count, formats = []) %}
+    <div class="row">
+        <span class="fw-bold">
+            {% if type == 'paper' %}
+                <span class="text-secondary">
+                   <i class="fa fa-book"></i> Паперова книга:
+                </span>
+                {% if count > 0 %}
+                <span class="text-success">
+                   <i class="fa fa-shopping-bag"></i> У наявності
+                </span>
+                {% else %}
+                <span class="text-muted">Немає в наявності</span>
+            {% endif %}
+            {% elseif type == 'electronic' %}
+                <span class="text-secondary">
+                    <i class="fa fa-download "></i> Електронна книга: [{{ formats|join(', ') }}]
+                </span>
+            {% endif %}
+        </span>
+    </div>
+{% endmacro %}

@@ -7,20 +7,31 @@ use App\Entity\Compilation;
 
 readonly class BookCompilationBuilder
 {
-    public function __construct(private BookPreviewBuilder $bookPreviewBuilder) {}
+    public function __construct(
+        private BookPreviewBuilder $bookPreviewBuilder,
+    ) {}
 
-    public function build(Compilation $compilation): BookCompilationDTO
+    public function build(Compilation $compilation): ?BookCompilationDTO
     {
-        $bookPreviewList = [];
-
-        foreach ($compilation->getBooks() as $book) {
-            $bookPreviewList[] = $this->bookPreviewBuilder->build($book);
+        if (0 === $compilation->getBooks()->count()) {
+            return null;
         }
 
         return new BookCompilationDTO(
             $compilation->getTitle(),
             $compilation->getStickerColor(),
-            $bookPreviewList,
+            iterator_to_array(
+                $this->buildBookPreviewList(
+                    $compilation->getBooks()->toArray()
+                )
+            ),
         );
+    }
+
+    private function buildBookPreviewList(array $books): iterable
+    {
+        foreach ($books as $book) {
+            yield $this->bookPreviewBuilder->build($book);
+        }
     }
 }

@@ -1,0 +1,15 @@
+{% macro render(price, discountPrice, discount = 0) %}
+    {% if discount > 0 %}
+        <span class="fw-bolder discount">
+                {{ discountPrice ~ ' грн' }}
+            </span>
+        <span class="fw-bolder crossed">
+                {{ price ~ ' грн' }}
+            </span>
+        <mark> -{{ discount }}%</mark>
+    {% else %}
+        <span class="fw-bolder">
+            {{ price ~ ' грн' }}
+        </span>
+    {% endif %}
+{% endmacro %}

@@ -56,6 +56,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "knplabs/knp-paginator-bundle": {
+        "version": "v6.3.0"
+    },
     "knpuniversity/oauth2-client-bundle": {
         "version": "2.18",
         "recipe": {
@@ -316,9 +319,6 @@
         "files": [
             "config/routes/ux_autocomplete.yaml"
         ]
-    },
-    "symfony/ux-turbo": {
-        "version": "v2.16.0"
     },
     "symfony/validator": {
         "version": "7.0",

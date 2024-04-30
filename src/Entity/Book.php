@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Constant\BookTypes;
+use App\Entity\Interfaces\CachedEntityInterface;
 use App\Entity\Interfaces\HasSlug;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\SlugTrait;
 use App\Entity\Traits\TimestampTrait;
+use App\Listener\EntityCacheInvalidator;
 use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -22,9 +24,12 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 #[ORM\Index(columns: ["title"], name: "book_title_idx")]
 #[ORM\Index(columns: ["language"], name: "book_language_idx")]
 #[ORM\Index(columns: ["author_slug"], name: "book_author_idx")]
+#[ORM\EntityListeners([EntityCacheInvalidator::class])]
 #[ORM\HasLifecycleCallbacks]
-class Book implements HasSlug, HasTimestamp
+class Book implements HasSlug, HasTimestamp, CachedEntityInterface
 {
+    private const CACHE_PREFIX = 'book_detail_';
+
     use SlugTrait;
 
     use TimestampTrait;
@@ -36,8 +41,8 @@ class Book implements HasSlug, HasTimestamp
     #[ORM\Column(type: Types::STRING)]
     private string $title;
 
-    #[ORM\ManyToOne(inversedBy: "books")]
-    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", onDelete: "SET NULL")]
+    #[ORM\ManyToOne(targetEntity: Author::class, cascade: ['persist'], inversedBy: "books")]
+    #[ORM\JoinColumn(name: "author_slug", referencedColumnName: "slug", nullable: true, onDelete: "SET NULL")]
     private ?Author $author = null;
 
     /**
@@ -418,5 +423,10 @@ class Book implements HasSlug, HasTimestamp
         return array_reduce($this->getProducts()->toArray(), function ($carry, Product $product) {
             return $carry + $product->getSalesCount();
         }, 0);
+    }
+
+    public function getCacheKey(): string
+    {
+        return sha1(self::CACHE_PREFIX . $this->slug);
     }
 }

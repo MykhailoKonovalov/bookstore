@@ -20,13 +20,4 @@ class BookRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Book::class);
     }
-
-    public function findLatest(int $limit = 10): array
-    {
-        return $this->createQueryBuilder('b')
-            ->orderBy('b.createdAt', 'DESC')
-            ->setMaxResults($limit)
-            ->getQuery()
-            ->getResult();
-    }
 }
