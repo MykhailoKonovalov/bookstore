@@ -23,8 +23,7 @@
                                      src="{{ book.coverUrl }}" alt="{{ book.title }}">
                                 <div class="container pt-3">
                                     {% for product in book.products %}
-                                        <div class="product-info {% if loop.index != 1 %}d-none{% endif %}"
-                                             data-value="{{ product.type }}">
+                                        <div class="product-info {% if product.type != type %}d-none{% endif %}">
                                                 {{ priceBlock.render(product.price, product.discountPrice, product.discountPercentage) }}
                                                 {{ productInfo.render(product.type, book.stockCount, product.formats) }}
                                         </div>
@@ -59,10 +58,8 @@
                             <div class="container my-3 mx-1">
                                 <span class="fw-bold row">Формат</span>
                                 {% for product in book.products %}
-                                    <span {{ stimulus_controller('bookPage')}}
-                                            data-action="click->bookPage#toggleActive" id="book-format"
-                                            data-value="{{ product.type }}"
-                                            class="btn btn-outline-secondary {% if loop.index == 1 %}active{% endif %}">
+                                    <a href="{{ path('book_show', { 'slug': book.slug, 'type': product.type }) }}"
+                                            class="btn btn-outline-secondary {% if product.type == type %}active{% endif %}">
                                         {% if product.type == 'paper' %}
                                             <p><i class="fa fa-book"></i> Паперова</p>
 
@@ -70,7 +67,7 @@
                                             <p><i class="fa fa-download "></i> Електронна</p>
                                         {% endif %}
                                         {{ product.discountPrice ?? product.price ~ ' грн' }}
-                                    </span>
+                                    </a>
                                 {% endfor %}
                             </div>
                             <p class="lead">{{ book.description }}</p>

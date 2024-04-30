@@ -3,17 +3,19 @@
 namespace App\Service\Book\DataProvider;
 
 use App\Entity\Book;
+use App\Entity\Product;
 use App\Repository\BookRepository;
+use App\Repository\ProductRepository;
 use App\Service\Book\DTOBuilder\BookPreviewBuilder;
 use Knp\Component\Pager\Pagination\PaginationInterface;
 use Knp\Component\Pager\PaginatorInterface;
 
-readonly class BookListProvider
+readonly class ProductListProvider
 {
     public const PER_PAGE = 12;
 
     public function __construct(
-        private BookRepository $bookRepository,
+        private ProductRepository $productRepository,
         private BookPreviewBuilder $bookPreviewBuilder,
         private PaginatorInterface $paginator,
     ) {}
@@ -31,19 +33,19 @@ readonly class BookListProvider
 
     private function getBooks(): array
     {
-        $books = $this->bookRepository
-            ->getBooksForPagination();
+        $products = $this->productRepository
+            ->getProductsForPagination();
 
-        return iterator_to_array($this->buildBookPreviewList($books));
+        return iterator_to_array($this->buildProductPreviewList($products));
     }
 
     /**
-     * @param Book[] $books
+     * @param Product[] $products
      */
-    public function buildBookPreviewList(array $books): iterable
+    public function buildProductPreviewList(array $products): iterable
     {
-        foreach ($books as $book) {
-            yield $this->bookPreviewBuilder->build($book);
+        foreach ($products as $product) {
+            yield $this->bookPreviewBuilder->build($product->getBook(), $product);
         }
     }
 }

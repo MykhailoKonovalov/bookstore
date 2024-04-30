@@ -14,6 +14,7 @@ readonly class BookDetailBuilder
     public function build(Book $book): BookDetailDTO
     {
         return new BookDetailDTO(
+            $book->getSlug(),
             $book->getTitle(),
             $book->getAuthor(),
             $book->getPublisher(),

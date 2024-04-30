@@ -7,7 +7,7 @@
         </div>
         <div class="card-body book-preview-data">
             <div class="row text-center book-title">
-                <a href="{{ path('book_show', { 'slug': book.slug }) }}"
+                <a href="{{ path('book_show', { 'slug': book.slug, 'type': book.type }) }}"
                    class="fw-bolder book-preview-title">
                     "{{ book.title }}"
                 </a>
@@ -22,9 +22,6 @@
 
                 <div class="card-text fw-bold row">
                     {% if book.type == "paper" %}
-                        <span>
-                            <i class="fa fa-book"></i> Паперова книга
-                        </span>
                         <span class="text-success">
                             <i class="fa fa-shopping-bag"></i>
                             У наявності
@@ -35,9 +32,6 @@
                             Електронна книга
                         </span>
                     {% elseif book.type is null %}
-                        <span>
-                            <i class="fa fa-book"></i> Паперова книга
-                        </span>
                         <span class="text-muted">
                                 Немає в наявності
                         </span>

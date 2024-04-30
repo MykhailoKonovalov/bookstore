@@ -4,13 +4,11 @@ namespace App\Service\Book\DTOBuilder;
 
 use App\DTO\BookCompilationDTO;
 use App\Entity\Compilation;
-use App\Service\Book\DataProvider\BookListProvider;
-use Doctrine\Common\Collections\Collection;
 
 readonly class BookCompilationBuilder
 {
     public function __construct(
-        private BookListProvider $bookListProvider,
+        private BookPreviewBuilder $bookPreviewBuilder,
     ) {}
 
     public function build(Compilation $compilation): ?BookCompilationDTO
@@ -23,12 +21,17 @@ readonly class BookCompilationBuilder
             $compilation->getTitle(),
             $compilation->getStickerColor(),
             iterator_to_array(
-                $this->bookListProvider->buildBookPreviewList(
+                $this->buildBookPreviewList(
                     $compilation->getBooks()->toArray()
                 )
             ),
         );
     }
 
-
+    private function buildBookPreviewList(array $books): iterable
+    {
+        foreach ($books as $book) {
+            yield $this->bookPreviewBuilder->build($book);
+        }
+    }
 }
