@@ -5,12 +5,6 @@
 {% import ('components/priceBlock.html.twig') as priceBlock %}
 {% import ('components/productInfo.html.twig') as productInfo %}
 
-{% block javascripts %}
-    {{ parent() }}
-
-    {{ encore_entry_script_tags('bookPage') }}
-{% endblock %}
-
 {% block body %}
     <div class="container-fluid p-4">
         <div class="card">
