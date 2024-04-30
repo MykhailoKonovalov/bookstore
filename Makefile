@@ -11,7 +11,7 @@ build:
 # run application
 up:
 	docker-compose -f compose.yaml up -d
-	docker-compose -f compose.yaml exec php php bin/console yarn encore dev
+	docker-compose -f compose.yaml exec php yarn encore dev
 
 # stop application
 down:
