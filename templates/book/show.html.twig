@@ -41,12 +41,17 @@
                         </div>
                         <div class="col-8 position-relative">
                             <h1 class="display-5 fw-bolder">{{ book.title }}</h1>
-                            <div class="small mb-1">{{ book.author }}</div>
+                            <div class="mb-1">
+                                <a href="{{ path('discover', { 'author': book.author.slug }) }}">
+                                    {{ book.author.name }}
+                                </a>
+                            </div>
                             <div class="container my-3">
                                 {% for category in book.categories %}
-                                    <span class="btn btn-outline-secondary">
-                                        {{ category }}
-                                    </span>
+                                    <a class="btn btn-outline-secondary"
+                                       href="{{ path('discover', { 'category': category.slug }) }}">
+                                        {{ category.name }}
+                                    </a>
                                 {% endfor %}
                             </div>
                             <div class="container my-3 mx-1">
@@ -73,7 +78,11 @@
                                     <div class="col-3 fw-bold">Рік видання</div>
                                     <div class="col-9">{{ book.publishedYear }}</div>
                                     <div class="col-3 fw-bold">Видавництво</div>
-                                    <div class="col-9">{{ book.publisher }}</div>
+                                    <div class="col-9">
+                                        <a href="{{ path('discover', { 'publisher': book.publisher.slug }) }}">
+                                            {{ book.publisher.name }}
+                                        </a>
+                                    </div>
                                     <div class="col-3 fw-bold">Перекладач</div>
                                     <div class="col-9">{{ book.translator }}</div>
                                     <div class="col-3 fw-bold">Кількість сторінок</div>

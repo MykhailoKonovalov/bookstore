@@ -3,46 +3,45 @@
 namespace App\Listener;
 
 use App\Entity\Interfaces\CachedEntityInterface;
-use Doctrine\Bundle\DoctrineBundle\Attribute\AsEntityListener;
-use Doctrine\Common\EventSubscriber;
-use Doctrine\ORM\Events;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AbstractLifecycleEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityDeletedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityPersistedEvent;
+use EasyCorp\Bundle\EasyAdminBundle\Event\AfterEntityUpdatedEvent;
 use Psr\Cache\CacheItemPoolInterface;
 use Psr\Cache\InvalidArgumentException;
+use Psr\Log\LoggerInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-#[AsEntityListener]
-readonly class EntityCacheInvalidator implements EventSubscriber
+#[AsEventListener]
+readonly class EntityCacheInvalidator implements EventSubscriberInterface
 {
-    public function __construct(private CacheItemPoolInterface $cacheItemPool) {}
+    public function __construct(
+        private CacheItemPoolInterface $cacheItemPool,
+        private LoggerInterface $logger,
+    ) {}
 
-    public function getSubscribedEvents(): array
+    public static function getSubscribedEvents(): array
     {
         return [
-            Events::postUpdate,
-            Events::postRemove,
+            AfterEntityPersistedEvent::class => 'invalidateEntityCache',
+            AfterEntityUpdatedEvent::class   => 'invalidateEntityCache',
+            AfterEntityDeletedEvent::class   => 'invalidateEntityCache',
         ];
     }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function postUpdate(CachedEntityInterface $entity): void
+    public function invalidateEntityCache(AbstractLifecycleEvent $event): void
     {
-        $this->invalidateCache($entity);
-    }
+        $entity = $event->getEntityInstance();
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function postRemove(CachedEntityInterface $entity): void
-    {
-        $this->invalidateCache($entity);
-    }
+        if (!$entity instanceof CachedEntityInterface) {
+            return;
+        }
 
-    /**
-     * @throws InvalidArgumentException
-     */
-    private function invalidateCache(CachedEntityInterface $entity): void
-    {
-        $this->cacheItemPool->deleteItem($entity->getCacheKey());
+        try {
+            $this->cacheItemPool->deleteItem($entity->getCacheKey());
+        } catch (InvalidArgumentException $e) {
+            $this->logger->error($e->getMessage());
+        }
     }
 }

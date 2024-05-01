@@ -8,7 +8,6 @@ use App\Entity\Interfaces\HasSlug;
 use App\Entity\Interfaces\HasTimestamp;
 use App\Entity\Traits\SlugTrait;
 use App\Entity\Traits\TimestampTrait;
-use App\Listener\EntityCacheInvalidator;
 use App\Repository\BookRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -24,7 +23,6 @@ use Symfony\Component\String\Slugger\AsciiSlugger;
 #[ORM\Index(columns: ["title"], name: "book_title_idx")]
 #[ORM\Index(columns: ["language"], name: "book_language_idx")]
 #[ORM\Index(columns: ["author_slug"], name: "book_author_idx")]
-#[ORM\EntityListeners([EntityCacheInvalidator::class])]
 #[ORM\HasLifecycleCallbacks]
 class Book implements HasSlug, HasTimestamp, CachedEntityInterface
 {

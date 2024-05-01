@@ -2,50 +2,35 @@
 
 namespace App\Service\Book\DataProvider;
 
-use App\Entity\Book;
-use App\Entity\Product;
-use App\Repository\BookRepository;
+use App\Constant\FilteredColumns;
 use App\Repository\ProductRepository;
-use App\Service\Book\DTOBuilder\BookPreviewBuilder;
-use Knp\Component\Pager\Pagination\PaginationInterface;
-use Knp\Component\Pager\PaginatorInterface;
+use App\Service\Discover\ProductDTOPaginationAdapter;
+use Pagerfanta\Doctrine\ORM\QueryAdapter;
+use Pagerfanta\Pagerfanta;
 
 readonly class ProductListProvider
 {
     public const PER_PAGE = 12;
 
-    public function __construct(
-        private ProductRepository $productRepository,
-        private BookPreviewBuilder $bookPreviewBuilder,
-        private PaginatorInterface $paginator,
-    ) {}
+    public function __construct(private ProductRepository $productRepository) {}
 
-    public function paginate(
-        int $page,
-    ): PaginationInterface {
-        return $this->paginator
-            ->paginate(
-                $this->getBooks(),
-                $page,
-                self::PER_PAGE
-            );
-    }
-
-    private function getBooks(): array
+    public function paginate(array $queryParams): Pagerfanta
     {
-        $products = $this->productRepository
-            ->getProductsForPagination();
+        $page           = $queryParams['page'] ?? 1;
+        $sortBy         = $queryParams['sortBy'] ?? 'p.createdAt';
+        $sortDirection  = $queryParams['sortDirection'] ?? 'DESC';
+        $filters        = array_filter(
+            $queryParams,
+            fn($key) => in_array($key, FilteredColumns::COLUMNS, true),
+            ARRAY_FILTER_USE_KEY,
+        );
+        $queryBuilder   = $this->productRepository->createProductsQueryBuilder($sortBy, $sortDirection, $filters);
+        $queryAdapter   = new QueryAdapter($queryBuilder);
+        $productAdapter = new ProductDTOPaginationAdapter($queryAdapter);
+        $paginator      = new Pagerfanta($productAdapter);
 
-        return iterator_to_array($this->buildProductPreviewList($products));
-    }
-
-    /**
-     * @param Product[] $products
-     */
-    public function buildProductPreviewList(array $products): iterable
-    {
-        foreach ($products as $product) {
-            yield $this->bookPreviewBuilder->build($product->getBook(), $product);
-        }
+        return $paginator
+            ->setMaxPerPage(self::PER_PAGE)
+            ->setCurrentPage($page);
     }
 }
