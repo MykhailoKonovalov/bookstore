@@ -16,7 +16,7 @@ class DiscoverController extends AbstractController
     public function list(Request $request): Response
     {
         return $this->render('discover/index.html.twig', [
-            'books' => $this->productListProvider->paginate($request->query->getIterator()->getArrayCopy()),
+            'books' => $this->productListProvider->paginate($request->query->all()),
         ]);
     }
 }
