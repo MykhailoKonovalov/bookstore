@@ -8,7 +8,7 @@ class BookPreviewDTO
         public string $slug,
         public string $title,
         public string $coverUrl,
-        public string $author,
+        public AuthorDTO $author,
         public ?string $price = null,
         public ?string $discountPrice = null,
         public int $discountPercentage = 0,

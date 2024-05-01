@@ -7,8 +7,9 @@ class BookDetailDTO
     public function __construct(
         public string $slug,
         public string $title,
-        public string $author,
-        public string $publisher,
+        public AuthorDTO $author,
+        public PublisherDTO $publisher,
+        /** @var CategoryDTO[] $categories */
         public array $categories,
         public string $language,
         public int $publishedYear,

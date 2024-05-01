@@ -25,7 +25,11 @@ readonly class BookDetailProvider
         if (!$cacheBook->isHit()) {
             $bookDTO = $this->bookDetailBuilder->build($book);
 
-            $this->cacheItemPool->save($cacheBook->set($bookDTO));
+            $this->cacheItemPool->save(
+                $cacheBook
+                    ->set($bookDTO)
+                    ->expiresAfter(3600)
+            );
         }
 
         return $cacheBook->get();

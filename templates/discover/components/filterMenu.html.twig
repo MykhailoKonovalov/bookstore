@@ -1,0 +1,37 @@
+<div class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start text-black" id="menu">
+    {% set isPaper = checkFilter({'type': 'paper'}) %}
+    {% set isElectronic = checkFilter({'type': 'electronic'}) %}
+
+    <span class="fw-bold">Тип книги</span>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"
+                {{ stimulus_controller('discover') }}
+                {{ stimulus_action('discover', 'redirectTo', 'change') }}
+                value="{{ removeFilter(['type']) }}"
+                {% if isPaper == false and isElectronic == false %}checked{% endif %}>
+        <label class="form-check-label" for="flexRadioDefault1">
+            Всі
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"
+                {{ stimulus_controller('discover') }}
+                {{ stimulus_action('discover', 'redirectTo', 'change') }}
+                value="{{ addFilter({'type': 'paper'}) }}"
+                {% if isPaper %}checked{% endif %}
+        >
+        <label class="form-check-label" for="flexRadioDefault1">
+            Паперові
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio"
+                {{ stimulus_controller('discover') }}
+                {{ stimulus_action('discover', 'redirectTo', 'change') }}
+                value="{{ addFilter({'type': 'electronic'}) }}"
+                {% if isElectronic %}checked{% endif %}>
+        <label class="form-check-label" for="flexRadioDefault1">
+            Електронні
+        </label>
+    </div>
+</div>

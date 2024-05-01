@@ -1,15 +1,25 @@
 {% macro render(books) %}
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Сортувати за
-        </button>
-        <ul class="dropdown-menu">
-            <li class="dropdown-item">
-                {{ knp_pagination_sortable(books, 'Знижкою', 'b.product') }}
-            </li>
-            <li class="dropdown-item">
-                {{ knp_pagination_sortable(books, 'Новинками', 'b.createdAt') }}
-            </li>
-        </ul>
-    </div>
+    <select class="form-select w-25" id="sort-list" {{ stimulus_controller('discover') }}
+            {{ stimulus_action('discover', 'redirectTo', 'change') }}>
+        <option
+                value="{{ addFilter({'sortBy': 'p.createdAt'}) }}"
+                {% if checkFilter({'sortBy': 'p.createdAt'}) %}selected{% endif %}>
+            За новинками
+        </option>
+        <option
+                value="{{ addFilter({'sortBy': 'p.discountPercent'}) }}"
+                {% if checkFilter({'sortBy': 'p.discountPercent'}) %}selected{% endif %}>
+            За знижкою
+        </option>
+        <option
+                value="{{ addFilter({'sortBy': 'p.discountPrice'}) }}"
+                {% if checkFilter({'sortBy': 'p.discountPrice'}) %}selected{% endif %}>
+            Від дорогих
+        </option>
+        <option
+                value="{{ addFilter({'sortBy': 'p.discountPrice', 'sortDirection': 'ASC'}) }}"
+                {% if checkFilter({'sortBy': 'p.discountPrice', 'sortDirection': 'ASC'}) %}selected{% endif %}>
+            Від дешевих
+        </option>
+    </select>
 {% endmacro %}
