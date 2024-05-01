@@ -7,10 +7,6 @@ use App\Entity\Compilation;
 
 readonly class BookCompilationBuilder
 {
-    public function __construct(
-        private BookPreviewBuilder $bookPreviewBuilder,
-    ) {}
-
     public function build(Compilation $compilation): ?BookCompilationDTO
     {
         if (0 === $compilation->getBooks()->count()) {
@@ -31,7 +27,7 @@ readonly class BookCompilationBuilder
     private function buildBookPreviewList(array $books): iterable
     {
         foreach ($books as $book) {
-            yield $this->bookPreviewBuilder->build($book);
+            yield BookPreviewBuilder::build($book);
         }
     }
 }

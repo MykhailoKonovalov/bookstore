@@ -3,7 +3,9 @@
 namespace App\Repository;
 
 use App\Entity\Product;
+use ArrayIterator;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -21,15 +23,34 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    /**
-     * @return Product[]
-     */
-    public function getProductsForPagination(): array
-    {
-        return $this
-            ->createQueryBuilder('b')
-            ->orderBy('b.createdAt', 'DESC')
-            ->getQuery()
-            ->getResult();
+    public function createProductsQueryBuilder(
+        string $sortBy,
+        string $sortDirection,
+        array $filters = []
+    ): QueryBuilder {
+        $qb = $this
+            ->createQueryBuilder('p')
+            ->leftJoin('p.book', 'b')
+            ->leftJoin('b.category', 'c');
+
+        foreach ($filters as $field => $value) {
+            match ($field) {
+                'type'      => $qb
+                    ->andWhere($qb->expr()->eq('p.type', ':type'))
+                    ->setParameter('type', $value),
+                'author'    => $qb
+                    ->andWhere($qb->expr()->eq('b.author', ':author'))
+                    ->setParameter('author', $value),
+                'publisher' => $qb
+                    ->andWhere($qb->expr()->eq('b.publisher', ':publisher'))
+                    ->setParameter('publisher', $value),
+                'category'  => $qb
+                    ->andWhere($qb->expr()->eq('c.slug', ':category'))
+                    ->setParameter('category', $value),
+                default     => null,
+            };
+        }
+
+        return $qb->orderBy($sortBy, $sortDirection);
     }
 }

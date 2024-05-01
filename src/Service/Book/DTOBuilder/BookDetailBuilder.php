@@ -2,7 +2,10 @@
 
 namespace App\Service\Book\DTOBuilder;
 
+use App\DTO\AuthorDTO;
 use App\DTO\BookDetailDTO;
+use App\DTO\CategoryDTO;
+use App\DTO\PublisherDTO;
 use App\Entity\Book;
 use App\Entity\Category;
 use App\Entity\Product;
@@ -16,10 +19,10 @@ readonly class BookDetailBuilder
         return new BookDetailDTO(
             $book->getSlug(),
             $book->getTitle(),
-            $book->getAuthor(),
-            $book->getPublisher(),
+            new AuthorDTO($book->getAuthor()->getSlug(), $book->getAuthor()->getName()),
+            new PublisherDTO($book->getPublisher()->getSlug(), $book->getPublisher()->getName()),
             array_map(
-                fn (Category $category) => $category->getName(),
+                fn (Category $category) => new CategoryDTO($category->getSlug(), $category->getName()),
                 $book->getCategory()->toArray()
             ),
             $book->getLanguage(),
