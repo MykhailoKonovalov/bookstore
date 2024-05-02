@@ -425,6 +425,6 @@ class Book implements HasSlug, HasTimestamp, CachedEntityInterface
 
     public function getCacheKey(): string
     {
-        return sha1(self::CACHE_PREFIX . $this->slug);
+        return self::CACHE_PREFIX . $this->slug;
     }
 }
