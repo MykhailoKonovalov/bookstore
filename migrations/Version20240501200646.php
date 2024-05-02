@@ -10,20 +10,19 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20240421184237 extends AbstractMigration
+final class Version20240501200646 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Made users soft deletable';
+        return 'Add unique index for wish_lists table';
     }
 
     public function up(Schema $schema): void
     {
-        $this->addSql('ALTER TABLE users ADD deleted_at TIMESTAMP(0) WITHOUT TIME ZONE DEFAULT NULL');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_IDENTIFIER_BOOK_USER ON wish_lists (book_slug, user_uuid)');
     }
-
     public function down(Schema $schema): void
     {
-        $this->addSql('ALTER TABLE users DROP deleted_at');
+        $this->addSql('DROP INDEX UNIQ_IDENTIFIER_BOOK_USER');
     }
 }

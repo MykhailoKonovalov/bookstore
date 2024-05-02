@@ -4,9 +4,13 @@ namespace App\Entity;
 
 use App\Repository\WishListRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: WishListRepository::class)]
 #[ORM\Table(name: 'wish_lists')]
+#[ORM\UniqueConstraint(name: "UNIQ_IDENTIFIER_BOOK_USER", fields: ["bookSlug", "userUuid"])]
+#[UniqueEntity(fields: ["book_slug", "user_uuid"], message: "This book is already in wish list")]
+#[ORM\HasLifecycleCallbacks]
 class WishList
 {
     #[ORM\Id]

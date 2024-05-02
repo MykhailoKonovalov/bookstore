@@ -5,6 +5,12 @@
 {% import ('components/priceBlock.html.twig') as priceBlock %}
 {% import ('components/productInfo.html.twig') as productInfo %}
 
+{% block javascripts %}
+    {{ parent() }}
+
+    {{ encore_entry_link_tags('wishlist') }}
+{% endblock javascripts %}
+
 {% block body %}
     <div class="container-fluid p-4">
         <div class="card">
@@ -31,10 +37,28 @@
                                         </button>
                                     </div>
                                     <div class="col-6">
-                                        <button class="btn btn-danger flex-shrink-0" type="button">
-                                            <i class="fa fa-heart"></i>
-                                            Додати в бажане
-                                        </button>
+                                        {% if user %}
+                                            <div data-controller="wishlist" data-wishlist-book-slug-value="{{ book.slug }}">
+                                                <button type="button"
+                                                        class="btn btn-danger flex-shrink-0 {% if isWishlisted %}d-none{% endif %}"
+                                                        data-action="click->wishlist#addToWishlist"
+                                                        data-wishlist-target="addToWishlistButton">
+                                                    <i class="fa fa-heart"></i> Додати в бажане
+                                                </button>
+
+                                                <button type="button"
+                                                        class="btn btn-danger flex-shrink-0 {% if not isWishlisted %}d-none{% endif %}"
+                                                        data-action="click->wishlist#removeFromWishlist"
+                                                        data-wishlist-target="removeFromWishlistButton">
+                                                    <i class="fa fa-heart"></i> Видалити з бажаного
+                                                </button>
+                                            </div>
+                                        {% else %}
+                                            <a href="{{ path('login') }}" class="btn btn-danger flex-shrink-0">
+                                                <i class="fa fa-heart"></i>
+                                                Додати в бажане
+                                            </a>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>

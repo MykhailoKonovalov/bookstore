@@ -11,6 +11,7 @@ Encore
     .addEntry('app', './assets/app.js')
     .addEntry('bookProduct', './assets/book_product.ts')
     .addEntry('discover', './assets/discover.ts')
+    .addEntry('wishlist', './assets/wishlist.ts')
 
     .enableStimulusBridge('./assets/controllers.json')
 
